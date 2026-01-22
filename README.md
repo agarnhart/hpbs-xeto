@@ -252,10 +252,6 @@ Slot names in `points: {}` blocks match the point type's `navName` abbreviation:
 - **As a contributor**
   - Prefer extending or composing existing Hpbs traits/types instead of duplicating semantics.
   - Follow existing naming and history conventions within the hpbs libraries.
-  - Each Hpbs top-level library directory **should include a small `README.md`** that explains:
-    - What the library is for.
-    - What major types it defines (high level only).
-    - Any important conventions specific to that library.
 
 ### Contributing
 
