@@ -1,0 +1,172 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Heat Exchanger Point Types
+//
+// Extends Haystack ph.points with heat exchanger control and monitoring points.
+// Used for plate, shell-tube, and other heat exchanger types.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Exchanger Control Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat exchanger enable command
+HpbsHeatExchangerEnableCmd: EnableCmd & HpbsCommandColor {
+  heatExchanger
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HxEnable"
+}
+
+// Heat exchanger run command
+HpbsHeatExchangerRunCmd: RunCmd & HpbsCommandColor {
+  heatExchanger
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HxRunCmd"
+}
+
+// Heat exchanger run status sensor
+HpbsHeatExchangerRunSensor: RunSensor & HpbsSensorColor {
+  heatExchanger
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HxRunSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Exchanger Runtime Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat exchanger runtime sensor (operating hours)
+HpbsHeatExchangerRuntimeSensor: NumberPoint & SensorPoint & HpbsSensorColor {
+  heatExchanger
+  runtime
+  unit: "hr"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "HxRuntime"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Exchanger Primary Side Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat exchanger primary entering temperature sensor
+HpbsHeatExchangerPrimaryEnteringTempSensor: WaterTempSensor & HpbsHotWaterColor {
+  heatExchanger
+  primaryLoop
+  entering
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxPriEnterTemp"
+}
+
+// Heat exchanger primary leaving temperature sensor
+HpbsHeatExchangerPrimaryLeavingTempSensor: WaterTempSensor & HpbsHotWaterColor {
+  heatExchanger
+  primaryLoop
+  leaving
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxPriLeaveTemp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Exchanger Secondary Side Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat exchanger secondary entering temperature sensor
+HpbsHeatExchangerSecondaryEnteringTempSensor: WaterTempSensor & HpbsChilledWaterColor {
+  heatExchanger
+  secondaryLoop
+  entering
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxSecEnterTemp"
+}
+
+// Heat exchanger secondary leaving temperature sensor
+HpbsHeatExchangerSecondaryLeavingTempSensor: WaterTempSensor & HpbsChilledWaterColor {
+  heatExchanger
+  secondaryLoop
+  leaving
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxSecLeaveTemp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Exchanger Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat exchanger primary flow sensor
+HpbsHeatExchangerPrimaryFlowSensor: WaterFlowSensor & HpbsHotWaterColor {
+  heatExchanger
+  primaryLoop
+  unit: "gal/min"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxPriFlow"
+}
+
+// Heat exchanger secondary flow sensor
+HpbsHeatExchangerSecondaryFlowSensor: WaterFlowSensor & HpbsChilledWaterColor {
+  heatExchanger
+  secondaryLoop
+  unit: "gal/min"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxSecFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Exchanger Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat exchanger primary valve command
+HpbsHeatExchangerPrimaryValveCmd: ValveCmd & HpbsSetpointColor {
+  heatExchanger
+  primaryLoop
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HxPriVlvCmd"
+}
+
+// Heat exchanger primary valve position sensor
+HpbsHeatExchangerPrimaryValveSensor: ValveSensor & HpbsHotWaterColor {
+  heatExchanger
+  primaryLoop
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxPriVlvPos"
+}
+
+// Heat exchanger secondary valve command
+HpbsHeatExchangerSecondaryValveCmd: ValveCmd & HpbsSetpointColor {
+  heatExchanger
+  secondaryLoop
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HxSecVlvCmd"
+}
+
+// Heat exchanger secondary valve position sensor
+HpbsHeatExchangerSecondaryValveSensor: ValveSensor & HpbsChilledWaterColor {
+  heatExchanger
+  secondaryLoop
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HxSecVlvPos"
+}
+

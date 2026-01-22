@@ -1,0 +1,488 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Water Point Types
+//
+// Extends Haystack ph.points water types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water entering temperature sensor
+HpbsHotWaterEnteringTempSensor: HotWaterEnteringTempSensor & HpbsHotWaterColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwEnterTemp"
+}
+
+// Hot water leaving temperature sensor
+HpbsHotWaterLeavingTempSensor: HotWaterLeavingTempSensor & HpbsHotWaterColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwLeaveTemp"
+}
+
+// Hot water leaving temperature setpoint
+HpbsHotWaterLeavingTempSp: HotWaterLeavingTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwLeaveTempSp"
+}
+
+// Hot water supply temperature sensor
+HpbsHotWaterSupplyTempSensor: WaterTempSensor & HpbsHotWaterColor {
+  hot
+  supply
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwSupplyTemp"
+}
+
+// Hot water supply temperature setpoint
+HpbsHotWaterSupplyTempSp: WaterTempSp & HpbsSetpointColor {
+  hot
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwSupplyTempSp"
+}
+
+// Hot water return temperature sensor
+HpbsHotWaterReturnTempSensor: WaterTempSensor & HpbsHotWaterColor {
+  hot
+  return
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwReturnTemp"
+}
+
+// Hot water differential temperature sensor
+HpbsHotWaterDeltaTempSensor: WaterTempSensor & HpbsHotWaterColor {
+  hot
+  delta
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwDeltaT"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water entering temperature sensor
+HpbsChilledWaterEnteringTempSensor: ChilledWaterEnteringTempSensor & HpbsChilledWaterColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwEnterTemp"
+}
+
+// Chilled water leaving temperature sensor
+HpbsChilledWaterLeavingTempSensor: ChilledWaterLeavingTempSensor & HpbsChilledWaterColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwLeaveTemp"
+}
+
+// Chilled water leaving temperature setpoint
+HpbsChilledWaterLeavingTempSp: ChilledWaterLeavingTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwLeaveTempSp"
+}
+
+// Chilled water supply temperature sensor
+HpbsChilledWaterSupplyTempSensor: WaterTempSensor & HpbsChilledWaterColor {
+  chilled
+  supply
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwSupplyTemp"
+}
+
+// Chilled water supply temperature setpoint
+HpbsChilledWaterSupplyTempSp: WaterTempSp & HpbsSetpointColor {
+  chilled
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwSupplyTempSp"
+}
+
+// Chilled water return temperature sensor
+HpbsChilledWaterReturnTempSensor: WaterTempSensor & HpbsChilledWaterColor {
+  chilled
+  return
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwReturnTemp"
+}
+
+// Chilled water differential temperature sensor
+HpbsChilledWaterDeltaTempSensor: WaterTempSensor & HpbsChilledWaterColor {
+  chilled
+  delta
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwDeltaT"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water entering temperature sensor
+HpbsCondenserWaterEnteringTempSensor: CondenserWaterEnteringTempSensor & HpbsCondenserWaterColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwEnterTemp"
+}
+
+// Condenser water leaving temperature sensor
+HpbsCondenserWaterLeavingTempSensor: CondenserWaterLeavingTempSensor & HpbsCondenserWaterColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwLeaveTemp"
+}
+
+// Condenser water leaving temperature setpoint
+HpbsCondenserWaterLeavingTempSp: CondenserWaterLeavingTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwLeaveTempSp"
+}
+
+// Condenser water supply temperature sensor
+HpbsCondenserWaterSupplyTempSensor: WaterTempSensor & HpbsCondenserWaterColor {
+  condenser
+  supply
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwSupplyTemp"
+}
+
+// Condenser water return temperature sensor
+HpbsCondenserWaterReturnTempSensor: WaterTempSensor & HpbsCondenserWaterColor {
+  condenser
+  return
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwReturnTemp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Domestic Hot Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Domestic hot water supply temperature sensor
+HpbsDomesticHotWaterSupplyTempSensor: WaterTempSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  supply
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DhwSupplyTemp"
+}
+
+// Domestic hot water supply temperature setpoint
+HpbsDomesticHotWaterSupplyTempSp: WaterTempSp & HpbsSetpointColor {
+  domestic
+  hot
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwSupplyTempSp"
+}
+
+// Domestic hot water return temperature sensor
+HpbsDomesticHotWaterReturnTempSensor: WaterTempSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  return
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DhwReturnTemp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Water Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water flow sensor
+HpbsHotWaterFlowSensor: WaterFlowSensor & HpbsHotWaterColor {
+  hot
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwFlow"
+}
+
+// Hot water flow setpoint
+HpbsHotWaterFlowSp: WaterFlowSp & HpbsSetpointColor {
+  hot
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwFlowSp"
+}
+
+// Chilled water flow sensor
+HpbsChilledWaterFlowSensor: WaterFlowSensor & HpbsChilledWaterColor {
+  chilled
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwFlow"
+}
+
+// Chilled water flow setpoint
+HpbsChilledWaterFlowSp: WaterFlowSp & HpbsSetpointColor {
+  chilled
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwFlowSp"
+}
+
+// Condenser water flow sensor
+HpbsCondenserWaterFlowSensor: WaterFlowSensor & HpbsCondenserWaterColor {
+  condenser
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwFlow"
+}
+
+// Condenser water flow setpoint
+HpbsCondenserWaterFlowSp: WaterFlowSp & HpbsSetpointColor {
+  condenser
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwFlowSp"
+}
+
+// Domestic hot water flow sensor
+HpbsDomesticHotWaterFlowSensor: WaterFlowSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DhwFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Water Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water pressure sensor
+HpbsHotWaterPressureSensor: WaterPressureSensor & HpbsHotWaterColor {
+  hot
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwPress"
+}
+
+// Hot water pressure setpoint
+HpbsHotWaterPressureSp: WaterPressureSp & HpbsSetpointColor {
+  hot
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwPressSp"
+}
+
+// Chilled water pressure sensor
+HpbsChilledWaterPressureSensor: WaterPressureSensor & HpbsChilledWaterColor {
+  chilled
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwPress"
+}
+
+// Chilled water pressure setpoint
+HpbsChilledWaterPressureSp: WaterPressureSp & HpbsSetpointColor {
+  chilled
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwPressSp"
+}
+
+// Condenser water pressure sensor
+HpbsCondenserWaterPressureSensor: WaterPressureSensor & HpbsCondenserWaterColor {
+  condenser
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwPress"
+}
+
+// Hot water differential pressure sensor
+HpbsHotWaterDifferentialPressureSensor: WaterPressureSensor & HpbsHotWaterColor {
+  hot
+  differential
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwDiffPress"
+}
+
+// Hot water differential pressure setpoint
+HpbsHotWaterDifferentialPressureSp: WaterPressureSp & HpbsSetpointColor {
+  hot
+  differential
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwDiffPressSp"
+}
+
+// Chilled water differential pressure sensor
+HpbsChilledWaterDifferentialPressureSensor: WaterPressureSensor & HpbsChilledWaterColor {
+  chilled
+  differential
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwDiffPress"
+}
+
+// Chilled water differential pressure setpoint
+HpbsChilledWaterDifferentialPressureSp: WaterPressureSp & HpbsSetpointColor {
+  chilled
+  differential
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwDiffPressSp"
+}
+
+// Condenser water differential pressure sensor
+HpbsCondenserWaterDifferentialPressureSensor: WaterPressureSensor & HpbsCondenserWaterColor {
+  condenser
+  differential
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwDiffPress"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Water Volume/Energy Points (Metering)
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water volume sensor (totalized)
+HpbsHotWaterVolumeSensor: WaterVolumeSensor & HpbsHotWaterColor {
+  hot
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "HwVol"
+}
+
+// Chilled water volume sensor (totalized)
+HpbsChilledWaterVolumeSensor: WaterVolumeSensor & HpbsChilledWaterColor {
+  chilled
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "ChwVol"
+}
+
+// Condenser water volume sensor (totalized)
+HpbsCondenserWaterVolumeSensor: WaterVolumeSensor & HpbsCondenserWaterColor {
+  condenser
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "CwVol"
+}
+
+// Domestic hot water volume sensor (totalized)
+HpbsDomesticHotWaterVolumeSensor: WaterVolumeSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "DhwVol"
+}
+
+// Thermal energy sensor for hot water (BTU meter)
+HpbsHotWaterEnergySensor: ThermalEnergySensor & HpbsHotWaterColor {
+  hot
+  water
+  unit: "kBTU"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "HwEnergy"
+}
+
+// Thermal energy sensor for chilled water (BTU meter)
+HpbsChilledWaterEnergySensor: ThermalEnergySensor & HpbsChilledWaterColor {
+  chilled
+  water
+  unit: "kBTU"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "ChwEnergy"
+}
+
+// Thermal power sensor for hot water
+HpbsHotWaterPowerSensor: ThermalPowerSensor & HpbsHotWaterColor {
+  hot
+  water
+  unit: "kBTU/h"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwPwr"
+}
+
+// Thermal power sensor for chilled water
+HpbsChilledWaterPowerSensor: ThermalPowerSensor & HpbsChilledWaterColor {
+  chilled
+  water
+  unit: "ton"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwPwr"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Makeup Water Points
+//////////////////////////////////////////////////////////////////////////
+
+// Makeup water flow sensor
+HpbsMakeupWaterFlowSensor: WaterFlowSensor & HpbsSensorColor {
+  makeup
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "MkupFlow"
+}
+
+// Makeup water volume sensor (totalized)
+HpbsMakeupWaterVolumeSensor: WaterVolumeSensor & HpbsSensorColor {
+  makeup
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "MkupVol"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Tower Water Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling tower basin temperature sensor
+HpbsCoolingTowerBasinTempSensor: WaterTempSensor & HpbsCondenserWaterColor {
+  coolingTower
+  basin
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CtBasinTemp"
+}
+
+// Cooling tower approach temperature sensor
+HpbsCoolingTowerApproachTempSensor: WaterTempSensor & HpbsCondenserWaterColor {
+  coolingTower
+  approach
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CtApprchTemp"
+}
+

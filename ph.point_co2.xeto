@@ -1,0 +1,31 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder CO2 Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// ph.points/co2.xeto has Zone and Outside but not Discharge or Return.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// CO2 Points
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge air CO2 sensor
+DischargeCo2Sensor: NumberPoint & SensorPoint {
+  discharge
+  air
+  co2
+}
+
+// Return air CO2 sensor
+ReturnCo2Sensor: NumberPoint & SensorPoint {
+  return
+  air
+  co2
+}
+

@@ -1,0 +1,96 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Staging Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// Generic staging points not tied to specific equipment types.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Heating Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heating stage command (number of stages)
+HeatStageCmd: NumberPoint & CmdPoint {
+  heating
+}
+
+// Heating stage sensor (number of active stages)
+HeatStageSensor: NumberPoint & SensorPoint {
+  heating
+}
+
+// Electric heating stage command
+ElecHeatStageCmd: BoolPoint & CmdPoint {
+  heating
+  elec
+}
+
+// Electric heating stage sensor
+ElecHeatStageSensor: BoolPoint & SensorPoint {
+  heating
+  elec
+}
+
+// Gas heating stage command
+GasHeatStageCmd: BoolPoint & CmdPoint {
+  heating
+  naturalGas
+}
+
+// Gas heating stage sensor
+GasHeatStageSensor: BoolPoint & SensorPoint {
+  heating
+  naturalGas
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling stage command (number of stages)
+CoolStageCmd: NumberPoint & CmdPoint {
+  cooling
+}
+
+// Cooling stage sensor (number of active stages)
+CoolStageSensor: NumberPoint & SensorPoint {
+  cooling
+}
+
+// DX cooling stage command
+DxCoolStageCmd: BoolPoint & CmdPoint {
+  cooling
+  dxCooling
+}
+
+// DX cooling stage sensor
+DxCoolStageSensor: BoolPoint & SensorPoint {
+  cooling
+  dxCooling
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Lead/Lag Sequencing Points
+//////////////////////////////////////////////////////////////////////////
+
+// Lead equipment indicator
+LeadEquipSensor: NumberPoint & SensorPoint {
+  lead
+}
+
+// Equipment stages requested
+EquipStagesRequestedSensor: NumberPoint & SensorPoint {
+  effective
+}
+
+// Equipment stages running
+EquipStagesRunningSensor: NumberPoint & SensorPoint {
+  run
+}
+

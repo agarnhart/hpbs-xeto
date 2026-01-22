@@ -1,0 +1,61 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Compressor Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Base Compressor Points
+//////////////////////////////////////////////////////////////////////////
+
+// Compressor command point
+CompressorCmd: CmdPoint {
+  compressor
+}
+
+// Compressor sensor/status point
+CompressorSensor: SensorPoint {
+  compressor
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Compressor Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Compressor stage command
+CompressorStageCmd: CompressorCmd & NumberPoint {
+}
+
+// Compressor stage sensor
+CompressorStageSensor: CompressorSensor & NumberPoint {
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Compressor Run Points
+//////////////////////////////////////////////////////////////////////////
+
+// Compressor run command
+CompressorRunCmd: CompressorCmd & BoolPoint {
+  run
+}
+
+// Compressor run sensor
+CompressorRunSensor: CompressorSensor & BoolPoint {
+  run
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Compressor Capacity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Compressor capacity/load sensor
+CompressorCapacitySensor: CompressorSensor & NumberPoint {
+  load
+}
+

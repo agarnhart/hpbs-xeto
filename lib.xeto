@@ -1,0 +1,23 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+
+pragma: Lib <
+  doc: "HPBS conventions for Project Haystack."
+  version: "1.0.0"
+  depends: {
+    { lib: "sys", versions: "5.0.x" }
+    { lib: "ph", versions: "5.0.x" }
+    { lib: "ph.points", versions: "5.0.x" }
+    { lib: "ph.points.elec", versions: "5.0.x" }    
+    { lib: "ph.equips", versions: "5.0.x" }
+  }
+  org: {
+    dis: "HPBS"
+    uri: "https://github.com/hpbs"
+  }
+>

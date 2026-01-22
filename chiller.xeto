@@ -1,0 +1,100 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// HPBS Chiller Point Types
+//
+// Extends ph_point_chiller types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller stage command
+HpbsChillerStageCmd: ChillerStageCmd & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChlrStgCmd"
+}
+
+// Chiller stage status
+HpbsChillerStageSensor: ChillerStageSensor & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChlrStgSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Load Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller capacity/load sensor
+HpbsChillerLoadSensor: ChillerLoadSensor & HpbsChilledWaterColor {
+  unit: "%"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChlrLoad"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Run/Enable Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller enable command
+HpbsChillerEnableCmd: ChillerEnableCmd & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChlrEnable"
+}
+
+// Chiller run status
+HpbsChillerRunSensor: ChillerRunSensor & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChlrRunSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Oil Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller oil temperature sensor
+HpbsChillerOilTempSensor: ChillerOilTempSensor & HpbsChilledWaterColor {
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChlrOilTemp"
+}
+
+// Chiller oil heater command
+HpbsChillerOilHeaterCmd: ChillerOilHeaterCmd & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChlrOilHtrCmd"
+}
+
+// Chiller oil heater status
+HpbsChillerOilHeaterSensor: ChillerOilHeaterSensor & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChlrOilHtrSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Runtime Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller runtime sensor (hours)
+HpbsChillerRuntimeSensor: ChillerRuntimeSensor & HpbsChilledWaterColor {
+  unit: "hr"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "ChlrRuntime"
+}
+

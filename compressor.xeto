@@ -1,0 +1,79 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// HPBS Compressor Point Types
+//
+// Extends ph_point_compressor types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Compressor Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Compressor stage command
+HpbsCompressorStageCmd: CompressorStageCmd & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CompStgCmd"
+}
+
+// Compressor stage status
+HpbsCompressorStageSensor: CompressorStageSensor & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CompStgSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Compressor Run Points
+//////////////////////////////////////////////////////////////////////////
+
+// Compressor 1 run command
+HpbsCompressor1RunCmd: CompressorRunCmd & HpbsChilledWaterColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "Comp1Cmd"
+}
+
+// Compressor 1 run status
+HpbsCompressor1RunSensor: CompressorRunSensor & HpbsChilledWaterColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "Comp1Sts"
+}
+
+// Compressor 2 run command
+HpbsCompressor2RunCmd: CompressorRunCmd & HpbsChilledWaterColor {
+  stage: Number 2
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "Comp2Cmd"
+}
+
+// Compressor 2 run status
+HpbsCompressor2RunSensor: CompressorRunSensor & HpbsChilledWaterColor {
+  stage: Number 2
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "Comp2Sts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Compressor Capacity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Compressor unloader/capacity control
+HpbsCompressorCapacitySensor: CompressorCapacitySensor & HpbsChilledWaterColor {
+  unit: "%"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CompLoad"
+}
+

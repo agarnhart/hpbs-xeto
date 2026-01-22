@@ -1,0 +1,75 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Boiler Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler stage command
+BoilerStageCmd: NumberPoint & CmdPoint {
+  boiler
+}
+
+// Boiler stage sensor
+BoilerStageSensor: NumberPoint & SensorPoint {
+  boiler
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Firing Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler firing rate sensor
+BoilerFireRateSensor: NumberPoint & SensorPoint {
+  boiler
+  firing
+}
+
+// Boiler firing rate command
+BoilerFireRateCmd: NumberPoint & CmdPoint {
+  boiler
+  firing
+  unit: "%"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Run/Enable Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler enable command
+BoilerEnableCmd: BoolPoint & CmdPoint {
+  boiler
+  enable
+}
+
+// Boiler run sensor
+BoilerRunSensor: BoolPoint & SensorPoint {
+  boiler
+  run
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Level/Runtime Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler water level sensor
+BoilerLevelSensor: NumberPoint & SensorPoint {
+  boiler
+  level
+}
+
+// Boiler runtime sensor
+BoilerRuntimeSensor: NumberPoint & SensorPoint {
+  boiler
+  run
+}
+

@@ -1,0 +1,69 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Domestic Hot Water Point Types
+//
+// Extends Haystack ph.points with domestic hot water thermal metering points.
+// Temperature, flow, and volume points are in water.xeto; this file contains
+// thermal energy and power metering specific to DHW systems.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// DHW Thermal Energy Points
+//////////////////////////////////////////////////////////////////////////
+
+// Domestic hot water thermal energy sensor (BTU meter totalized)
+HpbsDomesticHotWaterEnergySensor: ThermalEnergySensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  unit: "kBTU"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "DhwEnergy"
+}
+
+// Domestic hot water thermal power sensor (instantaneous BTU rate)
+HpbsDomesticHotWaterPowerSensor: ThermalPowerSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  unit: "kBTU/h"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DhwPwr"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// DHW Recirculation Points
+//////////////////////////////////////////////////////////////////////////
+
+// DHW recirculation pump run command
+HpbsDomesticHotWaterRecircPumpRunCmd: RunCmd & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  pump
+  circ
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwRecircPumpCmd"
+}
+
+// DHW recirculation pump run status
+HpbsDomesticHotWaterRecircPumpRunSensor: RunSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  pump
+  circ
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwRecircPumpSts"
+}
+

@@ -1,0 +1,106 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder System Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// They define point types for hydronic and HVAC systems.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Generic System Points
+//////////////////////////////////////////////////////////////////////////
+
+// Enables a system when OAT is less than (heating) or greater than (cooling) this setpoint
+SystemEnableOutsideAirTempSp: AirTempSp {
+  outside
+  enable
+}
+
+// System run status sensor
+SystemRunSensor: BoolPoint & SensorPoint {
+  run
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water System Points
+//////////////////////////////////////////////////////////////////////////
+
+// Enable command for hot water system
+HotWaterSystemEnableCmd: EnableCmd {
+  hot
+  water
+}
+
+// Hot water system run status
+HotWaterSystemRunSensor: SystemRunSensor {
+  hot
+  water
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water System Points
+//////////////////////////////////////////////////////////////////////////
+
+// Enable command for chilled water system
+ChilledWaterSystemEnableCmd: EnableCmd {
+  chilled
+  water
+}
+
+// Chilled water system run status
+ChilledWaterSystemRunSensor: SystemRunSensor {
+  chilled
+  water
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water System Points
+//////////////////////////////////////////////////////////////////////////
+
+// Enable command for condenser water system
+CondenserWaterSystemEnableCmd: EnableCmd {
+  condenser
+  water
+}
+
+// Condenser water system run status
+CondenserWaterSystemRunSensor: SystemRunSensor {
+  condenser
+  water
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Steam System Points
+//////////////////////////////////////////////////////////////////////////
+
+// Enable command for steam system
+SteamSystemEnableCmd: EnableCmd {
+  steam
+}
+
+// Steam system run status
+SteamSystemRunSensor: SystemRunSensor {
+  steam
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Domestic Hot Water System Points
+//////////////////////////////////////////////////////////////////////////
+
+// Enable command for domestic hot water system
+DomesticHotWaterSystemEnableCmd: EnableCmd {
+  domesticWater
+  hot
+}
+
+// Domestic hot water system run status
+DomesticHotWaterSystemRunSensor: SystemRunSensor {
+  domesticWater
+  hot
+}
+

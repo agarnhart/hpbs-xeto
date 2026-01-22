@@ -1,0 +1,90 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// HPBS Boiler Point Types
+//
+// Extends ph_point_boiler types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler stage command
+HpbsBoilerStageCmd: BoilerStageCmd & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BlrStgCmd"
+}
+
+// Boiler stage status
+HpbsBoilerStageSensor: BoilerStageSensor & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BlrStgSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Firing Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler firing rate/modulation
+HpbsBoilerFireRateSensor: BoilerFireRateSensor & HpbsHotWaterColor {
+  unit: "%"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BlrFire"
+}
+
+// Boiler firing rate command
+HpbsBoilerFireRateCmd: BoilerFireRateCmd & HpbsSetpointColor {
+  unit: "%"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BlrFireCmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Run/Enable Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler enable command
+HpbsBoilerEnableCmd: BoilerEnableCmd & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BlrEnable"
+}
+
+// Boiler run status
+HpbsBoilerRunSensor: BoilerRunSensor & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BlrRunSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Level/Runtime Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler water level sensor
+HpbsBoilerLevelSensor: BoilerLevelSensor & HpbsHotWaterColor {
+  unit: "%"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BlrLevel"
+}
+
+// Boiler runtime sensor (hours)
+HpbsBoilerRuntimeSensor: BoilerRuntimeSensor & HpbsHotWaterColor {
+  unit: "hr"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "BlrRuntime"
+}
+

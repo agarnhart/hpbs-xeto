@@ -1,0 +1,31 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Natural Gas Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// Note: NaturalGasFlowSensor, NaturalGasVolumeSensor, NaturalGasEnergySensor
+// already exist in ph.points. This file adds missing pressure specs.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Natural Gas Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with pressure of natural gas
+NaturalGasPressurePoint : NumberPoint <abstract> {
+  naturalGas
+  pressure
+  unit: Unit <quantity:"pressure"> "psi"
+}
+
+// Sensor for pressure of natural gas
+NaturalGasPressureSensor : NaturalGasPressurePoint & SensorPoint
+
+// Setpoint for pressure of natural gas
+NaturalGasPressureSp : NaturalGasPressurePoint & SpPoint
+

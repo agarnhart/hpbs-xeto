@@ -1,0 +1,43 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Air Flow Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// ph.points/air-flow.xeto has Discharge, Exhaust, Outside, Return, Ventilation
+// but not Zone or Mixed.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Zone Air Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone air flow sensor
+ZoneAirFlowSensor: NumberPoint & SensorPoint {
+  zone
+  air
+  flow
+}
+
+// Zone air flow setpoint
+ZoneAirFlowSp: NumberPoint & SpPoint {
+  zone
+  air
+  flow
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Mixed Air Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Mixed air flow sensor
+MixedAirFlowSensor: NumberPoint & SensorPoint {
+  mixed
+  air
+  flow
+}
+

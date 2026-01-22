@@ -1,0 +1,316 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Occupancy and Schedule Point Types
+//
+// Extends Haystack ph.points occupancy types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Zone Occupancy Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone occupancy sensor (motion/presence detection)
+HpbsZoneOccupancySensor: ZoneOccupiedSensor & HpbsZoneColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnOcc"
+}
+
+// Zone occupied command (schedule-driven)
+HpbsZoneOccupiedCmd: ZoneOccupiedCmd & HpbsZoneColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnOccCmd"
+}
+
+// Zone effective occupied status (combined sensor + schedule)
+HpbsZoneOccupiedEffectiveSensor: ZoneOccupiedSensor & HpbsZoneColor {
+  effective
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnOccEff"
+}
+
+// Zone occupancy override command
+HpbsZoneOccupancyOverrideCmd: BoolPoint & CmdPoint & HpbsZoneColor {
+  zone
+  occupied
+  override
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnOccOvr"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Equipment Operating Mode Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone operating mode sensor (heating/cooling/auto/off)
+HpbsZoneModeSensor: NumberPoint & SensorPoint & HpbsZoneColor {
+  zone
+  hvacMode
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnMode"
+}
+
+// Zone operating mode command
+HpbsZoneModeCmd: NumberPoint & CmdPoint & HpbsZoneColor {
+  zone
+  hvacMode
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnModeCmd"
+}
+
+// AHU operating mode sensor
+HpbsAhuModeSensor: NumberPoint & SensorPoint & HpbsSensorColor {
+  ahu
+  hvacMode
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "AhuMode"
+}
+
+// AHU operating mode command
+HpbsAhuModeCmd: NumberPoint & CmdPoint & HpbsSensorColor {
+  ahu
+  hvacMode
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "AhuModeCmd"
+}
+
+// Equipment enable/disable command
+HpbsEquipEnableCmd: BoolPoint & CmdPoint & HpbsSensorColor {
+  equip
+  enable
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "EquipEnable"
+}
+
+// Equipment run status
+HpbsEquipRunSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  equip
+  run
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "EquipRunSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Schedule Points
+//////////////////////////////////////////////////////////////////////////
+
+// Schedule occupancy effective sensor (result of schedule)
+HpbsScheduleOccupiedSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  schedule
+  occupied
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SchOcc"
+}
+
+// Schedule next occupied time sensor
+HpbsScheduleNextOccupiedSensor: DateTimePoint & SensorPoint & HpbsSensorColor {
+  schedule
+  occupied
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SchNextOcc"
+}
+
+// Schedule next unoccupied time sensor
+HpbsScheduleNextUnoccupiedSensor: DateTimePoint & SensorPoint & HpbsSensorColor {
+  schedule
+  unoccupied
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SchNextUnocc"
+}
+
+// Optimal start enable
+HpbsOptimalStartEnableCmd: BoolPoint & CmdPoint & HpbsSensorColor {
+  optimalStart
+  enable
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "OptStrtEnable"
+}
+
+// Optimal start active status
+HpbsOptimalStartActiveSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  optimalStart
+  active
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "OptStrtActive"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Override and Lockout Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone override active sensor
+HpbsZoneOverrideActiveSensor: BoolPoint & SensorPoint & HpbsZoneColor {
+  zone
+  override
+  active
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnOvrActive"
+}
+
+// Zone override duration remaining
+HpbsZoneOverrideDurationSensor: NumberPoint & SensorPoint & HpbsZoneColor {
+  zone
+  override
+  unit: "min"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ZnOvrDur"
+}
+
+// Heating lockout sensor (outdoor temp based)
+HpbsHeatingLockoutSensor: BoolPoint & SensorPoint & HpbsHotWaterColor {
+  heating
+  lockout
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HtgLockout"
+}
+
+// Heating lockout temperature setpoint
+HpbsHeatingLockoutTempSp: NumberPoint & SpPoint & HpbsSetpointColor {
+  heating
+  lockout
+  temp
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HtgLockoutSp"
+}
+
+// Cooling lockout sensor (outdoor temp based)
+HpbsCoolingLockoutSensor: BoolPoint & SensorPoint & HpbsChilledWaterColor {
+  cooling
+  lockout
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ClgLockout"
+}
+
+// Cooling lockout temperature setpoint
+HpbsCoolingLockoutTempSp: NumberPoint & SpPoint & HpbsSetpointColor {
+  cooling
+  lockout
+  temp
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ClgLockoutSp"
+}
+
+// Economizer lockout sensor
+HpbsEconomizerLockoutSensor: BoolPoint & SensorPoint & HpbsOutsideColor {
+  economizer
+  lockout
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "EconLockout"
+}
+
+// Economizer high-limit temperature setpoint
+HpbsEconomizerHighLimitTempSp: NumberPoint & SpPoint & HpbsSetpointColor {
+  economizer
+  highLimit
+  temp
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "EconHiLmtSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Demand Control Ventilation (DCV) Points
+//////////////////////////////////////////////////////////////////////////
+
+// DCV enable command
+HpbsDcvEnableCmd: BoolPoint & CmdPoint & HpbsOutsideColor {
+  dcv
+  enable
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DcvEnable"
+}
+
+// DCV active status
+HpbsDcvActiveSensor: BoolPoint & SensorPoint & HpbsOutsideColor {
+  dcv
+  active
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DcvActive"
+}
+
+// DCV minimum outside air setpoint
+HpbsDcvMinOaFlowSp: NumberPoint & SpPoint & HpbsSetpointColor {
+  dcv
+  outside
+  air
+  flow
+  min
+  unit: "cfm"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DcvMinOaSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Night Setback / Unoccupied Mode Points
+//////////////////////////////////////////////////////////////////////////
+
+// Night setback active sensor
+HpbsNightSetbackActiveSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  night
+  setback
+  active
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "NightSbActive"
+}
+
+// Standby mode active sensor
+HpbsStandbyModeSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  standby
+  active
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StbyActive"
+}
+
+// Morning warmup active sensor
+HpbsMorningWarmupSensor: BoolPoint & SensorPoint & HpbsHotWaterColor {
+  warmup
+  active
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "WarmupActive"
+}
+
+// Morning cooldown active sensor
+HpbsMorningCooldownSensor: BoolPoint & SensorPoint & HpbsChilledWaterColor {
+  cooldown
+  active
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CooldownActive"
+}
+

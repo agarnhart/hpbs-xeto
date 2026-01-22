@@ -1,0 +1,22 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Damper Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// ph.points/damper.xeto has DamperSensor and DamperCmd but not DamperSp.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Damper setpoint (position setpoint)
+DamperSp: NumberPoint & SpPoint {
+  damper
+}
+

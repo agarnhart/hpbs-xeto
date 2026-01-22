@@ -1,0 +1,404 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Air Point Types
+//
+// Extends Haystack ph.points air types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+// History collection settings (hisMode, hisCollectInterval) are set directly
+// on each point type. Unit preferences match ph.points defaults (°F, %RH, cfm, inH₂O, ppm).
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Air Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone air temperature sensor - 10min sampling (secondary equipment)
+HpbsZoneAirTempSensor: ZoneAirTempSensor & HpbsZoneColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  navName: "ZnTemp"
+}
+
+// Zone temperature setpoints - COV (change infrequently)
+HpbsZoneAirTempEffectiveSp: ZoneAirTempEffectiveSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnTempSpEff"
+}
+
+HpbsZoneAirTempCoolingSp: ZoneAirTempCoolingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnClgSp"
+}
+
+HpbsZoneAirTempHeatingSp: ZoneAirTempHeatingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnHtgSp"
+}
+
+HpbsZoneAirTempOccCoolingSp: ZoneAirTempOccCoolingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnOccClgSp"
+}
+
+HpbsZoneAirTempOccHeatingSp: ZoneAirTempOccHeatingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnOccHtgSp"
+}
+
+HpbsZoneAirTempUnoccCoolingSp: ZoneAirTempUnoccCoolingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnUnoccClgSp"
+}
+
+HpbsZoneAirTempUnoccHeatingSp: ZoneAirTempUnoccHeatingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnUnoccHtgSp"
+}
+
+HpbsZoneAirTempStandbyCoolingSp: ZoneAirTempStandbyCoolingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnStbyClgSp"
+}
+
+HpbsZoneAirTempStandbyHeatingSp: ZoneAirTempStandbyHeatingSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnStbyHtgSp"
+}
+
+// Discharge air temperature - 5min sampling (major equipment)
+HpbsDischargeAirTempSensor: DischargeAirTempSensor & HpbsDischargeColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DaTemp"
+}
+
+HpbsDischargeAirTempSp: DischargeAirTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DaTempSp"
+}
+
+// Mixed air temperature
+HpbsMixedAirTempSensor: MixedAirTempSensor & HpbsMixedColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "MaTemp"
+}
+
+HpbsMixedAirTempSp: MixedAirTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "MaTempSp"
+}
+
+// Return air temperature
+HpbsReturnAirTempSensor: ReturnAirTempSensor & HpbsReturnColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RaTemp"
+}
+
+HpbsReturnAirTempSp: ReturnAirTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RaTempSp"
+}
+
+// Outside air temperature
+HpbsOutsideAirTempSensor: OutsideAirTempSensor & HpbsOutsideColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "OaTemp"
+}
+
+// Inlet air temperature
+HpbsInletAirTempSensor: InletAirTempSensor & HpbsInletColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "InletTemp"
+}
+
+HpbsInletAirTempSp: InletAirTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "InletTempSp"
+}
+
+// Economizing air temperature
+HpbsEconomizingAirTempSensor: EconomizingAirTempSensor & HpbsOutsideColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "EconTemp"
+}
+
+// Ventilation air temperature
+HpbsVentilationAirTempSensor: VentilationAirTempSensor & HpbsOutsideColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "VentTemp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Air Humidity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone air humidity sensor
+HpbsZoneAirHumiditySensor: ZoneAirHumiditySensor & HpbsZoneColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  navName: "ZnHum"
+}
+
+// Discharge air humidity sensor
+HpbsDischargeAirHumiditySensor: DischargeAirHumiditySensor & HpbsDischargeColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DaHum"
+}
+
+// Return air humidity sensor
+HpbsReturnAirHumiditySensor: ReturnAirHumiditySensor & HpbsReturnColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RaHum"
+}
+
+// Outside air humidity sensor
+HpbsOutsideAirHumiditySensor: OutsideAirHumiditySensor & HpbsOutsideColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "OaHum"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Air Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone/VAV air flow sensor
+HpbsZoneAirFlowSensor: ZoneAirFlowSensor & HpbsZoneColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  navName: "ZnFlow"
+}
+
+// Zone/VAV air flow setpoint
+HpbsZoneAirFlowSp: ZoneAirFlowSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnFlowSp"
+}
+
+// Discharge air flow sensor
+HpbsDischargeAirFlowSensor: DischargeAirFlowSensor & HpbsDischargeColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DaFlow"
+}
+
+HpbsDischargeAirFlowSp: DischargeAirFlowSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DaFlowSp"
+}
+
+// Return air flow sensor
+HpbsReturnAirFlowSensor: ReturnAirFlowSensor & HpbsReturnColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RaFlow"
+}
+
+// Outside air flow sensor
+HpbsOutsideAirFlowSensor: OutsideAirFlowSensor & HpbsOutsideColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "OaFlow"
+}
+
+HpbsOutsideAirFlowSp: OutsideAirFlowSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "OaFlowSp"
+}
+
+// Exhaust air flow sensor
+HpbsExhaustAirFlowSensor: ExhaustAirFlowSensor & HpbsExhaustColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ExhFlow"
+}
+
+// Mixed air flow sensor
+HpbsMixedAirFlowSensor: MixedAirFlowSensor & HpbsMixedColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "MaFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Air Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone/space air pressure sensor
+HpbsZoneAirPressureSensor: ZoneAirPressureSensor & HpbsZoneColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  navName: "ZnPress"
+}
+
+HpbsZoneAirPressureSp: ZoneAirPressureSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnPressSp"
+}
+
+// Discharge air pressure (duct static)
+HpbsDischargeAirPressureSensor: DischargeAirPressureSensor & HpbsDischargeColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DaPress"
+}
+
+HpbsDischargeAirPressureSp: DischargeAirPressureSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DaPressSp"
+}
+
+// Building pressure sensor
+HpbsBuildingAirPressureSensor: BuildingAirPressureSensor & HpbsZoneColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  navName: "BldgPress"
+}
+
+HpbsBuildingAirPressureSp: BuildingAirPressureSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BldgPressSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// CO2 Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone CO2 sensor
+HpbsZoneCo2Sensor: ZoneCo2Sensor & HpbsZoneColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  navName: "ZnCo2"
+}
+
+HpbsZoneCo2Sp: ZoneCo2Sp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnCo2Sp"
+}
+
+// Discharge CO2 sensor
+HpbsDischargeCo2Sensor: DischargeCo2Sensor & HpbsDischargeColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DaCo2"
+}
+
+// Return CO2 sensor
+HpbsReturnCo2Sensor: ReturnCo2Sensor & HpbsReturnColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RaCo2"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Weather/Outside Air Conditions
+//////////////////////////////////////////////////////////////////////////
+
+// Outside air wet bulb temperature
+HpbsOutsideAirWetBulbPoint: WeatherWetBulbPoint & HpbsOutsideColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "OaWetBulb"
+}
+
+// Outside air dew point temperature
+HpbsOutsideAirDewPointPoint: WeatherDewPointPoint & HpbsOutsideColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "OaDewPt"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Freeze Protection
+//////////////////////////////////////////////////////////////////////////
+
+// Freeze stat sensor (boolean alarm)
+HpbsFreezeStatSensor: FreezeStatSensor & HpbsSensorColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "FrzStat"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Filter Points
+//////////////////////////////////////////////////////////////////////////
+
+// Filter status sensor (dirty/clean or alarm)
+HpbsFilterStatusSensor: FilterSensor & HpbsSensorColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "FiltSts"
+}
+
+// Filter pressure differential sensor
+HpbsFilterPressureDeltaSensor: FilterPressureSensor & HpbsSensorColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  delta
+  navName: "FiltDiffPress"
+}
+
+// Pre-filter pressure differential sensor
+HpbsPreFilterPressureDeltaSensor: FilterPressureSensor & HpbsSensorColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  pre
+  delta
+  navName: "PreFiltDiffPress"
+}
+
+// Final filter pressure differential sensor
+HpbsFinalFilterPressureDeltaSensor: FilterPressureSensor & HpbsSensorColor {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  final
+  delta
+  navName: "FinalFiltDiffPress"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Dehumidification Points
+//////////////////////////////////////////////////////////////////////////
+
+// Return air dehumidification setpoint
+HpbsReturnAirDehumiditySp: AirHumiditySp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  return
+  navName: "RaDehumSp"
+}
+

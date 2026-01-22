@@ -1,0 +1,73 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Common Point Base Types
+//
+// This file contains visualization color mixins that are used across multiple
+// domain files. Domain-specific point types are defined in their respective
+// files (air.xeto, water.xeto, etc.).
+//
+// Note: Unit preferences and history settings are applied via the mixin
+// pattern in mixins.xeto using the + prefix for late binding to avoid
+// slot inheritance conflicts with ph.points base types.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Visualization Colors
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge air visualization color (fuchsia/magenta)
+HpbsDischargeColor: Dict <abstract> { color: "fuchsia" }
+
+// Return air visualization color (orange)
+HpbsReturnColor: Dict <abstract> { color: "orange" }
+
+// Zone/space sensor visualization color (gray)
+HpbsZoneColor: Dict <abstract> { color: "gray" }
+
+// Outside air visualization color (cyan)
+HpbsOutsideColor: Dict <abstract> { color: "cyan" }
+
+// Mixed air visualization color (purple)
+HpbsMixedColor: Dict <abstract> { color: "purple" }
+
+// Exhaust air visualization color (brown)
+HpbsExhaustColor: Dict <abstract> { color: "brown" }
+
+// Inlet air visualization color (olive)
+HpbsInletColor: Dict <abstract> { color: "olive" }
+
+// Setpoint visualization color (green)
+HpbsSetpointColor: Dict <abstract> { color: "green" }
+
+// Hot water visualization color (red)
+HpbsHotWaterColor: Dict <abstract> { color: "red" }
+
+// Chilled water visualization color (blue)
+HpbsChilledWaterColor: Dict <abstract> { color: "blue" }
+
+// Condenser water visualization color (teal)
+HpbsCondenserWaterColor: Dict <abstract> { color: "teal" }
+
+// Domestic hot water visualization color (coral)
+HpbsDomesticHotWaterColor: Dict <abstract> { color: "coral" }
+
+// Steam visualization color (gold)
+HpbsSteamColor: Dict <abstract> { color: "gold" }
+
+// Natural gas visualization color (yellow)
+HpbsGasColor: Dict <abstract> { color: "yellow" }
+
+// Electrical visualization color (lime)
+HpbsElecColor: Dict <abstract> { color: "lime" }
+
+// Generic sensor color (silver) - for points without specific category
+HpbsSensorColor: Dict <abstract> { color: "silver" }
+
+// Command/control color (navy)
+HpbsCommandColor: Dict <abstract> { color: "navy" }
+

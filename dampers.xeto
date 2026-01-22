@@ -1,0 +1,278 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Damper Point Types
+//
+// Extends Haystack ph.points damper types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Outside Air Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Outside air damper position command
+HpbsOutsideAirDamperCmd: DamperCmd & HpbsOutsideColor {
+  outside
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "OaDmprCmd"
+}
+
+// Outside air damper position sensor (feedback)
+HpbsOutsideAirDamperSensor: DamperSensor & HpbsOutsideColor {
+  outside
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "OaDmprPos"
+}
+
+// Minimum outside air damper command
+HpbsMinOutsideAirDamperCmd: DamperCmd & HpbsOutsideColor {
+  outside
+  min
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "MinOaDmprCmd"
+}
+
+// Minimum outside air damper position sensor
+HpbsMinOutsideAirDamperSensor: DamperSensor & HpbsOutsideColor {
+  outside
+  min
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "MinOaDmprPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Return Air Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Return air damper position command
+HpbsReturnAirDamperCmd: DamperCmd & HpbsReturnColor {
+  return
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RaDmprCmd"
+}
+
+// Return air damper position sensor (feedback)
+HpbsReturnAirDamperSensor: DamperSensor & HpbsReturnColor {
+  return
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RaDmprPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Exhaust Air Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Exhaust air damper position command
+HpbsExhaustAirDamperCmd: DamperCmd & HpbsExhaustColor {
+  exhaust
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ExhDmprCmd"
+}
+
+// Exhaust air damper position sensor (feedback)
+HpbsExhaustAirDamperSensor: DamperSensor & HpbsExhaustColor {
+  exhaust
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ExhDmprPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Relief Air Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Relief air damper position command
+HpbsReliefAirDamperCmd: DamperCmd & HpbsExhaustColor {
+  relief
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RlfDmprCmd"
+}
+
+// Relief air damper position sensor (feedback)
+HpbsReliefAirDamperSensor: DamperSensor & HpbsExhaustColor {
+  relief
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RlfDmprPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Mixed Air Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Mixed air damper position command
+HpbsMixedAirDamperCmd: DamperCmd & HpbsMixedColor {
+  mixed
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "MaDmprCmd"
+}
+
+// Mixed air damper position sensor (feedback)
+HpbsMixedAirDamperSensor: DamperSensor & HpbsMixedColor {
+  mixed
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "MaDmprPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Economizer Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Economizer damper position command
+HpbsEconomizerDamperCmd: DamperCmd & HpbsOutsideColor {
+  economizer
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "EconDmprCmd"
+}
+
+// Economizer damper position sensor (feedback)
+HpbsEconomizerDamperSensor: DamperSensor & HpbsOutsideColor {
+  economizer
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "EconDmprPos"
+}
+
+// Economizer enable status
+HpbsEconomizerEnableSensor: BoolPoint & SensorPoint & HpbsOutsideColor {
+  economizer
+  enable
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "EconEnable"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Zone/VAV Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone damper position command (VAV box)
+HpbsZoneDamperCmd: DamperCmd & HpbsZoneColor {
+  zone
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnDmprCmd"
+}
+
+// Zone damper position sensor (feedback)
+HpbsZoneDamperSensor: DamperSensor & HpbsZoneColor {
+  zone
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ZnDmprPos"
+}
+
+// Zone minimum damper position setpoint
+HpbsZoneMinDamperSp: DamperSp & HpbsSetpointColor {
+  zone
+  min
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnMinDmprSp"
+}
+
+// Zone maximum damper position setpoint
+HpbsZoneMaxDamperSp: DamperSp & HpbsSetpointColor {
+  zone
+  max
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ZnMaxDmprSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Discharge Air Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge damper position command
+HpbsDischargeAirDamperCmd: DamperCmd & HpbsDischargeColor {
+  discharge
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DaDmprCmd"
+}
+
+// Discharge damper position sensor (feedback)
+HpbsDischargeAirDamperSensor: DamperSensor & HpbsDischargeColor {
+  discharge
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DaDmprPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Bypass Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Bypass damper position command
+HpbsBypassDamperCmd: DamperCmd & HpbsSensorColor {
+  bypass
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BypDmprCmd"
+}
+
+// Bypass damper position sensor (feedback)
+HpbsBypassDamperSensor: DamperSensor & HpbsSensorColor {
+  bypass
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BypDmprPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fire/Smoke Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Fire damper position status (binary open/closed)
+HpbsFireDamperSensor: DamperSensor & HpbsSensorColor {
+  fire
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "FirDmprSts"
+}
+
+// Smoke damper position status (binary open/closed)
+HpbsSmokeDamperSensor: DamperSensor & HpbsSensorColor {
+  smoke
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SmkDmprSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Inlet Guide Vane / Inlet Damper Points
+//////////////////////////////////////////////////////////////////////////
+
+// Inlet vane position command (for fans/blowers)
+HpbsInletVaneCmd: DamperCmd & HpbsInletColor {
+  inlet
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "InletVaneCmd"
+}
+
+// Inlet vane position sensor
+HpbsInletVaneSensor: DamperSensor & HpbsInletColor {
+  inlet
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "InletVanePos"
+}
+

@@ -1,0 +1,437 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Pump Point Types
+//
+// Extends Haystack ph.points pump types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Pump Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water pump run command
+HpbsHotWaterPumpRunCmd: PumpRunCmd & HpbsHotWaterColor {
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwPumpCmd"
+}
+
+// Hot water pump run status/feedback
+HpbsHotWaterPumpRunSensor: PumpRunSensor & HpbsHotWaterColor {
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwPumpSts"
+}
+
+// Hot water pump speed sensor
+HpbsHotWaterPumpSpeedSensor: PumpSpeedSensor & HpbsHotWaterColor {
+  hot
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwPumpSpd"
+}
+
+// Hot water pump speed command
+HpbsHotWaterPumpSpeedCmd: PumpSpeedCmd & HpbsSetpointColor {
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwPumpSpdCmd"
+}
+
+// Hot water pump alarm
+HpbsHotWaterPumpAlarmSensor: BoolPoint & SensorPoint & HpbsHotWaterColor {
+  pump
+  alarm
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwPumpAlarm"
+}
+
+// Hot water pump enable command
+HpbsHotWaterPumpEnableCmd: PumpEnableCmd & HpbsHotWaterColor {
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwPumpEnable"
+}
+
+// Primary hot water pump run command
+HpbsPrimaryHotWaterPumpRunCmd: PumpRunCmd & HpbsHotWaterColor {
+  primary
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "PriHwPumpCmd"
+}
+
+// Primary hot water pump run status
+HpbsPrimaryHotWaterPumpRunSensor: PumpRunSensor & HpbsHotWaterColor {
+  primary
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "PriHwPumpSts"
+}
+
+// Secondary hot water pump run command
+HpbsSecondaryHotWaterPumpRunCmd: PumpRunCmd & HpbsHotWaterColor {
+  secondary
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SecHwPumpCmd"
+}
+
+// Secondary hot water pump run status
+HpbsSecondaryHotWaterPumpRunSensor: PumpRunSensor & HpbsHotWaterColor {
+  secondary
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SecHwPumpSts"
+}
+
+// Secondary hot water pump speed sensor
+HpbsSecondaryHotWaterPumpSpeedSensor: PumpSpeedSensor & HpbsHotWaterColor {
+  secondary
+  hot
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "SecHwPumpSpd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Pump Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water pump run command
+HpbsChilledWaterPumpRunCmd: PumpRunCmd & HpbsChilledWaterColor {
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwPumpCmd"
+}
+
+// Chilled water pump run status/feedback
+HpbsChilledWaterPumpRunSensor: PumpRunSensor & HpbsChilledWaterColor {
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwPumpSts"
+}
+
+// Chilled water pump speed sensor
+HpbsChilledWaterPumpSpeedSensor: PumpSpeedSensor & HpbsChilledWaterColor {
+  chilled
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwPumpSpd"
+}
+
+// Chilled water pump speed command
+HpbsChilledWaterPumpSpeedCmd: PumpSpeedCmd & HpbsSetpointColor {
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwPumpSpdCmd"
+}
+
+// Chilled water pump alarm
+HpbsChilledWaterPumpAlarmSensor: BoolPoint & SensorPoint & HpbsChilledWaterColor {
+  pump
+  alarm
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwPumpAlarm"
+}
+
+// Chilled water pump enable command
+HpbsChilledWaterPumpEnableCmd: PumpEnableCmd & HpbsChilledWaterColor {
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwPumpEnable"
+}
+
+// Primary chilled water pump run command
+HpbsPrimaryChilledWaterPumpRunCmd: PumpRunCmd & HpbsChilledWaterColor {
+  primary
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "PriChwPumpCmd"
+}
+
+// Primary chilled water pump run status
+HpbsPrimaryChilledWaterPumpRunSensor: PumpRunSensor & HpbsChilledWaterColor {
+  primary
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "PriChwPumpSts"
+}
+
+// Secondary chilled water pump run command
+HpbsSecondaryChilledWaterPumpRunCmd: PumpRunCmd & HpbsChilledWaterColor {
+  secondary
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SecChwPumpCmd"
+}
+
+// Secondary chilled water pump run status
+HpbsSecondaryChilledWaterPumpRunSensor: PumpRunSensor & HpbsChilledWaterColor {
+  secondary
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SecChwPumpSts"
+}
+
+// Secondary chilled water pump speed sensor
+HpbsSecondaryChilledWaterPumpSpeedSensor: PumpSpeedSensor & HpbsChilledWaterColor {
+  secondary
+  chilled
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "SecChwPumpSpd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Pump Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water pump run command
+HpbsCondenserWaterPumpRunCmd: PumpRunCmd & HpbsCondenserWaterColor {
+  condenser
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwPumpCmd"
+}
+
+// Condenser water pump run status/feedback
+HpbsCondenserWaterPumpRunSensor: PumpRunSensor & HpbsCondenserWaterColor {
+  condenser
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwPumpSts"
+}
+
+// Condenser water pump speed sensor
+HpbsCondenserWaterPumpSpeedSensor: PumpSpeedSensor & HpbsCondenserWaterColor {
+  condenser
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwPumpSpd"
+}
+
+// Condenser water pump speed command
+HpbsCondenserWaterPumpSpeedCmd: PumpSpeedCmd & HpbsSetpointColor {
+  condenser
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwPumpSpdCmd"
+}
+
+// Condenser water pump alarm
+HpbsCondenserWaterPumpAlarmSensor: BoolPoint & SensorPoint & HpbsCondenserWaterColor {
+  pump
+  alarm
+  condenser
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwPumpAlarm"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Domestic Hot Water Pump Points
+//////////////////////////////////////////////////////////////////////////
+
+// Domestic hot water recirculation pump run command
+HpbsDomesticHotWaterPumpRunCmd: PumpRunCmd & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  circ
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwPumpCmd"
+}
+
+// Domestic hot water recirculation pump run status
+HpbsDomesticHotWaterPumpRunSensor: PumpRunSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  circ
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwPumpSts"
+}
+
+// Domestic hot water recirculation pump speed sensor
+HpbsDomesticHotWaterPumpSpeedSensor: PumpSpeedSensor & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  circ
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DhwPumpSpd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Booster Pump Points
+//////////////////////////////////////////////////////////////////////////
+
+// Booster pump run command
+HpbsBoosterPumpRunCmd: PumpRunCmd & HpbsSensorColor {
+  booster
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BoostPumpCmd"
+}
+
+// Booster pump run status
+HpbsBoosterPumpRunSensor: PumpRunSensor & HpbsSensorColor {
+  booster
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BoostPumpSts"
+}
+
+// Booster pump speed sensor
+HpbsBoosterPumpSpeedSensor: PumpSpeedSensor & HpbsSensorColor {
+  booster
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BoostPumpSpd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// General Pump Power/Energy Points
+//////////////////////////////////////////////////////////////////////////
+
+// Pump power sensor
+HpbsPumpPowerSensor: ElecPowerSensor & HpbsElecColor {
+  pump
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "PumpPwr"
+}
+
+// Pump energy sensor (totalized)
+HpbsPumpEnergySensor: ElecEnergySensor & HpbsElecColor {
+  pump
+  unit: "kWh"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "PumpEnergy"
+}
+
+// Hot water pump power sensor
+HpbsHotWaterPumpPowerSensor: ElecPowerSensor & HpbsElecColor {
+  hot
+  water
+  pump
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwPumpPwr"
+}
+
+// Chilled water pump power sensor
+HpbsChilledWaterPumpPowerSensor: ElecPowerSensor & HpbsElecColor {
+  chilled
+  water
+  pump
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwPumpPwr"
+}
+
+// Condenser water pump power sensor
+HpbsCondenserWaterPumpPowerSensor: ElecPowerSensor & HpbsElecColor {
+  condenser
+  water
+  pump
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwPumpPwr"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Pump VFD Points
+//////////////////////////////////////////////////////////////////////////
+
+// Pump VFD frequency sensor
+HpbsPumpVfdFreqSensor: VfdFreqSensor & HpbsSensorColor {
+  pump
+  unit: "Hz"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "PumpVfdFreq"
+}
+
+// Pump VFD frequency command
+HpbsPumpVfdFreqCmd: VfdFreqCmd & HpbsSetpointColor {
+  pump
+  unit: "Hz"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "PumpVfdFreqCmd"
+}
+
+// Pump VFD fault sensor
+HpbsPumpVfdFaultSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  pump
+  vfd
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "PumpVfdFault"
+}
+

@@ -1,0 +1,81 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Steam Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// They define steam-related point types following Project Haystack conventions.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Steam Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with rate of volumetric flow of steam
+SteamFlowPoint : NumberPoint <abstract> {
+  steam
+  flow
+  unit: Unit <quantity:"volumetricFlow"> "cfm"
+}
+
+// Sensor for volumetric flow of steam
+SteamFlowSensor : SteamFlowPoint & SensorPoint
+
+// Setpoint for volumetric flow of steam
+SteamFlowSp : SteamFlowPoint & SpPoint
+
+//////////////////////////////////////////////////////////////////////////
+// Steam Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with pressure of steam
+SteamPressurePoint : NumberPoint <abstract> {
+  steam
+  pressure
+  unit: Unit <quantity:"pressure"> "psi"
+}
+
+// Sensor for pressure of steam
+SteamPressureSensor : SteamPressurePoint & SensorPoint
+
+// Setpoint for pressure of steam
+SteamPressureSp : SteamPressurePoint & SpPoint
+
+//////////////////////////////////////////////////////////////////////////
+// Steam Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with temperature of steam
+SteamTempPoint : NumberPoint <abstract> {
+  steam
+  temp
+  unit: Unit <quantity:"temperature"> "°F"
+}
+
+// Sensor for temperature of steam
+SteamTempSensor : SteamTempPoint & SensorPoint
+
+// Setpoint for temperature of steam
+SteamTempSp : SteamTempPoint & SpPoint
+
+//////////////////////////////////////////////////////////////////////////
+// Steam Energy Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with energy consumption of steam
+SteamEnergyPoint : NumberPoint <abstract> {
+  steam
+  energy
+  unit: Unit <quantity:"energy"> "BTU"
+}
+
+// Sensor for energy consumption of steam (totalized)
+SteamEnergySensor : SteamEnergyPoint & SensorPoint
+
+// Setpoint for energy consumption of steam
+SteamEnergySp : SteamEnergyPoint & SpPoint
+

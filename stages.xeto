@@ -1,0 +1,162 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Staging Point Types
+//
+// Extends ph_point_stages staging types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Heating Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heating stage command (number of stages)
+HpbsHeatingStageCmd: HeatStageCmd & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HtgStgCmd"
+}
+
+// Heating stage status (number of active stages)
+HpbsHeatingStageSensor: HeatStageSensor & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HtgStgSts"
+}
+
+// Electric heat stage 1 command
+HpbsElecHeatStage1Cmd: ElecHeatStageCmd & HpbsElecColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ElecHtg1Cmd"
+}
+
+// Electric heat stage 1 status
+HpbsElecHeatStage1Sensor: ElecHeatStageSensor & HpbsElecColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ElecHtg1Sts"
+}
+
+// Electric heat stage 2 command
+HpbsElecHeatStage2Cmd: ElecHeatStageCmd & HpbsElecColor {
+  stage: Number 2
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ElecHtg2Cmd"
+}
+
+// Electric heat stage 2 status
+HpbsElecHeatStage2Sensor: ElecHeatStageSensor & HpbsElecColor {
+  stage: Number 2
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ElecHtg2Sts"
+}
+
+// Gas heat stage 1 command
+HpbsGasHeatStage1Cmd: GasHeatStageCmd & HpbsGasColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "GasHtg1Cmd"
+}
+
+// Gas heat stage 1 status
+HpbsGasHeatStage1Sensor: GasHeatStageSensor & HpbsGasColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "GasHtg1Sts"
+}
+
+// Gas heat stage 2 command
+HpbsGasHeatStage2Cmd: GasHeatStageCmd & HpbsGasColor {
+  stage: Number 2
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "GasHtg2Cmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling stage command (number of stages)
+HpbsCoolingStageCmd: CoolStageCmd & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ClgStgCmd"
+}
+
+// Cooling stage status (number of active stages)
+HpbsCoolingStageSensor: CoolStageSensor & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ClgStgSts"
+}
+
+// DX cooling stage 1 command
+HpbsDxCoolingStage1Cmd: DxCoolStageCmd & HpbsChilledWaterColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DxClg1Cmd"
+}
+
+// DX cooling stage 1 status
+HpbsDxCoolingStage1Sensor: DxCoolStageSensor & HpbsChilledWaterColor {
+  stage: Number 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DxClg1Sts"
+}
+
+// DX cooling stage 2 command
+HpbsDxCoolingStage2Cmd: DxCoolStageCmd & HpbsChilledWaterColor {
+  stage: Number 2
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DxClg2Cmd"
+}
+
+// DX cooling stage 2 status
+HpbsDxCoolingStage2Sensor: DxCoolStageSensor & HpbsChilledWaterColor {
+  stage: Number 2
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DxClg2Sts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Lead/Lag and Sequencing Points
+//////////////////////////////////////////////////////////////////////////
+
+// Lead equipment selector/indicator
+HpbsLeadEquipSensor: LeadEquipSensor & HpbsSensorColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "LeadEquip"
+}
+
+// Number of equipment stages requested
+HpbsEquipStagesRequestedSensor: EquipStagesRequestedSensor & HpbsSensorColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StgsReq"
+}
+
+// Number of equipment stages running
+HpbsEquipStagesRunningSensor: EquipStagesRunningSensor & HpbsSensorColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StgsRun"
+}
+

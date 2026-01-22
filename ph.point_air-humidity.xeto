@@ -1,0 +1,24 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Air Humidity Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// ph.points/air-humidity.xeto has Discharge, Outside, Zone but not Return.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Air Humidity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Return air humidity sensor
+ReturnAirHumiditySensor: NumberPoint & SensorPoint {
+  return
+  air
+  humidity
+}
+

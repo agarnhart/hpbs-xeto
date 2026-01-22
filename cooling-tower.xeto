@@ -1,0 +1,49 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// HPBS Cooling Tower Point Types
+//
+// Extends ph_point_cooling-tower types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Tower Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling tower stage command
+HpbsCoolingTowerStageCmd: CoolingTowerStageCmd & HpbsCondenserWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CtStgCmd"
+}
+
+// Cooling tower stage status
+HpbsCoolingTowerStageSensor: CoolingTowerStageSensor & HpbsCondenserWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CtStgSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Tower Run/Enable Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling tower enable command
+HpbsCoolingTowerEnableCmd: CoolingTowerEnableCmd & HpbsCondenserWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CtEnable"
+}
+
+// Cooling tower run status
+HpbsCoolingTowerRunSensor: CoolingTowerRunSensor & HpbsCondenserWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CtRunSts"
+}
+

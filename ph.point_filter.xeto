@@ -1,0 +1,38 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Filter Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// They define filter-related point types following Project Haystack conventions.
+//
+
+// Point associated with a filter
+FilterPoint : Point <abstract> {
+  filter
+}
+
+// Alarm sensor for filter status (dirty/clogged condition)
+FilterSensor : FilterPoint & AlarmSensor <abstract>
+
+//////////////////////////////////////////////////////////////////////////
+// Filter Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with filter differential pressure
+FilterPressurePoint : NumberPoint <abstract> {
+  filter
+  pressure
+  unit: Unit <quantity:"pressure"> "inH₂O"
+}
+
+// Sensor for filter differential pressure
+FilterPressureSensor : FilterPressurePoint & SensorPoint
+
+// Setpoint for filter differential pressure
+FilterPressureSp : FilterPressurePoint & SpPoint
+

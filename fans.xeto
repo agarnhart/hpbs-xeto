@@ -1,0 +1,361 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Fan Point Types
+//
+// Extends Haystack ph.points fan types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Supply Fan Points
+//////////////////////////////////////////////////////////////////////////
+
+// Supply fan run command
+HpbsSupplyFanRunCmd: FanRunCmd & HpbsDischargeColor {
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SfCmd"
+}
+
+// Supply fan run status/feedback
+HpbsSupplyFanRunSensor: FanRunSensor & HpbsDischargeColor {
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SfSts"
+}
+
+// Supply fan speed sensor
+HpbsSupplyFanSpeedSensor: FanSpeedSensor & HpbsDischargeColor {
+  supply
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "SfSpd"
+}
+
+// Supply fan speed command/setpoint
+HpbsSupplyFanSpeedCmd: FanSpeedCmd & HpbsSetpointColor {
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SfSpdCmd"
+}
+
+// Supply fan VFD frequency sensor
+HpbsSupplyFanFreqSensor: VfdFreqSensor & HpbsDischargeColor {
+  supply
+  fan
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "SfFreq"
+}
+
+// Supply fan VFD frequency command
+HpbsSupplyFanFreqCmd: VfdFreqCmd & HpbsSetpointColor {
+  supply
+  fan
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SfFreqCmd"
+}
+
+// Supply fan alarm
+HpbsSupplyFanAlarmSensor: BoolPoint & SensorPoint & HpbsDischargeColor {
+  fan
+  alarm
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SfAlarm"
+}
+
+// Supply fan enable command
+HpbsSupplyFanEnableCmd: FanEnableCmd & HpbsDischargeColor {
+  supply
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SfEnable"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Return Fan Points
+//////////////////////////////////////////////////////////////////////////
+
+// Return fan run command
+HpbsReturnFanRunCmd: FanRunCmd & HpbsReturnColor {
+  return
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RfCmd"
+}
+
+// Return fan run status/feedback
+HpbsReturnFanRunSensor: FanRunSensor & HpbsReturnColor {
+  return
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RfSts"
+}
+
+// Return fan speed sensor
+HpbsReturnFanSpeedSensor: FanSpeedSensor & HpbsReturnColor {
+  return
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RfSpd"
+}
+
+// Return fan speed command/setpoint
+HpbsReturnFanSpeedCmd: FanSpeedCmd & HpbsSetpointColor {
+  return
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RfSpdCmd"
+}
+
+// Return fan VFD frequency sensor
+HpbsReturnFanFreqSensor: VfdFreqSensor & HpbsReturnColor {
+  return
+  fan
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RfFreq"
+}
+
+// Return fan VFD frequency command
+HpbsReturnFanFreqCmd: VfdFreqCmd & HpbsSetpointColor {
+  return
+  fan
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RfFreqCmd"
+}
+
+// Return fan alarm
+HpbsReturnFanAlarmSensor: BoolPoint & SensorPoint & HpbsReturnColor {
+  fan
+  alarm
+  return
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RfAlarm"
+}
+
+// Return fan enable command
+HpbsReturnFanEnableCmd: FanEnableCmd & HpbsReturnColor {
+  return
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RfEnable"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Exhaust Fan Points
+//////////////////////////////////////////////////////////////////////////
+
+// Exhaust fan run command
+HpbsExhaustFanRunCmd: FanRunCmd & HpbsExhaustColor {
+  exhaust
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ExhFanCmd"
+}
+
+// Exhaust fan run status/feedback
+HpbsExhaustFanRunSensor: FanRunSensor & HpbsExhaustColor {
+  exhaust
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ExhFanSts"
+}
+
+// Exhaust fan speed sensor
+HpbsExhaustFanSpeedSensor: FanSpeedSensor & HpbsExhaustColor {
+  exhaust
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ExhFanSpd"
+}
+
+// Exhaust fan speed command/setpoint
+HpbsExhaustFanSpeedCmd: FanSpeedCmd & HpbsSetpointColor {
+  exhaust
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ExhFanSpdCmd"
+}
+
+// Exhaust fan VFD frequency sensor
+HpbsExhaustFanFreqSensor: VfdFreqSensor & HpbsExhaustColor {
+  exhaust
+  fan
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ExhFanFreq"
+}
+
+// Exhaust fan alarm
+HpbsExhaustFanAlarmSensor: BoolPoint & SensorPoint & HpbsExhaustColor {
+  fan
+  alarm
+  exhaust
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ExhFanAlarm"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Relief Fan Points
+//////////////////////////////////////////////////////////////////////////
+
+// Relief fan run command
+HpbsReliefFanRunCmd: FanRunCmd & HpbsExhaustColor {
+  relief
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RlfFanCmd"
+}
+
+// Relief fan run status/feedback
+HpbsReliefFanRunSensor: FanRunSensor & HpbsExhaustColor {
+  relief
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RlfFanSts"
+}
+
+// Relief fan speed sensor
+HpbsReliefFanSpeedSensor: FanSpeedSensor & HpbsExhaustColor {
+  relief
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RlfFanSpd"
+}
+
+// Relief fan speed command/setpoint
+HpbsReliefFanSpeedCmd: FanSpeedCmd & HpbsSetpointColor {
+  relief
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RlfFanSpdCmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Tower Fan Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling tower fan run command
+HpbsCoolingTowerFanRunCmd: FanRunCmd & HpbsCondenserWaterColor {
+  coolingTower
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CtFanCmd"
+}
+
+// Cooling tower fan run status/feedback
+HpbsCoolingTowerFanRunSensor: FanRunSensor & HpbsCondenserWaterColor {
+  coolingTower
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CtFanSts"
+}
+
+// Cooling tower fan speed sensor
+HpbsCoolingTowerFanSpeedSensor: FanSpeedSensor & HpbsCondenserWaterColor {
+  coolingTower
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CtFanSpd"
+}
+
+// Cooling tower fan speed command/setpoint
+HpbsCoolingTowerFanSpeedCmd: FanSpeedCmd & HpbsSetpointColor {
+  coolingTower
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CtFanSpdCmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// General Fan Power/Energy Points
+//////////////////////////////////////////////////////////////////////////
+
+// Fan power sensor
+HpbsFanPowerSensor: ElecPowerSensor & HpbsElecColor {
+  fan
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "FanPwr"
+}
+
+// Fan energy sensor (totalized)
+HpbsFanEnergySensor: ElecEnergySensor & HpbsElecColor {
+  fan
+  unit: "kWh"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "FanEnergy"
+}
+
+// Supply fan power sensor
+HpbsSupplyFanPowerSensor: ElecPowerSensor & HpbsElecColor {
+  supply
+  fan
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "SfPwr"
+}
+
+// Return fan power sensor
+HpbsReturnFanPowerSensor: ElecPowerSensor & HpbsElecColor {
+  return
+  fan
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RfPwr"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// VFD Status Points
+//////////////////////////////////////////////////////////////////////////
+
+// VFD fault/alarm sensor
+HpbsVfdFaultSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  vfd
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "VfdFault"
+}
+
+// VFD run status
+HpbsVfdRunSensor: VfdRunSensor & HpbsSensorColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "VfdRun"
+}
+
+// VFD speed output sensor (actual speed feedback)
+HpbsVfdSpeedSensor: VfdSpeedSensor & HpbsSensorColor {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "VfdSpd"
+}
+
+// VFD speed command
+HpbsVfdSpeedCmd: VfdSpeedCmd & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "VfdSpdCmd"
+}
+

@@ -1,0 +1,47 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Thermal Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// They define thermal energy/power point types following Project Haystack conventions.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Thermal Energy Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with thermal energy (BTU, ton-hr, etc.)
+ThermalEnergyPoint : NumberPoint <abstract> {
+  thermal
+  energy
+  unit: Unit <quantity:"energy"> "BTU"
+}
+
+// Sensor for thermal energy (totalized)
+ThermalEnergySensor : ThermalEnergyPoint & SensorPoint
+
+// Setpoint for thermal energy
+ThermalEnergySp : ThermalEnergyPoint & SpPoint
+
+//////////////////////////////////////////////////////////////////////////
+// Thermal Power Points
+//////////////////////////////////////////////////////////////////////////
+
+// Point associated with thermal power (BTU/hr, tons, etc.)
+ThermalPowerPoint : NumberPoint <abstract> {
+  thermal
+  power
+  unit: Unit <quantity:"power"> "BTU/h"
+}
+
+// Sensor for thermal power
+ThermalPowerSensor : ThermalPowerPoint & SensorPoint
+
+// Setpoint for thermal power
+ThermalPowerSp : ThermalPowerPoint & SpPoint
+

@@ -1,0 +1,49 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Air Pressure Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// ph.points/air-pressure.xeto has Discharge and Return but not Zone or Building.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Zone Air Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Zone air pressure sensor
+ZoneAirPressureSensor: NumberPoint & SensorPoint {
+  zone
+  air
+  pressure
+}
+
+// Zone air pressure setpoint
+ZoneAirPressureSp: NumberPoint & SpPoint {
+  zone
+  air
+  pressure
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Building Air Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Building air pressure sensor
+BuildingAirPressureSensor: NumberPoint & SensorPoint {
+  building
+  air
+  pressure
+}
+
+// Building air pressure setpoint
+BuildingAirPressureSp: NumberPoint & SpPoint {
+  building
+  air
+  pressure
+}
+

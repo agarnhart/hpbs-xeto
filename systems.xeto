@@ -1,0 +1,278 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// HPBS Hydronic System Types
+//
+// Uses Systems-only approach: Systems are the primary organizing concept.
+// Individual equipment (Chiller, Boiler, Pump) nests under systems via systemRef.
+// "Plant" is treated as deprecated - use System with nested generation equipment.
+//
+// Based on Haystack Labs working group discussion (Loops & Systems):
+// - System is the primary organizing concept for fluid distribution
+// - Plant as an Equip subtype is semantically awkward
+// - Loop should be a marker for closed circuits with return paths
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Hpbs System Point Implementations
+//////////////////////////////////////////////////////////////////////////
+
+// System enable OAT setpoint - Hpbs implementation
+HpbsSystemEnableOaTempSp: SystemEnableOutsideAirTempSp & HpbsSetpointColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SysEnableOaTempSp"
+}
+
+// Hot water system enable command
+HpbsHotWaterSystemEnableCmd: HotWaterSystemEnableCmd & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwSysEnable"
+}
+
+// Hot water system run status
+HpbsHotWaterSystemRunSensor: HotWaterSystemRunSensor & HpbsHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwSysRunSts"
+}
+
+// Chilled water system enable command
+HpbsChilledWaterSystemEnableCmd: ChilledWaterSystemEnableCmd & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwSysEnable"
+}
+
+// Chilled water system run status
+HpbsChilledWaterSystemRunSensor: ChilledWaterSystemRunSensor & HpbsChilledWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwSysRunSts"
+}
+
+// Condenser water system enable command
+HpbsCondenserWaterSystemEnableCmd: CondenserWaterSystemEnableCmd & HpbsCondenserWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwSysEnable"
+}
+
+// Condenser water system run status
+HpbsCondenserWaterSystemRunSensor: CondenserWaterSystemRunSensor & HpbsCondenserWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwSysRunSts"
+}
+
+// Steam system enable command
+HpbsSteamSystemEnableCmd: SteamSystemEnableCmd & HpbsSteamColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StmSysEnable"
+}
+
+// Steam system run status
+HpbsSteamSystemRunSensor: SteamSystemRunSensor & HpbsSteamColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StmSysRunSts"
+}
+
+// Domestic hot water system enable command
+HpbsDomesticHotWaterSystemEnableCmd: DomesticHotWaterSystemEnableCmd & HpbsDomesticHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwSysEnable"
+}
+
+// Domestic hot water system run status
+HpbsDomesticHotWaterSystemRunSensor: DomesticHotWaterSystemRunSensor & HpbsDomesticHotWaterColor {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwSysRunSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water System
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Chilled Water System - distribution network for chilled water
+// Individual chillers, pumps nest under this via systemRef
+HpbsChilledWaterSystem: ChilledWaterSystem {
+  points: {
+    // System control
+    sysEnable: HpbsChilledWaterSystemEnableCmd?
+    sysEnableOaTempSp: HpbsSystemEnableOaTempSp?
+    sysRunSts: HpbsChilledWaterSystemRunSensor?
+
+    // Temperatures
+    chwSupplyTemp: HpbsChilledWaterSupplyTempSensor?
+    chwSupplyTempSp: HpbsChilledWaterSupplyTempSp?
+    chwReturnTemp: HpbsChilledWaterReturnTempSensor?
+    chwDeltaT: HpbsChilledWaterDeltaTempSensor?
+
+    // Flow
+    chwFlow: HpbsChilledWaterFlowSensor?
+
+    // Differential pressure
+    chwDiffPress: HpbsChilledWaterDifferentialPressureSensor?
+    chwDiffPressSp: HpbsChilledWaterDifferentialPressureSp?
+
+    // Primary pumps (on primary loop sub-system)
+    priPumpCmd: HpbsPrimaryChilledWaterPumpRunCmd?
+    priPumpSts: HpbsPrimaryChilledWaterPumpRunSensor?
+
+    // Secondary pumps (on secondary loop sub-system)
+    secPumpCmd: HpbsSecondaryChilledWaterPumpRunCmd?
+    secPumpSts: HpbsSecondaryChilledWaterPumpRunSensor?
+    secPumpSpd: HpbsSecondaryChilledWaterPumpSpeedSensor?
+
+    // Bypass
+    bypVlvCmd: HpbsChilledWaterBypassValveCmd?
+
+    // Energy
+    chwEnergy: HpbsChilledWaterEnergySensor?
+    chwPwr: HpbsChilledWaterPowerSensor?
+
+    // Staging
+    leadEquip: HpbsLeadEquipSensor?
+    stgsReq: HpbsEquipStagesRequestedSensor?
+    stgsRun: HpbsEquipStagesRunningSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water System
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Hot Water System - distribution network for hot water
+// Individual boilers, pumps nest under this via systemRef
+HpbsHotWaterSystem: HotWaterSystem {
+  points: {
+    // System control
+    sysEnable: HpbsHotWaterSystemEnableCmd?
+    sysEnableOaTempSp: HpbsSystemEnableOaTempSp?
+    sysRunSts: HpbsHotWaterSystemRunSensor?
+
+    // Temperatures
+    hwSupplyTemp: HpbsHotWaterSupplyTempSensor?
+    hwSupplyTempSp: HpbsHotWaterSupplyTempSp?
+    hwReturnTemp: HpbsHotWaterReturnTempSensor?
+    hwDeltaT: HpbsHotWaterDeltaTempSensor?
+
+    // Flow
+    hwFlow: HpbsHotWaterFlowSensor?
+
+    // Differential pressure
+    hwDiffPress: HpbsHotWaterDifferentialPressureSensor?
+    hwDiffPressSp: HpbsHotWaterDifferentialPressureSp?
+
+    // Primary pumps
+    priPumpCmd: HpbsPrimaryHotWaterPumpRunCmd?
+    priPumpSts: HpbsPrimaryHotWaterPumpRunSensor?
+
+    // Secondary pumps
+    secPumpCmd: HpbsSecondaryHotWaterPumpRunCmd?
+    secPumpSts: HpbsSecondaryHotWaterPumpRunSensor?
+    secPumpSpd: HpbsSecondaryHotWaterPumpSpeedSensor?
+
+    // Bypass
+    bypVlvCmd: HpbsHotWaterBypassValveCmd?
+
+    // Energy
+    hwEnergy: HpbsHotWaterEnergySensor?
+    hwPwr: HpbsHotWaterPowerSensor?
+
+    // Staging
+    leadEquip: HpbsLeadEquipSensor?
+    stgsReq: HpbsEquipStagesRequestedSensor?
+    stgsRun: HpbsEquipStagesRunningSensor?
+
+    // Outside air reset
+    oaTemp: HpbsOutsideAirTempSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Steam System
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Steam System - distribution network for steam
+HpbsSteamSystem: SteamSystem {
+  points: {
+    // System control
+    sysEnable: HpbsSteamSystemEnableCmd?
+    sysRunSts: HpbsSteamSystemRunSensor?
+
+    // Steam
+    stmPress: HpbsSteamPressureSensor?
+    stmPressSp: HpbsSteamPressureSp?
+    stmTemp: HpbsSteamTempSensor?
+    stmFlow: HpbsSteamFlowSensor?
+    stmEnergy: HpbsSteamEnergySensor?
+
+    // Condensate
+    condFlow: HpbsCondensateFlowSensor?
+    condTemp: HpbsCondensateTempSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water System
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Condenser Water System - heat rejection loop
+// Cooling towers, condenser pumps nest under this via systemRef
+HpbsCondenserWaterSystem: CondenserWaterSystem {
+  points: {
+    // System control
+    sysEnable: HpbsCondenserWaterSystemEnableCmd?
+    sysRunSts: HpbsCondenserWaterSystemRunSensor?
+
+    // Temperatures
+    cwSupplyTemp: HpbsCondenserWaterSupplyTempSensor?
+    cwReturnTemp: HpbsCondenserWaterReturnTempSensor?
+
+    // Flow
+    cwFlow: HpbsCondenserWaterFlowSensor?
+
+    // Pumps
+    cwPumpCmd: HpbsCondenserWaterPumpRunCmd?
+    cwPumpSts: HpbsCondenserWaterPumpRunSensor?
+    cwPumpSpd: HpbsCondenserWaterPumpSpeedSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Domestic Hot Water System
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Domestic Hot Water System - potable hot water distribution
+// Water heaters nest under this via systemRef
+HpbsDomesticHotWaterSystem: DomesticHotWaterSystem {
+  points: {
+    // System control
+    sysEnable: HpbsDomesticHotWaterSystemEnableCmd?
+    sysRunSts: HpbsDomesticHotWaterSystemRunSensor?
+
+    // Temperatures
+    dhwSupplyTemp: HpbsDomesticHotWaterSupplyTempSensor?
+    dhwSupplyTempSp: HpbsDomesticHotWaterSupplyTempSp?
+    dhwReturnTemp: HpbsDomesticHotWaterReturnTempSensor?
+
+    // Pumps
+    dhwPumpCmd: HpbsDomesticHotWaterPumpRunCmd?
+    dhwPumpSts: HpbsDomesticHotWaterPumpRunSensor?
+
+    // Flow/Volume
+    dhwFlow: HpbsDomesticHotWaterFlowSensor?
+    dhwVol: HpbsDomesticHotWaterVolumeSensor?
+  }
+}
+

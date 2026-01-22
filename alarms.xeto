@@ -1,0 +1,104 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Alarm Point Types
+//
+// Centralized alarm sensor definitions for use across all equipment types.
+// All alarm sensors use BoolPoint & SensorPoint as base with appropriate markers.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// General Alarm Points
+//////////////////////////////////////////////////////////////////////////
+
+// General equipment alarm
+HpbsEquipAlarmSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  equip
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "EquipAlarm"
+}
+
+// Filter dirty/alarm sensor
+HpbsFilterAlarmSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  filter
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "FiltAlarm"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Temperature Alarm Points
+//////////////////////////////////////////////////////////////////////////
+
+// High temperature alarm
+HpbsHighTempAlarmSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  temp
+  alarm
+  high
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HiTempAlarm"
+}
+
+// Low temperature alarm
+HpbsLowTempAlarmSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  temp
+  alarm
+  low
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "LoTempAlarm"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Safety Alarm Points
+//////////////////////////////////////////////////////////////////////////
+
+// Smoke alarm sensor
+HpbsSmokeAlarmSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  smoke
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "SmkAlarm"
+}
+
+// Fire/smoke damper alarm
+HpbsFireSmokeDamperAlarmSensor: BoolPoint & SensorPoint & HpbsSensorColor {
+  fire
+  smoke
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "FirSmkDmprAlarm"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Plant Equipment Alarm Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler alarm status
+HpbsBoilerAlarmSensor: BoolPoint & SensorPoint & HpbsHotWaterColor {
+  boiler
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "BlrAlarm"
+}
+
+// Chiller alarm status
+HpbsChillerAlarmSensor: BoolPoint & SensorPoint & HpbsChilledWaterColor {
+  chiller
+  alarm
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChlrAlarm"
+}
+

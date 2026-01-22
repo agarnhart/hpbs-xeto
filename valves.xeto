@@ -1,0 +1,341 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Valve Point Types
+//
+// Extends Haystack ph.points valve types with HPBS-specific defaults
+// for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water valve position command
+HpbsHotWaterValveCmd: ValveCmd & HpbsHotWaterColor {
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwVlvCmd"
+}
+
+// Hot water valve position sensor (feedback)
+HpbsHotWaterValveSensor: ValveSensor & HpbsHotWaterColor {
+  hot
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwVlvPos"
+}
+
+// Heating hot water valve command (for heating coils)
+HpbsHeatingValveCmd: ValveCmd & HpbsHotWaterColor {
+  heating
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HtgVlvCmd"
+}
+
+// Heating hot water valve position sensor
+HpbsHeatingValveSensor: ValveSensor & HpbsHotWaterColor {
+  heating
+  hot
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HtgVlvPos"
+}
+
+// Preheat valve command
+HpbsPreheatValveCmd: ValveCmd & HpbsHotWaterColor {
+  preheat
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "PhVlvCmd"
+}
+
+// Preheat valve position sensor
+HpbsPreheatValveSensor: ValveSensor & HpbsHotWaterColor {
+  preheat
+  hot
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "PhVlvPos"
+}
+
+// Reheat valve command
+HpbsReheatValveCmd: ValveCmd & HpbsHotWaterColor {
+  reheat
+  hot
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "RhVlvCmd"
+}
+
+// Reheat valve position sensor
+HpbsReheatValveSensor: ValveSensor & HpbsHotWaterColor {
+  reheat
+  hot
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "RhVlvPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water valve position command
+HpbsChilledWaterValveCmd: ValveCmd & HpbsChilledWaterColor {
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwVlvCmd"
+}
+
+// Chilled water valve position sensor (feedback)
+HpbsChilledWaterValveSensor: ValveSensor & HpbsChilledWaterColor {
+  chilled
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwVlvPos"
+}
+
+// Cooling valve command (for cooling coils)
+HpbsCoolingValveCmd: ValveCmd & HpbsChilledWaterColor {
+  cooling
+  chilled
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ClgVlvCmd"
+}
+
+// Cooling valve position sensor
+HpbsCoolingValveSensor: ValveSensor & HpbsChilledWaterColor {
+  cooling
+  chilled
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ClgVlvPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water valve position command
+HpbsCondenserWaterValveCmd: ValveCmd & HpbsCondenserWaterColor {
+  condenser
+  water
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwVlvCmd"
+}
+
+// Condenser water valve position sensor (feedback)
+HpbsCondenserWaterValveSensor: ValveSensor & HpbsCondenserWaterColor {
+  condenser
+  water
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "CwVlvPos"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Bypass Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water bypass valve command
+HpbsHotWaterBypassValveCmd: ValveCmd & HpbsHotWaterColor {
+  hot
+  water
+  bypass
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwBypVlvCmd"
+}
+
+// Hot water bypass valve position sensor
+HpbsHotWaterBypassValveSensor: ValveSensor & HpbsHotWaterColor {
+  hot
+  water
+  bypass
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "HwBypVlvPos"
+}
+
+// Chilled water bypass valve command
+HpbsChilledWaterBypassValveCmd: ValveCmd & HpbsChilledWaterColor {
+  chilled
+  water
+  bypass
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwBypVlvCmd"
+}
+
+// Chilled water bypass valve position sensor
+HpbsChilledWaterBypassValveSensor: ValveSensor & HpbsChilledWaterColor {
+  chilled
+  water
+  bypass
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChwBypVlvPos"
+}
+
+// Condenser water bypass valve command
+HpbsCondenserWaterBypassValveCmd: ValveCmd & HpbsCondenserWaterColor {
+  condenser
+  water
+  bypass
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "CwBypVlvCmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Isolation Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water isolation valve command (on/off)
+HpbsHotWaterIsolationValveCmd: ValveCmd & HpbsHotWaterColor {
+  hot
+  water
+  isolation
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwIsoVlvCmd"
+}
+
+// Hot water isolation valve status
+HpbsHotWaterIsolationValveSensor: ValveSensor & HpbsHotWaterColor {
+  hot
+  water
+  isolation
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "HwIsoVlvSts"
+}
+
+// Chilled water isolation valve command (on/off)
+HpbsChilledWaterIsolationValveCmd: ValveCmd & HpbsChilledWaterColor {
+  chilled
+  water
+  isolation
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwIsoVlvCmd"
+}
+
+// Chilled water isolation valve status
+HpbsChilledWaterIsolationValveSensor: ValveSensor & HpbsChilledWaterColor {
+  chilled
+  water
+  isolation
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "ChwIsoVlvSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Steam Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Steam valve command
+HpbsSteamValveCmd: ValveCmd & HpbsSteamColor {
+  steam
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StmVlvCmd"
+}
+
+// Steam valve position sensor
+HpbsSteamValveSensor: ValveSensor & HpbsSteamColor {
+  steam
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "StmVlvPos"
+}
+
+// Steam preheat valve command
+HpbsSteamPreheatValveCmd: ValveCmd & HpbsSteamColor {
+  steam
+  preheat
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StmPhVlvCmd"
+}
+
+// Steam reheat valve command
+HpbsSteamReheatValveCmd: ValveCmd & HpbsSteamColor {
+  steam
+  reheat
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "StmRhVlvCmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Gas Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Gas valve command (on/off for boilers/heaters)
+HpbsGasValveCmd: ValveCmd & HpbsGasColor {
+  naturalGas
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "GasVlvCmd"
+}
+
+// Gas valve status
+HpbsGasValveSensor: ValveSensor & HpbsGasColor {
+  naturalGas
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "GasVlvSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Domestic Hot Water Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Domestic hot water recirculation valve command
+HpbsDomesticHotWaterRecircValveCmd: ValveCmd & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  circ
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwRecircVlvCmd"
+}
+
+// Domestic hot water mixing valve command
+HpbsDomesticHotWaterMixingValveCmd: ValveCmd & HpbsDomesticHotWaterColor {
+  domestic
+  hot
+  water
+  mixing
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  navName: "DhwMixVlvCmd"
+}
+

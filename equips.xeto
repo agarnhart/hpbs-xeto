@@ -1,0 +1,882 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Equipment Type Extensions
+//
+// Extends Haystack ph.equips equipment types with HPBS-specific defaults
+// and point profiles. These are THIN extensions that preserve all Haystack
+// global markers for proper interoperability.
+//
+// IMPORTANT: These types extend Haystack directly and maintain full
+// compatibility with standard Haystack queries like:
+//   read(ahu)
+//   read(boiler)
+//   read(chiller)
+//
+// Point profiles define which point types are typically associated with
+// each equipment type. All points are optional (?) - equipment instances
+// only include the points they actually have.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Air Handling Units
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs AHU with regional defaults and point profile
+// Query: read(ahu) will find these
+HpbsAhu: Ahu {
+  points: {
+    // Air temperatures
+    daTemp: HpbsDischargeAirTempSensor?
+    daTempSp: HpbsDischargeAirTempSp?
+    maTemp: HpbsMixedAirTempSensor?
+    raTemp: HpbsReturnAirTempSensor?
+    oaTemp: HpbsOutsideAirTempSensor?
+
+    // Air humidity
+    daHum: HpbsDischargeAirHumiditySensor?
+    raHum: HpbsReturnAirHumiditySensor?
+    oaHum: HpbsOutsideAirHumiditySensor?
+
+    // Supply fan
+    sfCmd: HpbsSupplyFanRunCmd?
+    sfSts: HpbsSupplyFanRunSensor?
+    sfSpd: HpbsSupplyFanSpeedSensor?
+    sfSpdCmd: HpbsSupplyFanSpeedCmd?
+
+    // Return fan
+    rfCmd: HpbsReturnFanRunCmd?
+    rfSts: HpbsReturnFanRunSensor?
+    rfSpd: HpbsReturnFanSpeedSensor?
+
+    // Dampers
+    oaDmprCmd: HpbsOutsideAirDamperCmd?
+    oaDmprPos: HpbsOutsideAirDamperSensor?
+    raDmprCmd: HpbsReturnAirDamperCmd?
+    raDmprPos: HpbsReturnAirDamperSensor?
+
+    // Chilled water coil
+    chwVlvCmd: HpbsChilledWaterValveCmd?
+    chwVlvPos: HpbsChilledWaterValveSensor?
+
+    // Heating coil (hot water)
+    hwVlvCmd: HpbsHeatingValveCmd?
+    hwVlvPos: HpbsHeatingValveSensor?
+
+    // Preheat coil
+    phVlvCmd: HpbsPreheatValveCmd?
+    phVlvPos: HpbsPreheatValveSensor?
+
+    // Duct static pressure
+    daPress: HpbsDischargeAirPressureSensor?
+    daPressSp: HpbsDischargeAirPressureSp?
+
+    // Safety and status
+    frzStat: HpbsFreezeStatSensor?
+    filtAlarm: HpbsFilterAlarmSensor?
+    equipAlarm: HpbsEquipAlarmSensor?
+  }
+}
+
+// Hpbs AHU with economizer
+HpbsAhuWithEconomizer: Ahu {
+  economizing
+  points: {
+    // Core AHU points
+    daTemp: HpbsDischargeAirTempSensor?
+    daTempSp: HpbsDischargeAirTempSp?
+    maTemp: HpbsMixedAirTempSensor?
+    raTemp: HpbsReturnAirTempSensor?
+    oaTemp: HpbsOutsideAirTempSensor?
+    sfCmd: HpbsSupplyFanRunCmd?
+    sfSts: HpbsSupplyFanRunSensor?
+    sfSpd: HpbsSupplyFanSpeedSensor?
+    oaDmprCmd: HpbsOutsideAirDamperCmd?
+    raDmprCmd: HpbsReturnAirDamperCmd?
+    chwVlvCmd: HpbsChilledWaterValveCmd?
+    hwVlvCmd: HpbsHeatingValveCmd?
+    daPress: HpbsDischargeAirPressureSensor?
+    frzStat: HpbsFreezeStatSensor?
+    filtAlarm: HpbsFilterAlarmSensor?
+
+    // Economizer-specific
+    econDmprCmd: HpbsEconomizerDamperCmd?
+    econDmprPos: HpbsEconomizerDamperSensor?
+    econEnable: HpbsEconomizerEnableSensor?
+    econLockout: HpbsEconomizerLockoutSensor?
+    econHiLmtSp: HpbsEconomizerHighLimitTempSp?
+  }
+}
+
+// Hpbs Rooftop Unit (packaged AHU)
+HpbsRtu: Rtu {
+  points: {
+    // Core AHU-like points
+    daTemp: HpbsDischargeAirTempSensor?
+    daTempSp: HpbsDischargeAirTempSp?
+    raTemp: HpbsReturnAirTempSensor?
+    oaTemp: HpbsOutsideAirTempSensor?
+    sfCmd: HpbsSupplyFanRunCmd?
+    sfSts: HpbsSupplyFanRunSensor?
+    oaDmprCmd: HpbsOutsideAirDamperCmd?
+    frzStat: HpbsFreezeStatSensor?
+    filtAlarm: HpbsFilterAlarmSensor?
+
+    // DX cooling stages
+    clgStgCmd: HpbsCoolingStageCmd?
+    clgStgSts: HpbsCoolingStageSensor?
+
+    // Gas/electric heating stages
+    htgStgCmd: HpbsHeatingStageCmd?
+    htgStgSts: HpbsHeatingStageSensor?
+  }
+}
+
+// Hpbs Makeup Air Unit
+HpbsMau: Mau {
+  points: {
+    daTemp: HpbsDischargeAirTempSensor?
+    daTempSp: HpbsDischargeAirTempSp?
+    oaTemp: HpbsOutsideAirTempSensor?
+    sfCmd: HpbsSupplyFanRunCmd?
+    sfSts: HpbsSupplyFanRunSensor?
+    hwVlvCmd: HpbsHeatingValveCmd?
+    frzStat: HpbsFreezeStatSensor?
+  }
+}
+
+// Hpbs Dedicated Outdoor Air System
+HpbsDoas: Doas {
+  points: {
+    daTemp: HpbsDischargeAirTempSensor?
+    daTempSp: HpbsDischargeAirTempSp?
+    oaTemp: HpbsOutsideAirTempSensor?
+    sfCmd: HpbsSupplyFanRunCmd?
+    sfSts: HpbsSupplyFanRunSensor?
+    chwVlvCmd: HpbsChilledWaterValveCmd?
+    hwVlvCmd: HpbsHeatingValveCmd?
+    daHum: HpbsDischargeAirHumiditySensor?
+    oaHum: HpbsOutsideAirHumiditySensor?
+    frzStat: HpbsFreezeStatSensor?
+    filtAlarm: HpbsFilterAlarmSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Variable Air Volume (VAV)
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs VAV terminal unit (cooling only)
+// Query: read(vav) will find these
+HpbsVav: Vav {
+  points: {
+    // Zone air temperature
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znClgSp: HpbsZoneAirTempCoolingSp?
+    znHtgSp: HpbsZoneAirTempHeatingSp?
+
+    // Airflow
+    znFlow: HpbsZoneAirFlowSensor?
+    znFlowSp: HpbsZoneAirFlowSp?
+
+    // Damper
+    znDmprCmd: HpbsZoneDamperCmd?
+    znDmprPos: HpbsZoneDamperSensor?
+
+    // Occupancy
+    znOcc: HpbsZoneOccupancySensor?
+    znOccCmd: HpbsZoneOccupiedCmd?
+  }
+}
+
+// Hpbs VAV with hot water reheat
+HpbsVavReheat: Vav {
+  hotWaterReheat
+  points: {
+    // Zone air temperature
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znClgSp: HpbsZoneAirTempCoolingSp?
+    znHtgSp: HpbsZoneAirTempHeatingSp?
+
+    // Airflow
+    znFlow: HpbsZoneAirFlowSensor?
+    znFlowSp: HpbsZoneAirFlowSp?
+
+    // Damper
+    znDmprCmd: HpbsZoneDamperCmd?
+    znDmprPos: HpbsZoneDamperSensor?
+
+    // Reheat
+    rhVlvCmd: HpbsReheatValveCmd?
+    rhVlvPos: HpbsReheatValveSensor?
+    daTemp: HpbsDischargeAirTempSensor?
+
+    // Occupancy
+    znOcc: HpbsZoneOccupancySensor?
+    znOccCmd: HpbsZoneOccupiedCmd?
+  }
+}
+
+// Hpbs VAV with electric reheat
+HpbsVavElecReheat: Vav {
+  elecReheat
+  points: {
+    // Zone air temperature
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znClgSp: HpbsZoneAirTempCoolingSp?
+    znHtgSp: HpbsZoneAirTempHeatingSp?
+
+    // Airflow
+    znFlow: HpbsZoneAirFlowSensor?
+    znFlowSp: HpbsZoneAirFlowSp?
+
+    // Damper
+    znDmprCmd: HpbsZoneDamperCmd?
+    znDmprPos: HpbsZoneDamperSensor?
+
+    // Electric reheat stages
+    htgStgCmd: HpbsHeatingStageCmd?
+    htgStgSts: HpbsHeatingStageSensor?
+    daTemp: HpbsDischargeAirTempSensor?
+
+    // Occupancy
+    znOcc: HpbsZoneOccupancySensor?
+  }
+}
+
+// Hpbs Fan-Powered VAV
+HpbsFanPoweredVav: FanPoweredVav {
+  points: {
+    // Zone air temperature
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znClgSp: HpbsZoneAirTempCoolingSp?
+    znHtgSp: HpbsZoneAirTempHeatingSp?
+
+    // Airflow
+    znFlow: HpbsZoneAirFlowSensor?
+    znFlowSp: HpbsZoneAirFlowSp?
+
+    // Damper
+    znDmprCmd: HpbsZoneDamperCmd?
+    znDmprPos: HpbsZoneDamperSensor?
+
+    // Box fan
+    sfCmd: HpbsSupplyFanRunCmd?
+    sfSts: HpbsSupplyFanRunSensor?
+
+    // Reheat
+    rhVlvCmd: HpbsReheatValveCmd?
+    daTemp: HpbsDischargeAirTempSensor?
+
+    // Occupancy
+    znOcc: HpbsZoneOccupancySensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Boilers
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Boiler
+// Query: read(boiler) will find these
+HpbsBoiler: Boiler {
+  points: {
+    // Hot water temperatures
+    hwSupplyTemp: HpbsHotWaterSupplyTempSensor?
+    hwSupplyTempSp: HpbsHotWaterSupplyTempSp?
+    hwReturnTemp: HpbsHotWaterReturnTempSensor?
+    hwDeltaT: HpbsHotWaterDeltaTempSensor?
+
+    // Control
+    blrEnable: HpbsBoilerEnableCmd?
+    blrRunSts: HpbsBoilerRunSensor?
+    blrAlarm: HpbsBoilerAlarmSensor?
+
+    // Staging and firing
+    blrStgCmd: HpbsBoilerStageCmd?
+    blrStgSts: HpbsBoilerStageSensor?
+    blrFire: HpbsBoilerFireRateSensor?
+    blrFireCmd: HpbsBoilerFireRateCmd?
+
+    // Gas valve
+    gasVlvCmd: HpbsGasValveCmd?
+    gasVlvSts: HpbsGasValveSensor?
+  }
+}
+
+// Hpbs condensing boiler
+HpbsCondensingBoiler: Boiler {
+  condensing
+  points: {
+    hwSupplyTemp: HpbsHotWaterSupplyTempSensor?
+    hwSupplyTempSp: HpbsHotWaterSupplyTempSp?
+    hwReturnTemp: HpbsHotWaterReturnTempSensor?
+    blrEnable: HpbsBoilerEnableCmd?
+    blrRunSts: HpbsBoilerRunSensor?
+    blrAlarm: HpbsBoilerAlarmSensor?
+    blrFire: HpbsBoilerFireRateSensor?
+  }
+}
+
+// Hpbs hot water boiler
+HpbsHotWaterBoiler: HotWaterBoiler {
+  points: {
+    hwSupplyTemp: HpbsHotWaterSupplyTempSensor?
+    hwSupplyTempSp: HpbsHotWaterSupplyTempSp?
+    hwReturnTemp: HpbsHotWaterReturnTempSensor?
+    blrEnable: HpbsBoilerEnableCmd?
+    blrRunSts: HpbsBoilerRunSensor?
+    blrAlarm: HpbsBoilerAlarmSensor?
+    blrFire: HpbsBoilerFireRateSensor?
+  }
+}
+
+// Hpbs steam boiler
+HpbsSteamBoiler: SteamBoiler {
+  points: {
+    stmPress: HpbsSteamPressureSensor?
+    stmPressSp: HpbsSteamPressureSp?
+    stmTemp: HpbsSteamTempSensor?
+    blrEnable: HpbsBoilerEnableCmd?
+    blrRunSts: HpbsBoilerRunSensor?
+    blrAlarm: HpbsBoilerAlarmSensor?
+    blrFire: HpbsBoilerFireRateSensor?
+    gasVlvCmd: HpbsGasValveCmd?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chillers
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Chiller
+// Query: read(chiller) will find these
+HpbsChiller: Chiller {
+  points: {
+    // Chilled water temperatures
+    chwEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    chwLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+    chwLeaveTempSp: HpbsChilledWaterLeavingTempSp?
+
+    // Condenser water temperatures
+    cwEnterTemp: HpbsCondenserWaterEnteringTempSensor?
+    cwLeaveTemp: HpbsCondenserWaterLeavingTempSensor?
+
+    // Control
+    chlrEnable: HpbsChillerEnableCmd?
+    chlrRunSts: HpbsChillerRunSensor?
+    chlrAlarm: HpbsChillerAlarmSensor?
+
+    // Load and staging
+    chlrLoad: HpbsChillerLoadSensor?
+    chlrStgCmd: HpbsChillerStageCmd?
+    chlrStgSts: HpbsChillerStageSensor?
+
+    // Power
+    chlrPwr: HpbsChillerElecPowerSensor?
+    chlrEff: HpbsChillerEfficiencySensor?
+  }
+}
+
+// Hpbs air-cooled chiller
+HpbsAirCooledChiller: AirCooledChiller {
+  points: {
+    chwEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    chwLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+    chwLeaveTempSp: HpbsChilledWaterLeavingTempSp?
+    oaTemp: HpbsOutsideAirTempSensor?
+    chlrEnable: HpbsChillerEnableCmd?
+    chlrRunSts: HpbsChillerRunSensor?
+    chlrAlarm: HpbsChillerAlarmSensor?
+    chlrLoad: HpbsChillerLoadSensor?
+  }
+}
+
+// Hpbs water-cooled chiller
+HpbsWaterCooledChiller: WaterCooledChiller {
+  points: {
+    chwEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    chwLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+    chwLeaveTempSp: HpbsChilledWaterLeavingTempSp?
+    cwEnterTemp: HpbsCondenserWaterEnteringTempSensor?
+    cwLeaveTemp: HpbsCondenserWaterLeavingTempSensor?
+    chlrEnable: HpbsChillerEnableCmd?
+    chlrRunSts: HpbsChillerRunSensor?
+    chlrAlarm: HpbsChillerAlarmSensor?
+    chlrLoad: HpbsChillerLoadSensor?
+    chlrPwr: HpbsChillerElecPowerSensor?
+    chlrEff: HpbsChillerEfficiencySensor?
+  }
+}
+
+// Hpbs centrifugal chiller
+HpbsCentrifugalChiller: Chiller {
+  centrifugal
+  points: {
+    chwEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    chwLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+    chwLeaveTempSp: HpbsChilledWaterLeavingTempSp?
+    cwEnterTemp: HpbsCondenserWaterEnteringTempSensor?
+    cwLeaveTemp: HpbsCondenserWaterLeavingTempSensor?
+    chlrEnable: HpbsChillerEnableCmd?
+    chlrRunSts: HpbsChillerRunSensor?
+    chlrLoad: HpbsChillerLoadSensor?
+  }
+}
+
+// Hpbs screw chiller
+HpbsScrewChiller: Chiller {
+  screw
+  points: {
+    chwEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    chwLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+    chwLeaveTempSp: HpbsChilledWaterLeavingTempSp?
+    chlrEnable: HpbsChillerEnableCmd?
+    chlrRunSts: HpbsChillerRunSensor?
+    chlrLoad: HpbsChillerLoadSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Towers
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Cooling Tower
+// Query: read(coolingTower) will find these
+HpbsCoolingTower: CoolingTower {
+  points: {
+    // Fan
+    ctFanCmd: HpbsCoolingTowerFanRunCmd?
+    ctFanSts: HpbsCoolingTowerFanRunSensor?
+    ctFanSpd: HpbsCoolingTowerFanSpeedSensor?
+    ctFanSpdCmd: HpbsCoolingTowerFanSpeedCmd?
+
+    // Water temperatures
+    cwEnterTemp: HpbsCondenserWaterEnteringTempSensor?
+    cwLeaveTemp: HpbsCondenserWaterLeavingTempSensor?
+    cwLeaveTempSp: HpbsCondenserWaterLeavingTempSp?
+    ctBasinTemp: HpbsCoolingTowerBasinTempSensor?
+    ctApprchTemp: HpbsCoolingTowerApproachTempSensor?
+
+    // Outside air
+    oaTemp: HpbsOutsideAirTempSensor?
+    oaWetBulb: HpbsOutsideAirWetBulbPoint?
+
+    // Control
+    ctEnable: HpbsCoolingTowerEnableCmd?
+    ctRunSts: HpbsCoolingTowerRunSensor?
+    ctStgCmd: HpbsCoolingTowerStageCmd?
+    ctStgSts: HpbsCoolingTowerStageSensor?
+
+    // Makeup water
+    mkupFlow: HpbsMakeupWaterFlowSensor?
+  }
+}
+
+// Hpbs open cooling tower
+HpbsOpenCoolingTower: CoolingTower {
+  openLoop
+  points: {
+    ctFanCmd: HpbsCoolingTowerFanRunCmd?
+    ctFanSts: HpbsCoolingTowerFanRunSensor?
+    ctFanSpd: HpbsCoolingTowerFanSpeedSensor?
+    cwEnterTemp: HpbsCondenserWaterEnteringTempSensor?
+    cwLeaveTemp: HpbsCondenserWaterLeavingTempSensor?
+    ctBasinTemp: HpbsCoolingTowerBasinTempSensor?
+    oaWetBulb: HpbsOutsideAirWetBulbPoint?
+    ctEnable: HpbsCoolingTowerEnableCmd?
+  }
+}
+
+// Hpbs closed cooling tower (fluid cooler)
+HpbsClosedCoolingTower: CoolingTower {
+  closedLoop
+  points: {
+    ctFanCmd: HpbsCoolingTowerFanRunCmd?
+    ctFanSts: HpbsCoolingTowerFanRunSensor?
+    ctFanSpd: HpbsCoolingTowerFanSpeedSensor?
+    cwEnterTemp: HpbsCondenserWaterEnteringTempSensor?
+    cwLeaveTemp: HpbsCondenserWaterLeavingTempSensor?
+    oaTemp: HpbsOutsideAirTempSensor?
+    ctEnable: HpbsCoolingTowerEnableCmd?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fan Coil Units
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Fan Coil Unit
+// Query: read(fcu) will find these
+HpbsFcu: Fcu {
+  points: {
+    // Zone temperature
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znClgSp: HpbsZoneAirTempCoolingSp?
+    znHtgSp: HpbsZoneAirTempHeatingSp?
+
+    // Fan
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+
+    // Cooling valve
+    clgVlvCmd: HpbsCoolingValveCmd?
+    clgVlvPos: HpbsCoolingValveSensor?
+
+    // Heating valve
+    htgVlvCmd: HpbsHeatingValveCmd?
+    htgVlvPos: HpbsHeatingValveSensor?
+
+    // Occupancy
+    znOcc: HpbsZoneOccupancySensor?
+  }
+}
+
+// Hpbs 2-pipe fan coil unit
+HpbsFcu2Pipe: Fcu {
+  pipeCount: Number 2
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+    vlvCmd: HpbsChilledWaterValveCmd?
+    vlvPos: HpbsChilledWaterValveSensor?
+    znOcc: HpbsZoneOccupancySensor?
+  }
+}
+
+// Hpbs 4-pipe fan coil unit
+HpbsFcu4Pipe: Fcu {
+  pipeCount: Number 4
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znClgSp: HpbsZoneAirTempCoolingSp?
+    znHtgSp: HpbsZoneAirTempHeatingSp?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+    clgVlvCmd: HpbsCoolingValveCmd?
+    clgVlvPos: HpbsCoolingValveSensor?
+    htgVlvCmd: HpbsHeatingValveCmd?
+    htgVlvPos: HpbsHeatingValveSensor?
+    znOcc: HpbsZoneOccupancySensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Computer Room Equipment
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs CRAC (Computer Room Air Conditioning)
+// Query: read(crac) will find these
+HpbsCrac: Crac {
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znHum: HpbsZoneAirHumiditySensor?
+    daTemp: HpbsDischargeAirTempSensor?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+    clgVlvCmd: HpbsCoolingValveCmd?
+    equipAlarm: HpbsEquipAlarmSensor?
+  }
+}
+
+// Hpbs CRAH (Computer Room Air Handler)
+HpbsCrah: Crah {
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    znHum: HpbsZoneAirHumiditySensor?
+    daTemp: HpbsDischargeAirTempSensor?
+    sfCmd: HpbsSupplyFanRunCmd?
+    sfSts: HpbsSupplyFanRunSensor?
+    sfSpd: HpbsSupplyFanSpeedSensor?
+    chwVlvCmd: HpbsChilledWaterValveCmd?
+    equipAlarm: HpbsEquipAlarmSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Exhaust Systems
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Exhaust Fan
+HpbsExhaustFan: ExhaustFan {
+  points: {
+    exhFanCmd: HpbsExhaustFanRunCmd?
+    exhFanSts: HpbsExhaustFanRunSensor?
+    exhFanSpd: HpbsExhaustFanSpeedSensor?
+    exhDmprCmd: HpbsExhaustAirDamperCmd?
+    exhDmprPos: HpbsExhaustAirDamperSensor?
+    exhFlow: HpbsExhaustAirFlowSensor?
+  }
+}
+
+// Hpbs Fume Hood
+HpbsFumeHood: FumeHood {
+  points: {
+    exhFanCmd: HpbsExhaustFanRunCmd?
+    exhFanSts: HpbsExhaustFanRunSensor?
+    exhFlow: HpbsExhaustAirFlowSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Domestic Hot Water Equipment
+//////////////////////////////////////////////////////////////////////////
+
+// Note: HpbsDomesticHotWaterSystem is defined in systems.xeto
+
+// Hpbs Water Heater (tank-type)
+HpbsWaterHeater: WaterHeater {
+  points: {
+    dhwSupplyTemp: HpbsDomesticHotWaterSupplyTempSensor?
+    dhwSupplyTempSp: HpbsDomesticHotWaterSupplyTempSp?
+    gasVlvCmd: HpbsGasValveCmd?
+    equipAlarm: HpbsEquipAlarmSensor?
+  }
+}
+
+// Hpbs Tankless Water Heater
+HpbsTanklessWaterHeater: WaterHeater {
+  tankless
+  points: {
+    dhwSupplyTemp: HpbsDomesticHotWaterSupplyTempSensor?
+    dhwSupplyTempSp: HpbsDomesticHotWaterSupplyTempSp?
+    dhwFlow: HpbsDomesticHotWaterFlowSensor?
+    gasVlvCmd: HpbsGasValveCmd?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Pumps as Equipment
+//////////////////////////////////////////////////////////////////////////
+
+// Hpbs Chilled Water Pump
+HpbsChilledWaterPump: ChilledWaterPump {
+  points: {
+    pumpCmd: HpbsChilledWaterPumpRunCmd?
+    pumpSts: HpbsChilledWaterPumpRunSensor?
+    pumpSpd: HpbsChilledWaterPumpSpeedSensor?
+    pumpSpdCmd: HpbsChilledWaterPumpSpeedCmd?
+    pumpAlarm: HpbsChilledWaterPumpAlarmSensor?
+    pumpPwr: HpbsChilledWaterPumpPowerSensor?
+  }
+}
+
+// Hot water pump with HPBS conventions
+HpbsHotWaterPump: HotWaterPump {
+  points: {
+    pumpCmd: HpbsHotWaterPumpRunCmd?
+    pumpSts: HpbsHotWaterPumpRunSensor?
+    pumpSpd: HpbsHotWaterPumpSpeedSensor?
+    pumpSpdCmd: HpbsHotWaterPumpSpeedCmd?
+    pumpAlarm: HpbsHotWaterPumpAlarmSensor?
+    pumpPwr: HpbsHotWaterPumpPowerSensor?
+  }
+}
+
+// Condenser water pump with HPBS conventions
+HpbsCondenserWaterPump: CondenserWaterPump {
+  points: {
+    pumpCmd: HpbsCondenserWaterPumpRunCmd?
+    pumpSts: HpbsCondenserWaterPumpRunSensor?
+    pumpSpd: HpbsCondenserWaterPumpSpeedSensor?
+    pumpSpdCmd: HpbsCondenserWaterPumpSpeedCmd?
+    pumpAlarm: HpbsCondenserWaterPumpAlarmSensor?
+    pumpPwr: HpbsCondenserWaterPumpPowerSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Exchangers
+//////////////////////////////////////////////////////////////////////////
+
+// Heat exchanger with HPBS conventions
+HpbsHeatExchanger: HeatExchanger {
+  points: {
+    priEnterTemp: HpbsHotWaterEnteringTempSensor?
+    priLeaveTemp: HpbsHotWaterLeavingTempSensor?
+    secEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    secLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+  }
+}
+
+// Plate heat exchanger with HPBS conventions
+HpbsPlateHeatExchanger: HeatExchanger {
+  plate
+  points: {
+    priEnterTemp: HpbsHotWaterEnteringTempSensor?
+    priLeaveTemp: HpbsHotWaterLeavingTempSensor?
+    secEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    secLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+  }
+}
+
+// Shell and tube heat exchanger with HPBS conventions
+HpbsShellTubeHeatExchanger: HeatExchanger {
+  shellTube
+  points: {
+    priEnterTemp: HpbsHotWaterEnteringTempSensor?
+    priLeaveTemp: HpbsHotWaterLeavingTempSensor?
+    secEnterTemp: HpbsChilledWaterEnteringTempSensor?
+    secLeaveTemp: HpbsChilledWaterLeavingTempSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Heat pump with HPBS conventions
+HpbsHeatPump: HeatPump {
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    compCmd: HpbsCompressor1RunCmd?
+    compSts: HpbsCompressor1RunSensor?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+  }
+}
+
+// Air source heat pump with HPBS conventions
+HpbsAirSourceHeatPump: AirSourceHeatPump {
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    oaTemp: HpbsOutsideAirTempSensor?
+    compCmd: HpbsCompressor1RunCmd?
+    compSts: HpbsCompressor1RunSensor?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+  }
+}
+
+// Water source heat pump with HPBS conventions
+HpbsWaterSourceHeatPump: WaterSourceHeatPump {
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    hwEnterTemp: HpbsHotWaterEnteringTempSensor?
+    hwLeaveTemp: HpbsHotWaterLeavingTempSensor?
+    compCmd: HpbsCompressor1RunCmd?
+    compSts: HpbsCompressor1RunSensor?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+  }
+}
+
+// Ground source heat pump with HPBS conventions
+HpbsGroundSourceHeatPump: GroundSourceHeatPump {
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSpEff: HpbsZoneAirTempEffectiveSp?
+    hwEnterTemp: HpbsHotWaterEnteringTempSensor?
+    hwLeaveTemp: HpbsHotWaterLeavingTempSensor?
+    compCmd: HpbsCompressor1RunCmd?
+    compSts: HpbsCompressor1RunSensor?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Unit Heaters and Radiant
+//////////////////////////////////////////////////////////////////////////
+
+// Unit heater with HPBS conventions
+HpbsUnitHeater: UnitHeater {
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSp: HpbsZoneAirTempEffectiveSp?
+    fanCmd: HpbsSupplyFanRunCmd?
+    fanSts: HpbsSupplyFanRunSensor?
+    htgVlvCmd: HpbsHeatingValveCmd?
+    htgVlvPos: HpbsHeatingValveSensor?
+  }
+}
+
+// Radiant panel with HPBS conventions
+HpbsRadiantPanel: RadiantEquip {
+  panel
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSp: HpbsZoneAirTempEffectiveSp?
+    hwVlvCmd: HpbsHotWaterValveCmd?
+    hwVlvPos: HpbsHotWaterValveSensor?
+  }
+}
+
+// Radiant floor heating with HPBS conventions
+HpbsRadiantFloor: RadiantEquip {
+  floor
+  points: {
+    znTemp: HpbsZoneAirTempSensor?
+    znTempSp: HpbsZoneAirTempEffectiveSp?
+    hwVlvCmd: HpbsHotWaterValveCmd?
+    hwSupplyTemp: HpbsHotWaterSupplyTempSensor?
+    hwReturnTemp: HpbsHotWaterReturnTempSensor?
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Meters
+//////////////////////////////////////////////////////////////////////////
+
+// Electric meter with HPBS conventions
+HpbsElecMeter: ElecMeter {
+  points: {
+    elecEnergy: HpbsBuildingElecEnergySensor?
+    elecPwr: HpbsBuildingElecPowerSensor?
+    elecDemand: HpbsBuildingElecDemandSensor?
+  }
+}
+
+// Natural gas meter with HPBS conventions
+HpbsGasMeter: GasMeter {
+  points: {
+    gasVol: HpbsBuildingNaturalGasVolumeSensor?
+    gasEnergy: HpbsBuildingNaturalGasEnergySensor?
+    gasPress: HpbsBuildingNaturalGasPressureSensor?
+  }
+}
+
+// Water meter with HPBS conventions
+HpbsWaterMeter: WaterMeter {
+  points: {
+    waterVol: HpbsDomesticHotWaterVolumeSensor?
+    waterFlow: HpbsDomesticHotWaterFlowSensor?
+  }
+}
+
+// BTU meter with HPBS conventions
+HpbsBtuMeter: ThermalMeter {
+  points: {
+    hwEnergy: HpbsHotWaterEnergySensor?
+    chwEnergy: HpbsChilledWaterEnergySensor?
+    hwPwr: HpbsHotWaterPowerSensor?
+    chwPwr: HpbsChilledWaterPowerSensor?
+  }
+}
+
+// Steam meter with HPBS conventions
+HpbsSteamMeter: SteamMeter {
+  points: {
+    stmFlow: HpbsSteamFlowSensor?
+    stmEnergy: HpbsSteamEnergySensor?
+    stmPress: HpbsSteamPressureSensor?
+  }
+}
+

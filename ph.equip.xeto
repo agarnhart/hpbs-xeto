@@ -1,0 +1,152 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Equipment Specs
+//
+// These specs are intended to be contributed upstream to ph.equips.
+// They define equipment types that are missing from the official ph library.
+//
+
+
+//////////////////////////////////////////////////////////////////////////
+// Fans
+//////////////////////////////////////////////////////////////////////////
+
+// Fan - equipment that moves air
+Fan: Equip {
+  fan
+}
+
+// Exhaust fan - removes air from a space
+ExhaustFan: Fan {
+  exhaust
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Pump - equipment that moves fluid
+Pump: Equip {
+  pump
+}
+
+// Chilled water pump
+ChilledWaterPump: Pump {
+  chilled
+  water
+}
+
+// Hot water pump
+HotWaterPump: Pump {
+  hot
+  water
+}
+
+// Condenser water pump
+CondenserWaterPump: Pump {
+  condenser
+  water
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Meters
+//////////////////////////////////////////////////////////////////////////
+
+// Gas meter - measures natural gas consumption
+GasMeter: Equip {
+  gasMeter
+}
+
+// Thermal meter (BTU meter) - measures thermal energy
+ThermalMeter: Equip {
+  thermalMeter
+}
+
+// Steam meter - measures steam consumption
+SteamMeter: Equip {
+  steamMeter
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chillers (subtypes)
+//////////////////////////////////////////////////////////////////////////
+
+// Air-cooled chiller - rejects heat to outdoor air
+AirCooledChiller: Chiller {
+  airCooled
+}
+
+// Water-cooled chiller - rejects heat to condenser water loop
+WaterCooledChiller: Chiller {
+  waterCooled
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Heat pump - provides heating and/or cooling via refrigeration cycle
+HeatPump: Equip {
+  heatPump
+}
+
+// Air source heat pump - exchanges heat with outdoor air
+AirSourceHeatPump: HeatPump {
+  airCooled
+}
+
+// Water source heat pump - exchanges heat with water loop
+WaterSourceHeatPump: HeatPump {
+  waterCooled
+}
+
+// Ground source heat pump (geothermal)
+GroundSourceHeatPump: HeatPump {
+  groundCoupled
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Terminal Units
+//////////////////////////////////////////////////////////////////////////
+
+// Fan powered VAV terminal unit (series or parallel fan)
+FanPoweredVav: Vav {
+  fanPowered
+}
+
+// Unit heater (cabinet, wall, or ceiling mounted)
+UnitHeater: Equip {
+  unitHeater
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Computer Room Units
+//////////////////////////////////////////////////////////////////////////
+
+// Computer room air conditioner
+Crah: Equip {
+  crah
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Domestic Hot Water
+//////////////////////////////////////////////////////////////////////////
+
+// Water heater - standalone unit for heating domestic water
+WaterHeater: Equip {
+  waterHeater
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Misc Equip
+//////////////////////////////////////////////////////////////////////////
+
+// Radiant heating/cooling equipment (panels, floors, ceilings)
+RadiantEquip: Equip {
+  radiant
+}

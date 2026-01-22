@@ -1,0 +1,42 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Weather Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// They define weather-related point types.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Outside Air Humidity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Outside air humidity sensor
+OutsideAirHumiditySensor: NumberPoint & SensorPoint {
+  outside
+  air
+  humidity
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Weather Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Outside air wet bulb temperature point
+WeatherWetBulbPoint: NumberPoint & SensorPoint {
+  outside
+  air
+  wetBulb
+}
+
+// Outside air dew point temperature point
+WeatherDewPointPoint: NumberPoint & SensorPoint {
+  outside
+  air
+  dewPoint
+}
+

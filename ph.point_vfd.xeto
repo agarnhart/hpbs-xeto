@@ -1,0 +1,29 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder VFD Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// They define VFD run state points (ph.points has VfdSpeed/VfdFreq but not VfdRun).
+//
+
+//////////////////////////////////////////////////////////////////////////
+// VFD Run Points
+//////////////////////////////////////////////////////////////////////////
+
+// VFD run sensor - detects on/off state of VFD-driven equipment
+VfdRunSensor: BoolPoint & SensorPoint {
+  vfd
+  run
+}
+
+// VFD run command - controls on/off state of VFD-driven equipment
+VfdRunCmd: BoolPoint & CmdPoint {
+  vfd
+  run
+}
+

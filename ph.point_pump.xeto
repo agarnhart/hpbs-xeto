@@ -1,0 +1,36 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Pump Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+// They define pump-related point types following Project Haystack conventions.
+//
+
+// Point associated with a pump
+PumpPoint : Point <abstract> {
+  pump
+}
+
+// Sensor for primary on/off state of pump
+PumpRunSensor : PumpPoint & RunSensor <abstract>
+
+// Command for primary on/off state of pump
+PumpRunCmd : PumpPoint & RunCmd <abstract>
+
+// Sensor for secondary on/off state of pump
+PumpEnableSensor : PumpPoint & EnableSensor <abstract>
+
+// Command for secondary on/off state of pump
+PumpEnableCmd : PumpPoint & EnableCmd <abstract>
+
+// Sensor for speed of a pump as percentage 0% off and 100% full speed
+PumpSpeedSensor : PumpPoint & VfdSpeedSensor <abstract>
+
+// Command for speed of a pump as percentage 0% off and 100% full speed
+PumpSpeedCmd : PumpPoint & VfdSpeedCmd <abstract>
+

@@ -1,0 +1,87 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Chiller Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller stage command
+ChillerStageCmd: NumberPoint & CmdPoint {
+  chiller
+}
+
+// Chiller stage sensor
+ChillerStageSensor: NumberPoint & SensorPoint {
+  chiller
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Load Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller load sensor
+ChillerLoadSensor: NumberPoint & SensorPoint {
+  chiller
+  load
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Run/Enable Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller enable command
+ChillerEnableCmd: BoolPoint & CmdPoint {
+  chiller
+  enable
+}
+
+// Chiller run sensor
+ChillerRunSensor: BoolPoint & SensorPoint {
+  chiller
+  run
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Oil Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller oil temperature sensor
+ChillerOilTempSensor: NumberPoint & SensorPoint {
+  chiller
+  oil
+  temp
+}
+
+// Chiller oil heater command
+ChillerOilHeaterCmd: BoolPoint & CmdPoint {
+  chiller
+  oil
+  heater
+}
+
+// Chiller oil heater sensor
+ChillerOilHeaterSensor: BoolPoint & SensorPoint {
+  chiller
+  oil
+  heater
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Runtime Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller runtime sensor
+ChillerRuntimeSensor: NumberPoint & SensorPoint {
+  chiller
+  run
+}
+

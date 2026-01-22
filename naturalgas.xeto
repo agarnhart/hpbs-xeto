@@ -1,0 +1,144 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Natural Gas Point Types
+//
+// Extends Haystack ph.points natural gas types with HPBS-specific
+// defaults for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Natural Gas Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Natural gas flow sensor
+HpbsNaturalGasFlowSensor: NaturalGasFlowSensor & HpbsGasColor {
+  unit: "cfm"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "GasFlow"
+}
+
+// Boiler natural gas flow sensor
+HpbsBoilerNaturalGasFlowSensor: NaturalGasFlowSensor & HpbsGasColor {
+  boiler
+  unit: "cfm"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BlrGasFlow"
+}
+
+// Domestic water heater gas flow sensor
+HpbsDomesticWaterHeaterNaturalGasFlowSensor: NaturalGasFlowSensor & HpbsGasColor {
+  domestic
+  hot
+  water
+  unit: "cfm"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "DhwGasFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Natural Gas Volume Points (Totalized)
+//////////////////////////////////////////////////////////////////////////
+
+// Natural gas volume sensor (totalized)
+HpbsNaturalGasVolumeSensor: NaturalGasVolumeSensor & HpbsGasColor {
+  unit: "ft³"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "GasVol"
+}
+
+// Boiler natural gas volume sensor
+HpbsBoilerNaturalGasVolumeSensor: NaturalGasVolumeSensor & HpbsGasColor {
+  boiler
+  unit: "ft³"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "BlrGasVol"
+}
+
+// Building natural gas volume sensor (main meter)
+HpbsBuildingNaturalGasVolumeSensor: NaturalGasVolumeSensor & HpbsGasColor {
+  building
+  unit: "ft³"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "BldgGasVol"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Natural Gas Energy Points
+//////////////////////////////////////////////////////////////////////////
+
+// Natural gas energy sensor (therms - totalized)
+HpbsNaturalGasEnergySensor: NaturalGasEnergySensor & HpbsGasColor {
+  unit: "therm"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "GasEnergy"
+}
+
+// Boiler natural gas energy sensor
+HpbsBoilerNaturalGasEnergySensor: NaturalGasEnergySensor & HpbsGasColor {
+  boiler
+  unit: "therm"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "BlrGasEnergy"
+}
+
+// Building natural gas energy sensor (main meter)
+HpbsBuildingNaturalGasEnergySensor: NaturalGasEnergySensor & HpbsGasColor {
+  building
+  unit: "therm"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "BldgGasEnergy"
+}
+
+// Domestic water heater gas energy sensor
+HpbsDomesticWaterHeaterNaturalGasEnergySensor: NaturalGasEnergySensor & HpbsGasColor {
+  domestic
+  hot
+  water
+  unit: "therm"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "DhwGasEnergy"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Natural Gas Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Natural gas pressure sensor
+HpbsNaturalGasPressureSensor: NaturalGasPressureSensor & HpbsGasColor {
+  unit: "psi"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "GasPress"
+}
+
+// Building gas pressure sensor (at meter)
+HpbsBuildingNaturalGasPressureSensor: NaturalGasPressureSensor & HpbsGasColor {
+  building
+  unit: "psi"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BldgGasPress"
+}
+

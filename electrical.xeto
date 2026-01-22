@@ -1,0 +1,125 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2025  Creation
+//
+// HPBS Electrical Point Types
+//
+// Extends Haystack ph.points electrical types with HPBS-specific
+// defaults for naming conventions and visualization colors.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Building-Level Electrical Points
+//////////////////////////////////////////////////////////////////////////
+
+// Building electrical energy sensor (main meter)
+HpbsBuildingElecEnergySensor: ElecEnergySensor & HpbsElecColor {
+  building
+  unit: "kWh"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "BldgElecEnergy"
+}
+
+// Building electrical power sensor
+HpbsBuildingElecPowerSensor: ElecPowerSensor & HpbsElecColor {
+  building
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BldgElecPwr"
+}
+
+// Building electrical demand sensor (peak demand)
+HpbsBuildingElecDemandSensor: ElecPowerSensor & HpbsElecColor {
+  building
+  demand
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "BldgElecDemand"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Equipment-Level Electrical Points
+//////////////////////////////////////////////////////////////////////////
+
+// Equipment electrical energy sensor (submeter)
+HpbsEquipElecEnergySensor: ElecEnergySensor & HpbsElecColor {
+  equip
+  unit: "kWh"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "EquipElecEnergy"
+}
+
+// Equipment electrical power sensor
+HpbsEquipElecPowerSensor: ElecPowerSensor & HpbsElecColor {
+  equip
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "EquipElecPwr"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// AHU Electrical Points
+//////////////////////////////////////////////////////////////////////////
+
+// AHU electrical energy sensor
+HpbsAhuElecEnergySensor: ElecEnergySensor & HpbsElecColor {
+  ahu
+  unit: "kWh"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "AhuElecEnergy"
+}
+
+// AHU electrical power sensor
+HpbsAhuElecPowerSensor: ElecPowerSensor & HpbsElecColor {
+  ahu
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "AhuElecPwr"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Electrical Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller electrical energy sensor
+HpbsChillerElecEnergySensor: ElecEnergySensor & HpbsElecColor {
+  chiller
+  unit: "kWh"
+  hisMode: "consumption"
+  hisTotalized
+  hisCollectInterval: "5min"
+  navName: "ChlrElecEnergy"
+}
+
+// Chiller electrical power sensor
+HpbsChillerElecPowerSensor: ElecPowerSensor & HpbsElecColor {
+  chiller
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChlrElecPwr"
+}
+
+// Chiller efficiency (kW/ton)
+HpbsChillerEfficiencySensor: NumberPoint & SensorPoint & HpbsChilledWaterColor {
+  chiller
+  efficiency
+  unit: "kW/ton"
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+  navName: "ChlrEff"
+}
+

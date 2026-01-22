@@ -1,0 +1,42 @@
+//
+// Copyright (c) 2025, HPBS
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Jan 2025  Creation
+//
+// Placeholder Cooling Tower Point Specs
+//
+// These specs are intended to be contributed upstream to ph.points.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Tower Stage Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling tower stage command
+CoolingTowerStageCmd: NumberPoint & CmdPoint {
+  coolingTower
+}
+
+// Cooling tower stage sensor
+CoolingTowerStageSensor: NumberPoint & SensorPoint {
+  coolingTower
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Tower Run/Enable Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling tower enable command
+CoolingTowerEnableCmd: BoolPoint & CmdPoint {
+  coolingTower
+  enable
+}
+
+// Cooling tower run sensor
+CoolingTowerRunSensor: BoolPoint & SensorPoint {
+  coolingTower
+  run
+}
+
