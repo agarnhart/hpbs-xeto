@@ -18,6 +18,6 @@ pragma: Lib <
   }
   org: {
     dis: "HPBS"
-    uri: "https://github.com/hpbs"
+    uri: "https://github.com/lincolnharmer/hpbs-xeto"
   }
 >
