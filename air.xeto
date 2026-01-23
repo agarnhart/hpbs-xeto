@@ -179,7 +179,7 @@ HpbsReturnAirHumiditySensor: ReturnAirHumiditySensor & HpbsReturnColor {
 }
 
 // Outside air humidity sensor
-HpbsOutsideAirHumiditySensor: OutsideAirHumiditySensor & HpbsOutsideColor {
+HpbsOutsideAirHumiditySensor: WeatherHumidityPoint & HpbsOutsideColor {
   hisMode: "sampled"
   hisCollectInterval: "5min"
   navName: "OaHum"
@@ -329,7 +329,7 @@ HpbsReturnCo2Sensor: ReturnCo2Sensor & HpbsReturnColor {
 //////////////////////////////////////////////////////////////////////////
 
 // Outside air wet bulb temperature
-HpbsOutsideAirWetBulbPoint: WeatherWetBulbPoint & HpbsOutsideColor {
+HpbsOutsideAirWetbulbPoint: WeatherWetbulbPoint & HpbsOutsideColor {
   hisMode: "sampled"
   hisCollectInterval: "5min"
   navName: "OaWetBulb"

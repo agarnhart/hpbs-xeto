@@ -468,7 +468,7 @@ HpbsCoolingTower: CoolingTower {
 
     // Outside air
     oaTemp: HpbsOutsideAirTempSensor?
-    oaWetBulb: HpbsOutsideAirWetBulbPoint?
+    oaWetBulb: HpbsOutsideAirWetbulbPoint?
 
     // Control
     ctEnable: HpbsCoolingTowerEnableCmd?
@@ -491,7 +491,7 @@ HpbsOpenCoolingTower: CoolingTower {
     cwEnterTemp: HpbsCondenserWaterEnteringTempSensor?
     cwLeaveTemp: HpbsCondenserWaterLeavingTempSensor?
     ctBasinTemp: HpbsCoolingTowerBasinTempSensor?
-    oaWetBulb: HpbsOutsideAirWetBulbPoint?
+    oaWetBulb: HpbsOutsideAirWetbulbPoint?
     ctEnable: HpbsCoolingTowerEnableCmd?
   }
 }
