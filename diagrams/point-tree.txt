@@ -1,0 +1,866 @@
+Loaded 1426 specs from 6 libraries
+## Inheritance Tree
+
+Point (ph) [abstract]
+├── BoolPoint (ph.points) [abstract]
+│   ├── AlarmSensor (ph.points) [abstract] [+SensorPoint]
+│   ├── BoilerEnableCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsBoilerEnableCmd (hpbs) [+HpbsHotWaterColor]
+│   ├── BoilerRunSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsBoilerRunSensor (hpbs) [+HpbsHotWaterColor]
+│   ├── ChillerEnableCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsChillerEnableCmd (hpbs) [+HpbsChilledWaterColor]
+│   ├── ChillerOilHeaterCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsChillerOilHeaterCmd (hpbs) [+HpbsChilledWaterColor]
+│   ├── ChillerOilHeaterSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsChillerOilHeaterSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── ChillerRunSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsChillerRunSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── CoolCmd (ph.points)
+│   ├── CoolingTowerEnableCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsCoolingTowerEnableCmd (hpbs) [+HpbsCondenserWaterColor]
+│   ├── CoolingTowerRunSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsCoolingTowerRunSensor (hpbs) [+HpbsCondenserWaterColor]
+│   ├── DessicantDehumidifierCmd (ph.points)
+│   ├── DxCoolStageCmd (hpbs) [+CmdPoint]
+│   │   ├── HpbsDxCoolingStage1Cmd (hpbs) [+HpbsChilledWaterColor]
+│   │   └── HpbsDxCoolingStage2Cmd (hpbs) [+HpbsChilledWaterColor]
+│   ├── DxCoolStageSensor (hpbs) [+SensorPoint]
+│   │   ├── HpbsDxCoolingStage1Sensor (hpbs) [+HpbsChilledWaterColor]
+│   │   └── HpbsDxCoolingStage2Sensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── ElecHeatStageCmd (hpbs) [+CmdPoint]
+│   │   ├── HpbsElecHeatStage1Cmd (hpbs) [+HpbsElecColor]
+│   │   └── HpbsElecHeatStage2Cmd (hpbs) [+HpbsElecColor]
+│   ├── ElecHeatStageSensor (hpbs) [+SensorPoint]
+│   │   ├── HpbsElecHeatStage1Sensor (hpbs) [+HpbsElecColor]
+│   │   └── HpbsElecHeatStage2Sensor (hpbs) [+HpbsElecColor]
+│   ├── EnablePoint (ph.points) [abstract]
+│   │   ├── EnableCmd (ph.points) [abstract] [+CmdPoint]
+│   │   │   ├── ChilledWaterSystemEnableCmd (hpbs)
+│   │   │   │   └── HpbsChilledWaterSystemEnableCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── CondenserWaterSystemEnableCmd (hpbs)
+│   │   │   │   └── HpbsCondenserWaterSystemEnableCmd (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── DomesticHotWaterSystemEnableCmd (hpbs)
+│   │   │   │   └── HpbsDomesticHotWaterSystemEnableCmd (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   ├── HotWaterSystemEnableCmd (hpbs)
+│   │   │   │   └── HpbsHotWaterSystemEnableCmd (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHeatExchangerEnableCmd (hpbs) [+HpbsCommandColor]
+│   │   │   └── SteamSystemEnableCmd (hpbs)
+│   │   │       └── HpbsSteamSystemEnableCmd (hpbs) [+HpbsSteamColor]
+│   │   └── EnableSensor (ph.points) [abstract] [+SensorPoint]
+│   ├── FreezeStatSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsFreezeStatSensor (hpbs) [+HpbsSensorColor]
+│   ├── GasHeatStageCmd (hpbs) [+CmdPoint]
+│   │   ├── HpbsGasHeatStage1Cmd (hpbs) [+HpbsGasColor]
+│   │   └── HpbsGasHeatStage2Cmd (hpbs) [+HpbsGasColor]
+│   ├── GasHeatStageSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsGasHeatStage1Sensor (hpbs) [+HpbsGasColor]
+│   ├── HeatCmd (ph.points)
+│   ├── HpbsBoilerAlarmSensor (hpbs) [+SensorPoint, +HpbsHotWaterColor]
+│   ├── HpbsChilledWaterPumpAlarmSensor (hpbs) [+SensorPoint, +HpbsChilledWaterColor]
+│   ├── HpbsChillerAlarmSensor (hpbs) [+SensorPoint, +HpbsChilledWaterColor]
+│   ├── HpbsCondenserWaterPumpAlarmSensor (hpbs) [+SensorPoint, +HpbsCondenserWaterColor]
+│   ├── HpbsCoolingLockoutSensor (hpbs) [+SensorPoint, +HpbsChilledWaterColor]
+│   ├── HpbsDcvActiveSensor (hpbs) [+SensorPoint, +HpbsOutsideColor]
+│   ├── HpbsDcvEnableCmd (hpbs) [+CmdPoint, +HpbsOutsideColor]
+│   ├── HpbsEconomizerEnableSensor (hpbs) [+SensorPoint, +HpbsOutsideColor]
+│   ├── HpbsEconomizerLockoutSensor (hpbs) [+SensorPoint, +HpbsOutsideColor]
+│   ├── HpbsEquipAlarmSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsEquipEnableCmd (hpbs) [+CmdPoint, +HpbsSensorColor]
+│   ├── HpbsEquipRunSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsExhaustFanAlarmSensor (hpbs) [+SensorPoint, +HpbsExhaustColor]
+│   ├── HpbsFilterAlarmSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsFireSmokeDamperAlarmSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsHeatingLockoutSensor (hpbs) [+SensorPoint, +HpbsHotWaterColor]
+│   ├── HpbsHighTempAlarmSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsHotWaterPumpAlarmSensor (hpbs) [+SensorPoint, +HpbsHotWaterColor]
+│   ├── HpbsLowTempAlarmSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsMorningCooldownSensor (hpbs) [+SensorPoint, +HpbsChilledWaterColor]
+│   ├── HpbsMorningWarmupSensor (hpbs) [+SensorPoint, +HpbsHotWaterColor]
+│   ├── HpbsNightSetbackActiveSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsOptimalStartActiveSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsOptimalStartEnableCmd (hpbs) [+CmdPoint, +HpbsSensorColor]
+│   ├── HpbsPumpVfdFaultSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsReturnFanAlarmSensor (hpbs) [+SensorPoint, +HpbsReturnColor]
+│   ├── HpbsScheduleOccupiedSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsSmokeAlarmSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsStandbyModeSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsSupplyFanAlarmSensor (hpbs) [+SensorPoint, +HpbsDischargeColor]
+│   ├── HpbsVfdFaultSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsZoneOccupancyOverrideCmd (hpbs) [+CmdPoint, +HpbsZoneColor]
+│   ├── HpbsZoneOverrideActiveSensor (hpbs) [+SensorPoint, +HpbsZoneColor]
+│   ├── OccupiedPoint (ph.points) [abstract]
+│   │   ├── OccupiedSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   └── ZoneOccupiedSensor (ph.points)
+│   │   │       ├── HpbsZoneOccupancySensor (hpbs) [+HpbsZoneColor]
+│   │   │       └── HpbsZoneOccupiedEffectiveSensor (hpbs) [+HpbsZoneColor]
+│   │   └── OccupiedSp (ph.points) [abstract] [+SpPoint]
+│   │       └── ZoneOccupiedSp (ph.points)
+│   ├── RunPoint (ph.points) [abstract]
+│   │   ├── RunCmd (ph.points) [abstract] [+CmdPoint]
+│   │   │   ├── HpbsDomesticHotWaterRecircPumpRunCmd (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   └── HpbsHeatExchangerRunCmd (hpbs) [+HpbsCommandColor]
+│   │   └── RunSensor (ph.points) [abstract] [+SensorPoint]
+│   │       ├── HpbsDomesticHotWaterRecircPumpRunSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │       └── HpbsHeatExchangerRunSensor (hpbs) [+HpbsSensorColor]
+│   ├── SystemRunSensor (hpbs) [+SensorPoint]
+│   │   ├── ChilledWaterSystemRunSensor (hpbs)
+│   │   │   └── HpbsChilledWaterSystemRunSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   ├── CondenserWaterSystemRunSensor (hpbs)
+│   │   │   └── HpbsCondenserWaterSystemRunSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   ├── DomesticHotWaterSystemRunSensor (hpbs)
+│   │   │   └── HpbsDomesticHotWaterSystemRunSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   ├── HotWaterSystemRunSensor (hpbs)
+│   │   │   └── HpbsHotWaterSystemRunSensor (hpbs) [+HpbsHotWaterColor]
+│   │   └── SteamSystemRunSensor (hpbs)
+│   │       └── HpbsSteamSystemRunSensor (hpbs) [+HpbsSteamColor]
+│   ├── VfdRunCmd (hpbs) [+CmdPoint]
+│   ├── VfdRunSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsVfdRunSensor (hpbs) [+HpbsSensorColor]
+│   └── ZoneOccupiedCmd (hpbs) [+CmdPoint]
+│       └── HpbsZoneOccupiedCmd (hpbs) [+HpbsZoneColor]
+├── CmdPoint (ph.points) [abstract]
+│   └── CompressorCmd (hpbs)
+│       ├── CompressorRunCmd (hpbs) [+BoolPoint]
+│       │   ├── HpbsCompressor1RunCmd (hpbs) [+HpbsChilledWaterColor]
+│       │   └── HpbsCompressor2RunCmd (hpbs) [+HpbsChilledWaterColor]
+│       └── CompressorStageCmd (hpbs) [+NumberPoint]
+│           └── HpbsCompressorStageCmd (hpbs) [+HpbsChilledWaterColor]
+├── CurPoint (ph) [abstract]
+├── DateTimePoint (hpbs) [abstract]
+│   ├── HpbsScheduleNextOccupiedSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   └── HpbsScheduleNextUnoccupiedSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+├── EnumPoint (ph.points) [abstract]
+│   └── ZoneAirHvacModeSp (ph.points) [+SpPoint]
+├── FanPoint (ph.points) [abstract]
+│   ├── FanEnableCmd (ph.points) [abstract] [+EnableCmd]
+│   │   ├── DischargeFanEnableCmd (ph.points)
+│   │   ├── HpbsReturnFanEnableCmd (hpbs) [+HpbsReturnColor]
+│   │   ├── HpbsSupplyFanEnableCmd (hpbs) [+HpbsDischargeColor]
+│   │   └── ReturnFanEnableCmd (ph.points)
+│   ├── FanEnableSensor (ph.points) [abstract] [+EnableSensor]
+│   │   ├── DischargeFanEnableSensor (ph.points)
+│   │   └── ReturnFanEnableSensor (ph.points)
+│   ├── FanRunCmd (ph.points) [abstract] [+RunCmd]
+│   │   ├── DischargeFanRunCmd (ph.points)
+│   │   ├── HpbsCoolingTowerFanRunCmd (hpbs) [+HpbsCondenserWaterColor]
+│   │   ├── HpbsExhaustFanRunCmd (hpbs) [+HpbsExhaustColor]
+│   │   ├── HpbsReliefFanRunCmd (hpbs) [+HpbsExhaustColor]
+│   │   ├── HpbsReturnFanRunCmd (hpbs) [+HpbsReturnColor]
+│   │   ├── HpbsSupplyFanRunCmd (hpbs) [+HpbsDischargeColor]
+│   │   └── ReturnFanRunCmd (ph.points)
+│   ├── FanRunSensor (ph.points) [abstract] [+RunSensor]
+│   │   ├── DischargeFanRunSensor (ph.points)
+│   │   ├── HpbsCoolingTowerFanRunSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   ├── HpbsExhaustFanRunSensor (hpbs) [+HpbsExhaustColor]
+│   │   ├── HpbsReliefFanRunSensor (hpbs) [+HpbsExhaustColor]
+│   │   ├── HpbsReturnFanRunSensor (hpbs) [+HpbsReturnColor]
+│   │   ├── HpbsSupplyFanRunSensor (hpbs) [+HpbsDischargeColor]
+│   │   └── ReturnFanRunSensor (ph.points)
+│   ├── FanSpeedCmd (ph.points) [abstract] [+VfdSpeedCmd]
+│   │   ├── DischargeFanSpeedCmd (ph.points)
+│   │   ├── HpbsCoolingTowerFanSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   ├── HpbsExhaustFanSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   ├── HpbsReliefFanSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   ├── HpbsReturnFanSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   ├── HpbsSupplyFanSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   └── ReturnFanSpeedCmd (ph.points)
+│   └── FanSpeedSensor (ph.points) [abstract] [+VfdSpeedSensor]
+│       ├── DischargeFanSpeedSensor (ph.points)
+│       ├── HpbsCoolingTowerFanSpeedSensor (hpbs) [+HpbsCondenserWaterColor]
+│       ├── HpbsExhaustFanSpeedSensor (hpbs) [+HpbsExhaustColor]
+│       ├── HpbsReliefFanSpeedSensor (hpbs) [+HpbsExhaustColor]
+│       ├── HpbsReturnFanSpeedSensor (hpbs) [+HpbsReturnColor]
+│       ├── HpbsSupplyFanSpeedSensor (hpbs) [+HpbsDischargeColor]
+│       └── ReturnFanSpeedSensor (ph.points)
+├── FilterPoint (hpbs) [abstract]
+│   └── FilterSensor (hpbs) [abstract] [+AlarmSensor]
+│       └── HpbsFilterStatusSensor (hpbs) [+HpbsSensorColor]
+├── HisPoint (ph) [abstract]
+├── NumberPoint (ph.points) [abstract]
+│   ├── AirFlowPoint (ph.points) [abstract]
+│   │   ├── AirFlowSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── DischargeAirFlowSensor (ph.points)
+│   │   │   │   ├── ColdDeckDischargeAirFlowSensor (ph.points)
+│   │   │   │   ├── HotDeckDischargeAirFlowSensor (ph.points)
+│   │   │   │   └── HpbsDischargeAirFlowSensor (hpbs) [+HpbsDischargeColor]
+│   │   │   ├── EconomizingAirFlowSensor (ph.points)
+│   │   │   ├── ExhaustAirFlowSensor (ph.points)
+│   │   │   │   └── HpbsExhaustAirFlowSensor (hpbs) [+HpbsExhaustColor]
+│   │   │   ├── InletAirFlowSensor (ph.points)
+│   │   │   ├── OutsideAirFlowSensor (ph.points)
+│   │   │   │   └── HpbsOutsideAirFlowSensor (hpbs) [+HpbsOutsideColor]
+│   │   │   ├── ReturnAirFlowSensor (ph.points)
+│   │   │   │   └── HpbsReturnAirFlowSensor (hpbs) [+HpbsReturnColor]
+│   │   │   └── VentilationAirFlowSensor (ph.points)
+│   │   └── AirFlowSp (ph.points) [abstract] [+SpPoint]
+│   │       ├── DischargeAirFlowSp (ph.points)
+│   │       │   ├── ColdDeckDischargeAirFlowSp (ph.points)
+│   │       │   ├── HotDeckDischargeAirFlowSp (ph.points)
+│   │       │   └── HpbsDischargeAirFlowSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── EconomizingAirFlowSp (ph.points)
+│   │       ├── ExhaustAirFlowSp (ph.points)
+│   │       ├── InletAirFlowSp (ph.points)
+│   │       ├── OutsideAirFlowSp (ph.points)
+│   │       │   └── HpbsOutsideAirFlowSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── ReturnAirFlowSp (ph.points)
+│   │       └── VentilationAirFlowSp (ph.points)
+│   ├── AirHumidityPoint (ph.points) [abstract]
+│   │   ├── AirHumiditySensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── DischargeAirHumiditySensor (ph.points)
+│   │   │   │   └── HpbsDischargeAirHumiditySensor (hpbs) [+HpbsDischargeColor]
+│   │   │   ├── OutdoorAirHumiditySensor (ph.points)
+│   │   │   └── ZoneAirHumiditySensor (ph.points)
+│   │   │       └── HpbsZoneAirHumiditySensor (hpbs) [+HpbsZoneColor]
+│   │   └── AirHumiditySp (ph.points) [abstract] [+SpPoint]
+│   │       ├── DischargeAirHumiditySp (ph.points)
+│   │       ├── HpbsReturnAirDehumiditySp (hpbs) [+HpbsSetpointColor]
+│   │       ├── OutdoorAirHumiditySp (ph.points)
+│   │       └── ZoneAirHumiditySp (ph.points)
+│   ├── AirPressurePoint (ph.points) [abstract]
+│   │   ├── AirPressureSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── DischargeAirPressureSensor (ph.points)
+│   │   │   │   └── HpbsDischargeAirPressureSensor (hpbs) [+HpbsDischargeColor]
+│   │   │   └── ReturnAirPressureSensor (ph.points)
+│   │   └── AirPressureSp (ph.points) [abstract] [+SpPoint]
+│   │       ├── DischargeAirPressureSp (ph.points)
+│   │       │   └── HpbsDischargeAirPressureSp (hpbs) [+HpbsSetpointColor]
+│   │       └── ReturnAirPressureSp (ph.points)
+│   ├── AirTempPoint (ph.points) [abstract]
+│   │   ├── AirTempSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── DischargeAirTempSensor (ph.points)
+│   │   │   │   └── HpbsDischargeAirTempSensor (hpbs) [+HpbsDischargeColor]
+│   │   │   ├── EconomizingAirTempSensor (ph.points)
+│   │   │   │   └── HpbsEconomizingAirTempSensor (hpbs) [+HpbsOutsideColor]
+│   │   │   ├── InletAirTempSensor (ph.points)
+│   │   │   │   └── HpbsInletAirTempSensor (hpbs) [+HpbsInletColor]
+│   │   │   ├── MixedAirTempSensor (ph.points)
+│   │   │   │   └── HpbsMixedAirTempSensor (hpbs) [+HpbsMixedColor]
+│   │   │   ├── OutsideAirTempSensor (ph.points)
+│   │   │   │   └── HpbsOutsideAirTempSensor (hpbs) [+HpbsOutsideColor]
+│   │   │   ├── ReturnAirTempSensor (ph.points)
+│   │   │   │   └── HpbsReturnAirTempSensor (hpbs) [+HpbsReturnColor]
+│   │   │   ├── VentilationAirTempSensor (ph.points)
+│   │   │   │   └── HpbsVentilationAirTempSensor (hpbs) [+HpbsOutsideColor]
+│   │   │   └── ZoneAirTempSensor (ph.points)
+│   │   │       └── HpbsZoneAirTempSensor (hpbs) [+HpbsZoneColor]
+│   │   └── AirTempSp (ph.points) [abstract] [+SpPoint]
+│   │       ├── DischargeAirTempSp (ph.points)
+│   │       │   └── HpbsDischargeAirTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── InletAirTempSp (ph.points)
+│   │       │   └── HpbsInletAirTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── MixedAirTempSp (ph.points)
+│   │       │   └── HpbsMixedAirTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── ReturnAirTempSp (ph.points)
+│   │       │   └── HpbsReturnAirTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── SystemEnableOutsideAirTempSp (hpbs)
+│   │       │   └── HpbsSystemEnableOaTempSp (hpbs) [+HpbsSetpointColor]
+│   │       └── ZoneAirTempSp (ph.points) [abstract]
+│   │           ├── ZoneAirTempCoolingSp (ph.points)
+│   │           │   ├── HpbsZoneAirTempCoolingSp (hpbs) [+HpbsSetpointColor]
+│   │           │   ├── ZoneAirTempOccCoolingSp (ph.points)
+│   │           │   │   └── HpbsZoneAirTempOccCoolingSp (hpbs) [+HpbsSetpointColor]
+│   │           │   ├── ZoneAirTempStandbyCoolingSp (ph.points)
+│   │           │   │   └── HpbsZoneAirTempStandbyCoolingSp (hpbs) [+HpbsSetpointColor]
+│   │           │   └── ZoneAirTempUnoccCoolingSp (ph.points)
+│   │           │       └── HpbsZoneAirTempUnoccCoolingSp (hpbs) [+HpbsSetpointColor]
+│   │           ├── ZoneAirTempEffectiveSp (ph.points)
+│   │           │   └── HpbsZoneAirTempEffectiveSp (hpbs) [+HpbsSetpointColor]
+│   │           └── ZoneAirTempHeatingSp (ph.points)
+│   │               ├── HpbsZoneAirTempHeatingSp (hpbs) [+HpbsSetpointColor]
+│   │               ├── ZoneAirTempOccHeatingSp (ph.points)
+│   │               │   └── HpbsZoneAirTempOccHeatingSp (hpbs) [+HpbsSetpointColor]
+│   │               ├── ZoneAirTempStandbyHeatingSp (ph.points)
+│   │               │   └── HpbsZoneAirTempStandbyHeatingSp (hpbs) [+HpbsSetpointColor]
+│   │               └── ZoneAirTempUnoccHeatingSp (ph.points)
+│   │                   └── HpbsZoneAirTempUnoccHeatingSp (hpbs) [+HpbsSetpointColor]
+│   ├── BoilerFireRateCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsBoilerFireRateCmd (hpbs) [+HpbsSetpointColor]
+│   ├── BoilerFireRateSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsBoilerFireRateSensor (hpbs) [+HpbsHotWaterColor]
+│   ├── BoilerLevelSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsBoilerLevelSensor (hpbs) [+HpbsHotWaterColor]
+│   ├── BoilerRuntimeSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsBoilerRuntimeSensor (hpbs) [+HpbsHotWaterColor]
+│   ├── BoilerStageCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsBoilerStageCmd (hpbs) [+HpbsHotWaterColor]
+│   ├── BoilerStageSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsBoilerStageSensor (hpbs) [+HpbsHotWaterColor]
+│   ├── BuildingAirPressureSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsBuildingAirPressureSensor (hpbs) [+HpbsZoneColor]
+│   ├── BuildingAirPressureSp (hpbs) [+SpPoint]
+│   │   └── HpbsBuildingAirPressureSp (hpbs) [+HpbsSetpointColor]
+│   ├── ChillerLoadSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsChillerLoadSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── ChillerOilTempSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsChillerOilTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── ChillerRuntimeSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsChillerRuntimeSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── ChillerStageCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsChillerStageCmd (hpbs) [+HpbsChilledWaterColor]
+│   ├── ChillerStageSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsChillerStageSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── Co2Point (ph.points) [abstract]
+│   │   ├── Co2Sensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   └── ZoneCo2Sensor (ph.points)
+│   │   │       └── HpbsZoneCo2Sensor (hpbs) [+HpbsZoneColor]
+│   │   └── Co2Sp (ph.points) [abstract] [+SpPoint]
+│   │       └── ZoneCo2Sp (ph.points)
+│   │           └── HpbsZoneCo2Sp (hpbs) [+HpbsSetpointColor]
+│   ├── CoolStageCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsCoolingStageCmd (hpbs) [+HpbsChilledWaterColor]
+│   ├── CoolStageSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsCoolingStageSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── CoolingTowerStageCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsCoolingTowerStageCmd (hpbs) [+HpbsCondenserWaterColor]
+│   ├── CoolingTowerStageSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsCoolingTowerStageSensor (hpbs) [+HpbsCondenserWaterColor]
+│   ├── DamperPoint (ph.points) [abstract]
+│   │   ├── DamperCmd (ph.points) [abstract] [+CmdPoint]
+│   │   │   ├── DischargeDamperCmd (ph.points)
+│   │   │   │   ├── ColdDeckDischargeDamperCmd (ph.points)
+│   │   │   │   └── HotDeckDischargeDamperCmd (ph.points)
+│   │   │   ├── EconomizingDamperCmd (ph.points)
+│   │   │   ├── ExhaustDamperCmd (ph.points)
+│   │   │   ├── HpbsBypassDamperCmd (hpbs) [+HpbsSensorColor]
+│   │   │   ├── HpbsDischargeAirDamperCmd (hpbs) [+HpbsDischargeColor]
+│   │   │   ├── HpbsEconomizerDamperCmd (hpbs) [+HpbsOutsideColor]
+│   │   │   ├── HpbsExhaustAirDamperCmd (hpbs) [+HpbsExhaustColor]
+│   │   │   ├── HpbsInletVaneCmd (hpbs) [+HpbsInletColor]
+│   │   │   ├── HpbsMinOutsideAirDamperCmd (hpbs) [+HpbsOutsideColor]
+│   │   │   ├── HpbsMixedAirDamperCmd (hpbs) [+HpbsMixedColor]
+│   │   │   ├── HpbsOutsideAirDamperCmd (hpbs) [+HpbsOutsideColor]
+│   │   │   ├── HpbsReliefAirDamperCmd (hpbs) [+HpbsExhaustColor]
+│   │   │   ├── HpbsReturnAirDamperCmd (hpbs) [+HpbsReturnColor]
+│   │   │   ├── HpbsZoneDamperCmd (hpbs) [+HpbsZoneColor]
+│   │   │   ├── MixedDamperCmd (ph.points)
+│   │   │   ├── OutsideDamperCmd (ph.points)
+│   │   │   ├── ReturnDamperCmd (ph.points)
+│   │   │   └── VentilationDamperCmd (ph.points)
+│   │   └── DamperSensor (ph.points) [abstract] [+SensorPoint]
+│   │       ├── DischargeDamperSensor (ph.points)
+│   │       │   ├── ColdDeckDischargeDamperSensor (ph.points)
+│   │       │   └── HotDeckDischargeDamperSensor (ph.points)
+│   │       ├── EconomizingDamperSensor (ph.points)
+│   │       ├── ExhaustDamperSensor (ph.points)
+│   │       ├── HpbsBypassDamperSensor (hpbs) [+HpbsSensorColor]
+│   │       ├── HpbsDischargeAirDamperSensor (hpbs) [+HpbsDischargeColor]
+│   │       ├── HpbsEconomizerDamperSensor (hpbs) [+HpbsOutsideColor]
+│   │       ├── HpbsExhaustAirDamperSensor (hpbs) [+HpbsExhaustColor]
+│   │       ├── HpbsFireDamperSensor (hpbs) [+HpbsSensorColor]
+│   │       ├── HpbsInletVaneSensor (hpbs) [+HpbsInletColor]
+│   │       ├── HpbsMinOutsideAirDamperSensor (hpbs) [+HpbsOutsideColor]
+│   │       ├── HpbsMixedAirDamperSensor (hpbs) [+HpbsMixedColor]
+│   │       ├── HpbsOutsideAirDamperSensor (hpbs) [+HpbsOutsideColor]
+│   │       ├── HpbsReliefAirDamperSensor (hpbs) [+HpbsExhaustColor]
+│   │       ├── HpbsReturnAirDamperSensor (hpbs) [+HpbsReturnColor]
+│   │       ├── HpbsSmokeDamperSensor (hpbs) [+HpbsSensorColor]
+│   │       ├── HpbsZoneDamperSensor (hpbs) [+HpbsZoneColor]
+│   │       ├── MixedDamperSensor (ph.points)
+│   │       ├── OutsideDamperSensor (ph.points)
+│   │       ├── ReturnDamperSensor (ph.points)
+│   │       └── VentilationDamperSensor (ph.points)
+│   ├── DamperSp (hpbs) [+SpPoint]
+│   │   ├── HpbsZoneMaxDamperSp (hpbs) [+HpbsSetpointColor]
+│   │   └── HpbsZoneMinDamperSp (hpbs) [+HpbsSetpointColor]
+│   ├── DischargeCo2Sensor (hpbs) [+SensorPoint]
+│   │   └── HpbsDischargeCo2Sensor (hpbs) [+HpbsDischargeColor]
+│   ├── ElecSensor (ph.points) [abstract] [+SensorPoint]
+│   │   ├── ElecAcFreqSensor (ph.points.elec)
+│   │   ├── ElecAcPfSensor (ph.points) [abstract]
+│   │   │   ├── ElecAcPhasePfSensor (ph.points.elec)
+│   │   │   └── ElecAcTotalPfSensor (ph.points)
+│   │   ├── ElecCurrentSensor (ph.points.elec) [abstract]
+│   │   │   ├── ElecAcCurrentSensorX (ph.points.elec) [abstract]
+│   │   │   │   ├── ElecAcAngleCurrentSensor (ph.points.elec) [abstract]
+│   │   │   │   │   ├── ElecAcGroundAngleCurrentSensor (ph.points.elec)
+│   │   │   │   │   ├── ElecAcNeutralAngleCurrentSensor (ph.points.elec)
+│   │   │   │   │   └── ElecAcPhaseAngleCurrentSensor (ph.points.elec)
+│   │   │   │   ├── ElecAcMagnitudeCurrentSensor (ph.points.elec) [abstract]
+│   │   │   │   │   └── ElecAcCurrentSensor (ph.points.elec)
+│   │   │   │   │       ├── ElecAcGroundCurrentSensor (ph.points.elec)
+│   │   │   │   │       ├── ElecAcLAvgCurrentSensor (ph.points.elec)
+│   │   │   │   │       ├── ElecAcNeutralCurrentSensor (ph.points.elec)
+│   │   │   │   │       └── ElecAcPhaseCurrentSensor (ph.points.elec)
+│   │   │   │   └── ElecAcQualityCurrentSensor (ph.points.elec) [abstract]
+│   │   │   │       ├── ElecAcGroundQualityCurrentSensor (ph.points.elec)
+│   │   │   │       ├── ElecAcLAvgQualityCurrentSensor (ph.points.elec)
+│   │   │   │       ├── ElecAcNeutralQualityCurrentSensor (ph.points.elec)
+│   │   │   │       └── ElecAcPhaseQualityCurrentSensor (ph.points.elec)
+│   │   │   └── ElecDcCurrentSensor (ph.points.elec) [abstract]
+│   │   │       ├── ElecDcExportCurrentSensor (ph.points.elec)
+│   │   │       ├── ElecDcImportCurrentSensor (ph.points.elec)
+│   │   │       └── ElecDcNetCurrentSensor (ph.points.elec)
+│   │   ├── ElecDcStateOfChargeSensor (ph.points.elec)
+│   │   ├── ElecDemandSensor (ph.points) [abstract]
+│   │   │   └── ElecAcDemandSensor (ph.points) [abstract]
+│   │   │       ├── ElecAcCurrentDemandSensor (ph.points.elec) [abstract]
+│   │   │       │   └── ElecAcNetCurrentDemandSensor (ph.points.elec)
+│   │   │       │       └── ElecAcPhaseNetCurrentDemandSensor (ph.points.elec)
+│   │   │       └── ElecAcPowerDemandSensor (ph.points) [abstract]
+│   │   │           ├── ElecAcActiveDemandSensor (ph.points) [abstract]
+│   │   │           │   ├── ElecAcExportActiveDemandSensor (ph.points)
+│   │   │           │   │   └── ElecAcTotalExportActiveDemandSensor (ph.points)
+│   │   │           │   ├── ElecAcImportActiveDemandSensor (ph.points)
+│   │   │           │   │   └── ElecAcTotalImportActiveDemandSensor (ph.points)
+│   │   │           │   └── ElecAcNetActiveDemandSensor (ph.points)
+│   │   │           │       └── ElecAcTotalNetActiveDemandSensor (ph.points)
+│   │   │           ├── ElecAcApparentDemandSensor (ph.points) [abstract]
+│   │   │           │   ├── ElecAcExportApparentDemandSensor (ph.points)
+│   │   │           │   │   └── ElecAcTotalExportApparentDemandSensor (ph.points)
+│   │   │           │   ├── ElecAcImportApparentDemandSensor (ph.points)
+│   │   │           │   │   └── ElecAcTotalImportApparentDemandSensor (ph.points)
+│   │   │           │   └── ElecAcNetApparentDemandSensor (ph.points)
+│   │   │           │       └── ElecAcTotalNetApparentDemandSensor (ph.points)
+│   │   │           └── ElecAcReactiveDemandSensor (ph.points) [abstract]
+│   │   │               ├── ElecAcExportReactiveDemandSensor (ph.points)
+│   │   │               │   └── ElecAcTotalExportReactiveDemandSensor (ph.points)
+│   │   │               ├── ElecAcImportReactiveDemandSensor (ph.points)
+│   │   │               │   └── ElecAcTotalImportReactiveDemandSensor (ph.points)
+│   │   │               └── ElecAcNetReactiveDemandSensor (ph.points)
+│   │   │                   └── ElecAcTotalNetReactiveDemandSensor (ph.points)
+│   │   ├── ElecEnergySensor (ph.points) [abstract]
+│   │   │   ├── ElecAcEnergySensor (ph.points) [abstract]
+│   │   │   │   ├── ElecAcActiveEnergySensor (ph.points) [abstract]
+│   │   │   │   │   ├── ElecAcExportActiveEnergySensor (ph.points)
+│   │   │   │   │   │   ├── ElecAcPhaseExportActiveEnergySensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalExportActiveEnergySensor (ph.points)
+│   │   │   │   │   ├── ElecAcImportActiveEnergySensor (ph.points)
+│   │   │   │   │   │   ├── ElecAcPhaseImportActiveEnergySensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalImportActiveEnergySensor (ph.points)
+│   │   │   │   │   └── ElecAcNetActiveEnergySensor (ph.points)
+│   │   │   │   │       ├── ElecAcPhaseNetActiveEnergySensor (ph.points.elec)
+│   │   │   │   │       └── ElecAcTotalNetActiveEnergySensor (ph.points)
+│   │   │   │   ├── ElecAcApparentEnergySensor (ph.points) [abstract]
+│   │   │   │   │   ├── ElecAcExportApparentEnergySensor (ph.points)
+│   │   │   │   │   │   ├── ElecAcPhaseExportApparentEnergySensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalExportApparentEnergySensor (ph.points)
+│   │   │   │   │   ├── ElecAcImportApparentEnergySensor (ph.points)
+│   │   │   │   │   │   ├── ElecAcPhaseImportApparentEnergySensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalImportApparentEnergySensor (ph.points)
+│   │   │   │   │   └── ElecAcNetApparentEnergySensor (ph.points)
+│   │   │   │   │       ├── ElecAcPhaseNetApparentEnergySensor (ph.points.elec)
+│   │   │   │   │       └── ElecAcTotalNetApparentEnergySensor (ph.points)
+│   │   │   │   └── ElecAcReactiveEnergySensor (ph.points) [abstract]
+│   │   │   │       ├── ElecAcExportReactiveEnergySensor (ph.points)
+│   │   │   │       │   ├── ElecAcPhaseExportReactiveEnergySensor (ph.points.elec)
+│   │   │   │       │   └── ElecAcTotalExportReactiveEnergySensor (ph.points)
+│   │   │   │       ├── ElecAcImportReactiveEnergySensor (ph.points)
+│   │   │   │       │   ├── ElecAcPhaseImportReactiveEnergySensor (ph.points.elec)
+│   │   │   │       │   └── ElecAcTotalImportReactiveEnergySensor (ph.points)
+│   │   │   │       └── ElecAcNetReactiveEnergySensor (ph.points)
+│   │   │   │           ├── ElecAcPhaseNetReactiveEnergySensor (ph.points.elec)
+│   │   │   │           └── ElecAcTotalNetReactiveEnergySensor (ph.points)
+│   │   │   ├── ElecDcEnergySensor (ph.points.elec) [abstract]
+│   │   │   │   ├── ElecDcExportEnergySensor (ph.points.elec)
+│   │   │   │   ├── ElecDcImportEnergySensor (ph.points.elec)
+│   │   │   │   └── ElecDcNetEnergySensor (ph.points.elec)
+│   │   │   ├── HpbsAhuElecEnergySensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsBuildingElecEnergySensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsChillerElecEnergySensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsEquipElecEnergySensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsFanEnergySensor (hpbs) [+HpbsElecColor]
+│   │   │   └── HpbsPumpEnergySensor (hpbs) [+HpbsElecColor]
+│   │   ├── ElecPowerSensor (ph.points.elec) [abstract]
+│   │   │   ├── ElecAcAvgMagnitudePowerSensor (ph.points.elec) [abstract]
+│   │   │   │   ├── ElecAcActivePowerSensor (ph.points.elec) [abstract]
+│   │   │   │   │   ├── ElecAcExportActivePowerSensor (ph.points.elec)
+│   │   │   │   │   │   ├── ElecAcPhaseExportActivePowerSensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalExportActivePowerSensor (ph.points.elec)
+│   │   │   │   │   ├── ElecAcImportActivePowerSensor (ph.points.elec)
+│   │   │   │   │   │   ├── ElecAcPhaseImportActivePowerSensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalImportActivePowerSensor (ph.points.elec)
+│   │   │   │   │   └── ElecAcNetActivePowerSensor (ph.points.elec)
+│   │   │   │   │       ├── ElecAcPhaseNetActivePowerSensor (ph.points.elec)
+│   │   │   │   │       └── ElecAcTotalNetActivePowerSensor (ph.points.elec)
+│   │   │   │   ├── ElecAcApparentPowerSensor (ph.points.elec) [abstract]
+│   │   │   │   │   ├── ElecAcExportApparentPowerSensor (ph.points.elec)
+│   │   │   │   │   │   ├── ElecAcPhaseExportApparentPowerSensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalExportApparentPowerSensor (ph.points.elec)
+│   │   │   │   │   ├── ElecAcImportApparentPowerSensor (ph.points.elec)
+│   │   │   │   │   │   ├── ElecAcPhaseImportApparentPowerSensor (ph.points.elec)
+│   │   │   │   │   │   └── ElecAcTotalImportApparentPowerSensor (ph.points.elec)
+│   │   │   │   │   └── ElecAcNetApparentPowerSensor (ph.points.elec)
+│   │   │   │   │       ├── ElecAcPhaseNetApparentPowerSensor (ph.points.elec)
+│   │   │   │   │       └── ElecAcTotalNetApparentPowerSensor (ph.points.elec)
+│   │   │   │   └── ElecAcReactivePowerSensor (ph.points.elec) [abstract]
+│   │   │   │       ├── ElecAcExportReactivePowerSensor (ph.points.elec)
+│   │   │   │       │   ├── ElecAcPhaseExportReactivePowerSensor (ph.points.elec)
+│   │   │   │       │   └── ElecAcTotalExportReactivePowerSensor (ph.points.elec)
+│   │   │   │       ├── ElecAcImportReactivePowerSensor (ph.points.elec)
+│   │   │   │       │   ├── ElecAcPhaseImportReactivePowerSensor (ph.points.elec)
+│   │   │   │       │   └── ElecAcTotalImportReactivePowerSensor (ph.points.elec)
+│   │   │   │       └── ElecAcNetReactivePowerSensor (ph.points.elec)
+│   │   │   │           ├── ElecAcPhaseNetReactivePowerSensor (ph.points.elec)
+│   │   │   │           └── ElecAcTotalNetReactivePowerSensor (ph.points.elec)
+│   │   │   ├── ElecDcPowerSensor (ph.points.elec) [abstract]
+│   │   │   │   ├── ElecDcExportPowerSensor (ph.points.elec)
+│   │   │   │   ├── ElecDcImportPowerSensor (ph.points.elec)
+│   │   │   │   └── ElecDcNetPowerSensor (ph.points.elec)
+│   │   │   ├── HpbsAhuElecPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsBuildingElecDemandSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsBuildingElecPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsChilledWaterPumpPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsChillerElecPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsCondenserWaterPumpPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsEquipElecPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsFanPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsHotWaterPumpPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsPumpPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   ├── HpbsReturnFanPowerSensor (hpbs) [+HpbsElecColor]
+│   │   │   └── HpbsSupplyFanPowerSensor (hpbs) [+HpbsElecColor]
+│   │   └── ElecVoltSensor (ph.points.elec) [abstract]
+│   │       ├── ElecAcVoltSensorX (ph.points.elec) [abstract]
+│   │       │   ├── ElecAcAngleVoltSensor (ph.points.elec)
+│   │       │   │   └── ElecAcPhaseAngleVoltSensor (ph.points.elec)
+│   │       │   ├── ElecAcMagnitudeVoltSensor (ph.points.elec) [abstract]
+│   │       │   │   └── ElecAcVoltSensor (ph.points.elec)
+│   │       │   │       ├── ElecAcLAvgVoltSensor (ph.points.elec)
+│   │       │   │       ├── ElecAcLLAvgVoltSensor (ph.points.elec)
+│   │       │   │       └── ElecAcPhaseVoltSensor (ph.points.elec)
+│   │       │   └── ElecAcQualityVoltSensor (ph.points.elec)
+│   │       │       ├── ElecAcLAvgQualityVoltSensor (ph.points.elec)
+│   │       │       ├── ElecAcLLAvgQualityVoltSensor (ph.points.elec)
+│   │       │       └── ElecAcPhaseQualityVoltSensor (ph.points.elec)
+│   │       └── ElecDcVoltSensor (ph.points.elec)
+│   ├── ElecSp (ph.points.elec) [abstract] [+SpPoint]
+│   │   └── ElecMaxSp (ph.points.elec) [abstract]
+│   │       ├── ElecCurrentMaxSp (ph.points.elec) [abstract]
+│   │       │   ├── ElecAcCurrentMaxSp (ph.points.elec) [abstract]
+│   │       │   │   └── ElecAcImportCurrentMaxSp (ph.points.elec)
+│   │       │   │       └── ElecAcPhaseImportCurrentMaxSp (ph.points.elec)
+│   │       │   └── ElecDcCurrentMaxSp (ph.points.elec) [abstract]
+│   │       │       └── ElecDcImportCurrentMaxSp (ph.points.elec)
+│   │       ├── ElecDemandMaxSp (ph.points.elec) [abstract]
+│   │       │   └── ElecAcActiveDemandMaxSp (ph.points.elec) [abstract]
+│   │       │       └── ElecAcImportActiveDemandMaxSp (ph.points.elec)
+│   │       │           └── ElecAcTotalImportActiveDemandMaxSp (ph.points.elec)
+│   │       └── ElecPowerMaxSp (ph.points.elec) [abstract]
+│   │           ├── ElecAcPowerMaxSp (ph.points.elec) [abstract]
+│   │           │   └── ElecAcMagnitudePowerMaxSp (ph.points.elec) [abstract]
+│   │           │       └── ElecAcActivePowerMaxSp (ph.points.elec) [abstract]
+│   │           │           └── ElecAcImportActivePowerMaxSp (ph.points.elec)
+│   │           │               └── ElecAcTotalImportActivePowerMaxSp (ph.points.elec)
+│   │           └── ElecDcPowerMaxSp (ph.points.elec) [abstract]
+│   │               └── ElecDcImportPowerMaxSp (ph.points.elec)
+│   ├── EquipStagesRequestedSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsEquipStagesRequestedSensor (hpbs) [+HpbsSensorColor]
+│   ├── EquipStagesRunningSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsEquipStagesRunningSensor (hpbs) [+HpbsSensorColor]
+│   ├── FilterPressurePoint (hpbs) [abstract]
+│   │   ├── FilterPressureSensor (hpbs) [+SensorPoint]
+│   │   │   ├── HpbsFilterPressureDeltaSensor (hpbs) [+HpbsSensorColor]
+│   │   │   ├── HpbsFinalFilterPressureDeltaSensor (hpbs) [+HpbsSensorColor]
+│   │   │   └── HpbsPreFilterPressureDeltaSensor (hpbs) [+HpbsSensorColor]
+│   │   └── FilterPressureSp (hpbs) [+SpPoint]
+│   ├── HeatStageCmd (hpbs) [+CmdPoint]
+│   │   └── HpbsHeatingStageCmd (hpbs) [+HpbsHotWaterColor]
+│   ├── HeatStageSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsHeatingStageSensor (hpbs) [+HpbsHotWaterColor]
+│   ├── HpbsAhuModeCmd (hpbs) [+CmdPoint, +HpbsSensorColor]
+│   ├── HpbsAhuModeSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsChillerEfficiencySensor (hpbs) [+SensorPoint, +HpbsChilledWaterColor]
+│   ├── HpbsCoolingLockoutTempSp (hpbs) [+SpPoint, +HpbsSetpointColor]
+│   ├── HpbsDcvMinOaFlowSp (hpbs) [+SpPoint, +HpbsSetpointColor]
+│   ├── HpbsEconomizerHighLimitTempSp (hpbs) [+SpPoint, +HpbsSetpointColor]
+│   ├── HpbsHeatExchangerRuntimeSensor (hpbs) [+SensorPoint, +HpbsSensorColor]
+│   ├── HpbsHeatingLockoutTempSp (hpbs) [+SpPoint, +HpbsSetpointColor]
+│   ├── HpbsZoneModeCmd (hpbs) [+CmdPoint, +HpbsZoneColor]
+│   ├── HpbsZoneModeSensor (hpbs) [+SensorPoint, +HpbsZoneColor]
+│   ├── HpbsZoneOverrideDurationSensor (hpbs) [+SensorPoint, +HpbsZoneColor]
+│   ├── LeadEquipSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsLeadEquipSensor (hpbs) [+HpbsSensorColor]
+│   ├── MixedAirFlowSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsMixedAirFlowSensor (hpbs) [+HpbsMixedColor]
+│   ├── NaturalGasEnergyPoint (ph.points) [abstract]
+│   │   ├── NaturalGasEnergySensor (ph.points) [+SensorPoint]
+│   │   │   ├── HpbsBoilerNaturalGasEnergySensor (hpbs) [+HpbsGasColor]
+│   │   │   ├── HpbsBuildingNaturalGasEnergySensor (hpbs) [+HpbsGasColor]
+│   │   │   ├── HpbsDomesticWaterHeaterNaturalGasEnergySensor (hpbs) [+HpbsGasColor]
+│   │   │   └── HpbsNaturalGasEnergySensor (hpbs) [+HpbsGasColor]
+│   │   └── NaturalGasEnergySp (ph.points) [+SpPoint]
+│   ├── NaturalGasFlowPoint (ph.points) [abstract]
+│   │   ├── NaturalGasFlowSensor (ph.points) [+SensorPoint]
+│   │   │   ├── HpbsBoilerNaturalGasFlowSensor (hpbs) [+HpbsGasColor]
+│   │   │   ├── HpbsDomesticWaterHeaterNaturalGasFlowSensor (hpbs) [+HpbsGasColor]
+│   │   │   └── HpbsNaturalGasFlowSensor (hpbs) [+HpbsGasColor]
+│   │   └── NaturalGasFlowSp (ph.points) [+SpPoint]
+│   ├── NaturalGasPressurePoint (hpbs) [abstract]
+│   │   ├── NaturalGasPressureSensor (hpbs) [+SensorPoint]
+│   │   │   ├── HpbsBuildingNaturalGasPressureSensor (hpbs) [+HpbsGasColor]
+│   │   │   └── HpbsNaturalGasPressureSensor (hpbs) [+HpbsGasColor]
+│   │   └── NaturalGasPressureSp (hpbs) [+SpPoint]
+│   ├── NaturalGasVolumePoint (ph.points) [abstract]
+│   │   ├── NaturalGasVolumeSensor (ph.points) [+SensorPoint]
+│   │   │   ├── HpbsBoilerNaturalGasVolumeSensor (hpbs) [+HpbsGasColor]
+│   │   │   ├── HpbsBuildingNaturalGasVolumeSensor (hpbs) [+HpbsGasColor]
+│   │   │   └── HpbsNaturalGasVolumeSensor (hpbs) [+HpbsGasColor]
+│   │   └── NaturalGasVolumeSp (ph.points) [+SpPoint]
+│   ├── ReturnAirHumiditySensor (hpbs) [+SensorPoint]
+│   │   └── HpbsReturnAirHumiditySensor (hpbs) [+HpbsReturnColor]
+│   ├── ReturnCo2Sensor (hpbs) [+SensorPoint]
+│   │   └── HpbsReturnCo2Sensor (hpbs) [+HpbsReturnColor]
+│   ├── SteamEnergyPoint (hpbs) [abstract]
+│   │   ├── SteamEnergySensor (hpbs) [+SensorPoint]
+│   │   │   └── HpbsSteamEnergySensor (hpbs) [+HpbsSteamColor]
+│   │   └── SteamEnergySp (hpbs) [+SpPoint]
+│   ├── SteamFlowPoint (hpbs) [abstract]
+│   │   ├── SteamFlowSensor (hpbs) [+SensorPoint]
+│   │   │   └── HpbsSteamFlowSensor (hpbs) [+HpbsSteamColor]
+│   │   └── SteamFlowSp (hpbs) [+SpPoint]
+│   ├── SteamPressurePoint (hpbs) [abstract]
+│   │   ├── SteamPressureSensor (hpbs) [+SensorPoint]
+│   │   │   └── HpbsSteamPressureSensor (hpbs) [+HpbsSteamColor]
+│   │   └── SteamPressureSp (hpbs) [+SpPoint]
+│   │       └── HpbsSteamPressureSp (hpbs) [+HpbsSetpointColor]
+│   ├── SteamTempPoint (hpbs) [abstract]
+│   │   ├── SteamTempSensor (hpbs) [+SensorPoint]
+│   │   │   └── HpbsSteamTempSensor (hpbs) [+HpbsSteamColor]
+│   │   └── SteamTempSp (hpbs) [+SpPoint]
+│   ├── ThermalEnergyPoint (hpbs) [abstract]
+│   │   ├── ThermalEnergySensor (hpbs) [+SensorPoint]
+│   │   │   ├── HpbsChilledWaterEnergySensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterEnergySensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   └── HpbsHotWaterEnergySensor (hpbs) [+HpbsHotWaterColor]
+│   │   └── ThermalEnergySp (hpbs) [+SpPoint]
+│   ├── ThermalPowerPoint (hpbs) [abstract]
+│   │   ├── ThermalPowerSensor (hpbs) [+SensorPoint]
+│   │   │   ├── HpbsChilledWaterPowerSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterPowerSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   └── HpbsHotWaterPowerSensor (hpbs) [+HpbsHotWaterColor]
+│   │   └── ThermalPowerSp (hpbs) [+SpPoint]
+│   ├── ValvePoint (ph.points) [abstract]
+│   │   ├── ValveCmd (ph.points) [abstract] [+CmdPoint]
+│   │   │   ├── ChilledWaterValveCmd (ph.points)
+│   │   │   ├── HotWaterValveCmd (ph.points)
+│   │   │   ├── HpbsChilledWaterBypassValveCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsChilledWaterIsolationValveCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsChilledWaterValveCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsCondenserWaterBypassValveCmd (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsCondenserWaterValveCmd (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsCoolingValveCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterMixingValveCmd (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterRecircValveCmd (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   ├── HpbsGasValveCmd (hpbs) [+HpbsGasColor]
+│   │   │   ├── HpbsHeatExchangerPrimaryValveCmd (hpbs) [+HpbsSetpointColor]
+│   │   │   ├── HpbsHeatExchangerSecondaryValveCmd (hpbs) [+HpbsSetpointColor]
+│   │   │   ├── HpbsHeatingValveCmd (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHotWaterBypassValveCmd (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHotWaterIsolationValveCmd (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHotWaterValveCmd (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsPreheatValveCmd (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsReheatValveCmd (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsSteamPreheatValveCmd (hpbs) [+HpbsSteamColor]
+│   │   │   ├── HpbsSteamReheatValveCmd (hpbs) [+HpbsSteamColor]
+│   │   │   └── HpbsSteamValveCmd (hpbs) [+HpbsSteamColor]
+│   │   └── ValveSensor (ph.points) [abstract] [+SensorPoint]
+│   │       ├── ChilledWaterValveSensor (ph.points)
+│   │       ├── HotWaterValveSensor (ph.points)
+│   │       ├── HpbsChilledWaterBypassValveSensor (hpbs) [+HpbsChilledWaterColor]
+│   │       ├── HpbsChilledWaterIsolationValveSensor (hpbs) [+HpbsChilledWaterColor]
+│   │       ├── HpbsChilledWaterValveSensor (hpbs) [+HpbsChilledWaterColor]
+│   │       ├── HpbsCondenserWaterValveSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │       ├── HpbsCoolingValveSensor (hpbs) [+HpbsChilledWaterColor]
+│   │       ├── HpbsGasValveSensor (hpbs) [+HpbsGasColor]
+│   │       ├── HpbsHeatExchangerPrimaryValveSensor (hpbs) [+HpbsHotWaterColor]
+│   │       ├── HpbsHeatExchangerSecondaryValveSensor (hpbs) [+HpbsChilledWaterColor]
+│   │       ├── HpbsHeatingValveSensor (hpbs) [+HpbsHotWaterColor]
+│   │       ├── HpbsHotWaterBypassValveSensor (hpbs) [+HpbsHotWaterColor]
+│   │       ├── HpbsHotWaterIsolationValveSensor (hpbs) [+HpbsHotWaterColor]
+│   │       ├── HpbsHotWaterValveSensor (hpbs) [+HpbsHotWaterColor]
+│   │       ├── HpbsPreheatValveSensor (hpbs) [+HpbsHotWaterColor]
+│   │       ├── HpbsReheatValveSensor (hpbs) [+HpbsHotWaterColor]
+│   │       └── HpbsSteamValveSensor (hpbs) [+HpbsSteamColor]
+│   ├── VfdFreqPoint (ph.points) [abstract]
+│   │   ├── VfdFreqCmd (ph.points) [abstract] [+CmdPoint]
+│   │   │   ├── HpbsPumpVfdFreqCmd (hpbs) [+HpbsSetpointColor]
+│   │   │   ├── HpbsReturnFanFreqCmd (hpbs) [+HpbsSetpointColor]
+│   │   │   └── HpbsSupplyFanFreqCmd (hpbs) [+HpbsSetpointColor]
+│   │   └── VfdFreqSensor (ph.points) [abstract] [+SensorPoint]
+│   │       ├── HpbsExhaustFanFreqSensor (hpbs) [+HpbsExhaustColor]
+│   │       ├── HpbsPumpVfdFreqSensor (hpbs) [+HpbsSensorColor]
+│   │       ├── HpbsReturnFanFreqSensor (hpbs) [+HpbsReturnColor]
+│   │       └── HpbsSupplyFanFreqSensor (hpbs) [+HpbsDischargeColor]
+│   ├── VfdSpeedPoint (ph.points) [abstract]
+│   │   ├── VfdSpeedCmd (ph.points) [abstract] [+CmdPoint]
+│   │   │   └── HpbsVfdSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   └── VfdSpeedSensor (ph.points) [abstract] [+SensorPoint]
+│   │       └── HpbsVfdSpeedSensor (hpbs) [+HpbsSensorColor]
+│   ├── WaterFlowPoint (ph.points) [abstract]
+│   │   ├── WaterFlowSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── ChilledWaterFlowSensor (ph.points)
+│   │   │   ├── DomesticWaterFlowSensor (ph.points)
+│   │   │   ├── HotWaterFlowSensor (ph.points)
+│   │   │   ├── HpbsChilledWaterFlowSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsCondensateFlowSensor (hpbs) [+HpbsSteamColor]
+│   │   │   ├── HpbsCondenserWaterFlowSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterFlowSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   ├── HpbsHeatExchangerPrimaryFlowSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHeatExchangerSecondaryFlowSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsHotWaterFlowSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   └── HpbsMakeupWaterFlowSensor (hpbs) [+HpbsSensorColor]
+│   │   └── WaterFlowSp (ph.points) [abstract] [+SpPoint]
+│   │       ├── ChilledWaterFlowSp (ph.points)
+│   │       ├── DomesticWaterFlowSp (ph.points)
+│   │       ├── HotWaterFlowSp (ph.points)
+│   │       ├── HpbsChilledWaterFlowSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── HpbsCondenserWaterFlowSp (hpbs) [+HpbsSetpointColor]
+│   │       └── HpbsHotWaterFlowSp (hpbs) [+HpbsSetpointColor]
+│   ├── WaterPressurePoint (ph.points) [abstract]
+│   │   ├── WaterPressureSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── ChilledWaterEnteringPressureSensor (ph.points)
+│   │   │   ├── ChilledWaterLeavingPressureSensor (ph.points)
+│   │   │   ├── HotWaterEnteringPressureSensor (ph.points)
+│   │   │   ├── HotWaterLeavingPressureSensor (ph.points)
+│   │   │   ├── HpbsChilledWaterDifferentialPressureSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsChilledWaterPressureSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsCondenserWaterDifferentialPressureSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsCondenserWaterPressureSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsHotWaterDifferentialPressureSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   └── HpbsHotWaterPressureSensor (hpbs) [+HpbsHotWaterColor]
+│   │   └── WaterPressureSp (ph.points) [abstract] [+SpPoint]
+│   │       ├── ChilledWaterEnteringPressureSp (ph.points)
+│   │       ├── ChilledWaterLeavingPressureSp (ph.points)
+│   │       ├── HotWaterEnteringPressureSp (ph.points)
+│   │       ├── HotWaterLeavingPressureSp (ph.points)
+│   │       ├── HpbsChilledWaterDifferentialPressureSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── HpbsChilledWaterPressureSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── HpbsHotWaterDifferentialPressureSp (hpbs) [+HpbsSetpointColor]
+│   │       └── HpbsHotWaterPressureSp (hpbs) [+HpbsSetpointColor]
+│   ├── WaterTempPoint (ph.points) [abstract]
+│   │   ├── WaterTempSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── ChilledWaterEnteringTempSensor (ph.points)
+│   │   │   │   └── HpbsChilledWaterEnteringTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── ChilledWaterLeavingTempSensor (ph.points)
+│   │   │   │   └── HpbsChilledWaterLeavingTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── CondenserWaterEnteringTempSensor (ph.points)
+│   │   │   │   └── HpbsCondenserWaterEnteringTempSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── CondenserWaterLeavingTempSensor (ph.points)
+│   │   │   │   └── HpbsCondenserWaterLeavingTempSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HotWaterEnteringTempSensor (ph.points)
+│   │   │   │   └── HpbsHotWaterEnteringTempSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HotWaterLeavingTempSensor (ph.points)
+│   │   │   │   └── HpbsHotWaterLeavingTempSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsChilledWaterDeltaTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsChilledWaterReturnTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsChilledWaterSupplyTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsCondensateTempSensor (hpbs) [+HpbsSteamColor]
+│   │   │   ├── HpbsCondenserWaterReturnTempSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsCondenserWaterSupplyTempSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsCoolingTowerApproachTempSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsCoolingTowerBasinTempSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterReturnTempSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterSupplyTempSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   ├── HpbsHeatExchangerPrimaryEnteringTempSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHeatExchangerPrimaryLeavingTempSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHeatExchangerSecondaryEnteringTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsHeatExchangerSecondaryLeavingTempSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsHotWaterDeltaTempSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   ├── HpbsHotWaterReturnTempSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   └── HpbsHotWaterSupplyTempSensor (hpbs) [+HpbsHotWaterColor]
+│   │   └── WaterTempSp (ph.points) [abstract] [+SpPoint]
+│   │       ├── ChilledWaterLeavingTempSp (ph.points)
+│   │       │   └── HpbsChilledWaterLeavingTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── CondenserWaterLeavingTempSp (ph.points)
+│   │       │   └── HpbsCondenserWaterLeavingTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── HotWaterLeavingTempSp (ph.points)
+│   │       │   └── HpbsHotWaterLeavingTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── HpbsChilledWaterSupplyTempSp (hpbs) [+HpbsSetpointColor]
+│   │       ├── HpbsDomesticHotWaterSupplyTempSp (hpbs) [+HpbsSetpointColor]
+│   │       └── HpbsHotWaterSupplyTempSp (hpbs) [+HpbsSetpointColor]
+│   ├── WaterVolumePoint (ph.points) [abstract]
+│   │   ├── WaterVolumeSensor (ph.points) [abstract] [+SensorPoint]
+│   │   │   ├── DomesticWaterVolumeSensor (ph.points)
+│   │   │   ├── HpbsChilledWaterVolumeSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   ├── HpbsCondenserWaterVolumeSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   │   ├── HpbsDomesticHotWaterVolumeSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   │   ├── HpbsHotWaterVolumeSensor (hpbs) [+HpbsHotWaterColor]
+│   │   │   └── HpbsMakeupWaterVolumeSensor (hpbs) [+HpbsSensorColor]
+│   │   └── WaterVolumeSp (ph.points) [abstract] [+SpPoint]
+│   │       └── DomesticWaterVolumeSp (ph.points)
+│   ├── ZoneAirFlowSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsZoneAirFlowSensor (hpbs) [+HpbsZoneColor]
+│   ├── ZoneAirFlowSp (hpbs) [+SpPoint]
+│   │   └── HpbsZoneAirFlowSp (hpbs) [+HpbsSetpointColor]
+│   ├── ZoneAirPressureSensor (hpbs) [+SensorPoint]
+│   │   └── HpbsZoneAirPressureSensor (hpbs) [+HpbsZoneColor]
+│   └── ZoneAirPressureSp (hpbs) [+SpPoint]
+│       └── HpbsZoneAirPressureSp (hpbs) [+HpbsSetpointColor]
+├── PumpPoint (hpbs) [abstract]
+│   ├── PumpEnableCmd (hpbs) [abstract] [+EnableCmd]
+│   │   ├── HpbsChilledWaterPumpEnableCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   └── HpbsHotWaterPumpEnableCmd (hpbs) [+HpbsHotWaterColor]
+│   ├── PumpEnableSensor (hpbs) [abstract] [+EnableSensor]
+│   ├── PumpRunCmd (hpbs) [abstract] [+RunCmd]
+│   │   ├── HpbsBoosterPumpRunCmd (hpbs) [+HpbsSensorColor]
+│   │   ├── HpbsChilledWaterPumpRunCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   ├── HpbsCondenserWaterPumpRunCmd (hpbs) [+HpbsCondenserWaterColor]
+│   │   ├── HpbsDomesticHotWaterPumpRunCmd (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   ├── HpbsHotWaterPumpRunCmd (hpbs) [+HpbsHotWaterColor]
+│   │   ├── HpbsPrimaryChilledWaterPumpRunCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   ├── HpbsPrimaryHotWaterPumpRunCmd (hpbs) [+HpbsHotWaterColor]
+│   │   ├── HpbsSecondaryChilledWaterPumpRunCmd (hpbs) [+HpbsChilledWaterColor]
+│   │   └── HpbsSecondaryHotWaterPumpRunCmd (hpbs) [+HpbsHotWaterColor]
+│   ├── PumpRunSensor (hpbs) [abstract] [+RunSensor]
+│   │   ├── HpbsBoosterPumpRunSensor (hpbs) [+HpbsSensorColor]
+│   │   ├── HpbsChilledWaterPumpRunSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   ├── HpbsCondenserWaterPumpRunSensor (hpbs) [+HpbsCondenserWaterColor]
+│   │   ├── HpbsDomesticHotWaterPumpRunSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│   │   ├── HpbsHotWaterPumpRunSensor (hpbs) [+HpbsHotWaterColor]
+│   │   ├── HpbsPrimaryChilledWaterPumpRunSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   ├── HpbsPrimaryHotWaterPumpRunSensor (hpbs) [+HpbsHotWaterColor]
+│   │   ├── HpbsSecondaryChilledWaterPumpRunSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   └── HpbsSecondaryHotWaterPumpRunSensor (hpbs) [+HpbsHotWaterColor]
+│   ├── PumpSpeedCmd (hpbs) [abstract] [+VfdSpeedCmd]
+│   │   ├── HpbsChilledWaterPumpSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   ├── HpbsCondenserWaterPumpSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   │   └── HpbsHotWaterPumpSpeedCmd (hpbs) [+HpbsSetpointColor]
+│   └── PumpSpeedSensor (hpbs) [abstract] [+VfdSpeedSensor]
+│       ├── HpbsBoosterPumpSpeedSensor (hpbs) [+HpbsSensorColor]
+│       ├── HpbsChilledWaterPumpSpeedSensor (hpbs) [+HpbsChilledWaterColor]
+│       ├── HpbsCondenserWaterPumpSpeedSensor (hpbs) [+HpbsCondenserWaterColor]
+│       ├── HpbsDomesticHotWaterPumpSpeedSensor (hpbs) [+HpbsDomesticHotWaterColor]
+│       ├── HpbsHotWaterPumpSpeedSensor (hpbs) [+HpbsHotWaterColor]
+│       ├── HpbsSecondaryChilledWaterPumpSpeedSensor (hpbs) [+HpbsChilledWaterColor]
+│       └── HpbsSecondaryHotWaterPumpSpeedSensor (hpbs) [+HpbsHotWaterColor]
+├── SensorPoint (ph.points) [abstract]
+│   ├── CompressorSensor (hpbs)
+│   │   ├── CompressorCapacitySensor (hpbs) [+NumberPoint]
+│   │   │   └── HpbsCompressorCapacitySensor (hpbs) [+HpbsChilledWaterColor]
+│   │   ├── CompressorRunSensor (hpbs) [+BoolPoint]
+│   │   │   ├── HpbsCompressor1RunSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   │   └── HpbsCompressor2RunSensor (hpbs) [+HpbsChilledWaterColor]
+│   │   └── CompressorStageSensor (hpbs) [+NumberPoint]
+│   │       └── HpbsCompressorStageSensor (hpbs) [+HpbsChilledWaterColor]
+│   ├── CoolSensor (hpbs)
+│   └── HeatSensor (hpbs)
+├── SpPoint (ph.points) [abstract]
+├── SyntheticPoint (ph) [abstract]
+│   ├── ComputedPoint (ph) [abstract]
+│   ├── ComputedSyntheticPoint (ph.points) [abstract]
+│   ├── MlPoint (ph) [abstract]
+│   ├── MlSyntheticPoint (ph.points) [abstract]
+│   ├── SimPoint (ph) [abstract]
+│   └── SimSyntheticPoint (ph.points) [abstract]
+├── WeatherPoint (ph) [abstract]
+│   ├── WeatherCondPoint (ph.points) [+EnumPoint]
+│   ├── WeatherDaytimePoint (ph.points) [+BoolPoint]
+│   └── WeatherNumberPoint (ph.points) [abstract] [+NumberPoint]
+│       ├── WeatherAtmosphericPressurePoint (ph.points)
+│       ├── WeatherCloudagePoint (ph.points)
+│       ├── WeatherDewPointPoint (ph.points)
+│       │   └── HpbsOutsideAirDewPointPoint (hpbs) [+HpbsOutsideColor]
+│       ├── WeatherEnthalpyPoint (ph.points)
+│       ├── WeatherFeelsLikePoint (ph.points)
+│       ├── WeatherHumidityPoint (ph.points)
+│       │   └── HpbsOutsideAirHumiditySensor (hpbs) [+HpbsOutsideColor]
+│       ├── WeatherPrecipitationPoint (ph.points)
+│       ├── WeatherSolarIrradiancePoint (ph.points)
+│       ├── WeatherTempPoint (ph.points)
+│       ├── WeatherVisibilityPoint (ph.points)
+│       ├── WeatherWetbulbPoint (ph.points)
+│       │   └── HpbsOutsideAirWetbulbPoint (hpbs) [+HpbsOutsideColor]
+│       ├── WeatherWindDirectionPoint (ph.points)
+│       └── WeatherWindSpeedPoint (ph.points)
+└── WritablePoint (ph) [abstract]
+

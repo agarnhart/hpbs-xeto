@@ -10,3 +10,6 @@ Thumbs.db
 # Build artifacts
 *.bak
 *.json
+
+# Tools (not ready to share)
+tools/
