@@ -16,17 +16,19 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Boiler stage command
-HpbsBoilerStageCmd: BoilerStageCmd & HpbsHotWaterColor {
+HpbsBoilerStageCmd: BoilerStageCmd {
   hisMode: "cov"
   hisCollectInterval: "24hr"
   navName: "BlrStgCmd"
+  color: "black"
 }
 
 // Boiler stage status
-HpbsBoilerStageSensor: BoilerStageSensor & HpbsHotWaterColor {
+HpbsBoilerStageSensor: BoilerStageSensor {
   hisMode: "cov"
   hisCollectInterval: "24hr"
   navName: "BlrStgSts"
+  color: "black"
 }
 
 //////////////////////////////////////////////////////////////////////////
