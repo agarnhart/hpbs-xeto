@@ -11,26 +11,44 @@
 // They define various point types that don't fit into other categories.
 //
 
-//////////////////////////////////////////////////////////////////////////
-// Heating/Cooling Sensor Points
-//////////////////////////////////////////////////////////////////////////
+// Dessicant dehumidifier enable command
+DessicantDehumidifierCmd : BoolPoint { dessicantDehumidifier }
 
-// Heating sensor/status point
-HeatSensor: SensorPoint {
-  heating
+// Temperature conditioning mode for a zone in an HVAC system
+ZoneAirHvacModeSp : EnumPoint & SpPoint { zone, air, hvacMode }
+
+// Point associated with the on/off state of equipment
+RunPoint : BoolPoint <abstract> {
+  run
+  enum: Obj <val:RunEnum>
 }
 
-// Cooling sensor/status point
-CoolSensor: SensorPoint {
-  cooling
+// On and off enumeration
+RunEnum: Enum { off, on }
+
+// Sensor for on/off state of equipment
+RunSensor : RunPoint & SensorPoint <abstract>
+
+// On/off command to run equipment
+RunCmd : RunPoint & CmdPoint <abstract>
+
+// Point that enables or disables equipment
+EnablePoint : BoolPoint <abstract> {
+  enable
+  enum: Obj <val:RunEnum>
 }
 
-//////////////////////////////////////////////////////////////////////////
-// Safety Points
-//////////////////////////////////////////////////////////////////////////
+// Command to permit/prohibit equipment to run.
+// Used as an interlock with a run command.
+EnableCmd : EnablePoint & CmdPoint <abstract>
 
-// Freeze stat sensor (low temperature safety)
-FreezeStatSensor: BoolPoint & SensorPoint {
-  freezeStat
-}
+// Command to permit/prohibit cooling equipment to run.
+// Used as an interlock with a run command.
+CoolEnableCmd : EnableCmd <abstract> { cool }
 
+// Command to permit/prohibit heating equipment to run.
+// Used as an interlock with a run command.
+HeatEnableCmd : EnableCmd <abstract> { heat }
+
+// Boolean alarm condition
+AlarmSensor : BoolPoint & SensorPoint <abstract> { alarm }
