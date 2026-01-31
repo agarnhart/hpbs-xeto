@@ -4,12 +4,38 @@
 //
 // History:
 //   22 Jan 2025  Creation
-//
-// Placeholder Staging Point Specs
+//   31 Jan 2026  Updates with latest haystack changes
 //
 // These specs are intended to be contributed upstream to ph.points.
 // Generic staging points not tied to specific equipment types.
 //
+
+// On/off state for a stage of equipment
+StageEnum: Enum { off, on }
+
+// Point associated with a stage of equipment
+StagePoint : BoolPoint <abstract> {
+  stage: Number <minVal: 1>
+  enum: Obj <val:StageEnum>
+}
+
+// Command for a stage of equipment
+StageCmd: StagePoint & CmdPoint <abstract>
+
+// Command for a cooling stage, a discrete level of cooling capacity
+CoolStageCmd: StageCmd <abstract> { cool }
+
+// Command for a heating stage, a discrete level of heating capacity
+HeatStageCmd: StageCmd <abstract> { heat }
+
+// Sensor for a stage of equipment
+StageSensor: StagePoint & SensorPoint <abstract>
+
+// Sensor for a cooling stage, a discrete level of cooling capacity
+CoolStageSensor: StageSensor <abstract> { cool }
+
+// Sensor for a heating stage, a discrete level of heating capacity
+HeatStageSensor: StageSensor <abstract> { heat }
 
 //////////////////////////////////////////////////////////////////////////
 // Heating Stage Points
