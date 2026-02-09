@@ -4,6 +4,7 @@
 //
 // History:
 //   22 Jan 2025  Creation
+//   09 Feb 2026  Updated specs to use latest haystck changes - AJG
 //
 // Placeholder Boiler Point Specs
 //
@@ -14,62 +15,60 @@
 // Boiler Stage Points
 //////////////////////////////////////////////////////////////////////////
 
-// Boiler stage command
-BoilerStageCmd: NumberPoint & CmdPoint {
-  boiler
-}
+// Boiler Stage Command
+BoilerStageCmd: StageCmd { boiler }
 
-// Boiler stage sensor
-BoilerStageSensor: NumberPoint & SensorPoint {
-  boiler
-}
+// Boiler Stage Sensor
+BoilerStageSensor: StageSensor { boiler }
 
 //////////////////////////////////////////////////////////////////////////
-// Boiler Firing Points
+// Boiler Heating Points
 //////////////////////////////////////////////////////////////////////////
 
-// Boiler firing rate sensor
-BoilerFireRateSensor: NumberPoint & SensorPoint {
-  boiler
-  firing
+// Boiler Heat Command
+BoilerHeatCmd: NumberPoint & CmdPoint {
+  boiler  
+  heat
+  unit: Unit <fixed> "%"
 }
 
-// Boiler firing rate command
-BoilerFireRateCmd: NumberPoint & CmdPoint {
+// Boiler Heat Sensor
+BoilerHeatSensor: NumberPoint & SensorPoint {
   boiler
-  firing
-  unit: "%"
+  heat
+  unit: Unit <fixed> "%"
 }
-
 //////////////////////////////////////////////////////////////////////////
-// Boiler Run/Enable Points
+// Boiler Run Points
 //////////////////////////////////////////////////////////////////////////
 
-// Boiler enable command
-BoilerEnableCmd: BoolPoint & CmdPoint {
-  boiler
-  enable
-}
+// Boiler Enable Command
+BoilerEnableCmd: EnableCmd { boiler }
 
-// Boiler run sensor
-BoilerRunSensor: BoolPoint & SensorPoint {
-  boiler
-  run
-}
+// Boiler Run command
+BoilerRunCmd: RunCmd { boiler }
+
+// Boiler Run Sensor
+BoilerRunSensor: RunSensor { boiler }
 
 //////////////////////////////////////////////////////////////////////////
 // Boiler Level/Runtime Points
 //////////////////////////////////////////////////////////////////////////
 
-// Boiler water level sensor
-BoilerLevelSensor: NumberPoint & SensorPoint {
+// Boiler Water Level Sensor
+BoilerWaterLevelSensor: NumberPoint & SensorPoint {
   boiler
+  water
   level
+  unit: Unit <fixed> "%"
 }
 
-// Boiler runtime sensor
+// Relating to a runtime of an equip/system entity
+//*runtime: Marker
+
+// Boiler Runtime Sensor
 BoilerRuntimeSensor: NumberPoint & SensorPoint {
   boiler
-  run
+  runtime
+  unit: Unit <quantity:"time"> "hr"
 }
-
